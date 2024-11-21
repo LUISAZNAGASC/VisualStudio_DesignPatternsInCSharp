@@ -1,0 +1,13 @@
+﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.StrategyDesignPatterns.RegularStrategyDesignPattern
+{
+    using System.Text;
+
+    public interface IDocumentFormatWithRegularStrategy
+    {
+        void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatDocumentComponentToHandle);
+
+        void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatDocumentComponentToHandle);
+
+        void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatDocumentComponentToHandle);
+    }
+}

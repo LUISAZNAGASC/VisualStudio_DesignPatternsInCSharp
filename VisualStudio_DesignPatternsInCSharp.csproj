@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C0B4E0E-0C07-4838-983D-1A6DE285CDD5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>VisualStudio_DesignPatternsInCSharp</RootNamespace>
+    <AssemblyName>VisualStudio_DesignPatternsInCSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\ContainerDocumentFormatWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\DocumentComponentWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\DocumentFormatterWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\IDocumentFormatWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\TerminalDocumentFormatWithRegularStrategy.cs" />
+    <Compile Include="Scripts\Core\WelcomeApplication.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\FluentBuilderDesignPattern\DocumentComponentWithFluentBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\FluentBuilderDesignPattern\DocumentCreatorWithFluentBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductComponentDefinitionWithStepwsiseBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductMaterialLabelDefinitionWithStepwiseBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductShapeLabelDefinitionWithStepwiseBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductSizeLabelDefinitionWithStepwiseBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\ProductComponentWithStepwiseBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\ProductCreatorWithStepwiseBuilder.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductComponentWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductFilterWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductMaterialSpecificationWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductShapeSpecificationWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductSizeSpecificationWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\TemplateCompositeSpecificationWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\TemplateConjunctionSpecificationWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\TemplateSpecificationWithCompositeSpecification.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\RegularCompositeDesignPattern\CompositeDocumentComponentWithRegularComposite.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\RegularCompositeDesignPattern\PrimitiveDocumentComponentWithRegularComposite.cs" />
+    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\RegularCompositeDesignPattern\DocumentComponentWithRegularComposite.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
