@@ -26,7 +26,7 @@
 
         public void DisplayDocumentComponentContent()
         {
-            Console.WriteLine(value: GetDocumentComponentContentUsing(specificDocumentComponentContentIndentLevelToHandle: uint.MinValue));
+            Console.WriteLine(value: GetDocumentComponentContentUsing(specificDocumentComponentToHandle: this, specificDocumentComponentContentIndentLevelToHandle: uint.MinValue));
         }
 
         protected void SetDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentComponentContentStringBuilder)

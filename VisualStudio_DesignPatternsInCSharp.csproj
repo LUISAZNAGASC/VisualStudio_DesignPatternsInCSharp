@@ -36,11 +36,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\ContainerDocumentFormatWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\DocumentComponentWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\DocumentFormatterWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\IDocumentFormatWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategy\TerminalDocumentFormatWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\ContainerDocumentFormatWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\DocumentComponentWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\DocumentFormatterWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\IDocumentFormatWithRegularStrategy.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\TerminalDocumentFormatWithRegularStrategy.cs" />
     <Compile Include="Scripts\Core\WelcomeApplication.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\FluentBuilderDesignPattern\DocumentComponentWithFluentBuilder.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\FluentBuilderDesignPattern\DocumentCreatorWithFluentBuilder.cs" />
