@@ -91,5 +91,59 @@
 
             return DocumentComponentChildrenDocumentComponentCollection.Remove(item: existingDocumentComponentChildrenDocumentComponentElementToRemove);
         }
+
+        public override bool Equals(object specificDocumentComponentUndefinedObject)
+        {
+            if (ReferenceEquals(objA: this, objB: specificDocumentComponentUndefinedObject) == true)
+            {
+                return true;
+            }
+
+            if (specificDocumentComponentUndefinedObject == null || specificDocumentComponentUndefinedObject is DocumentComponentWithRegularStrategy specificDocumentComponentDefinedObject == false)
+            {
+                return false;
+            }
+
+            if (DocumentComponentIdentifier != specificDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificDocumentComponentDefinedObject.DocumentComponentDescription)
+            {
+                return false;
+            }
+
+            if (DocumentComponentChildrenDocumentComponentCollection == null || specificDocumentComponentDefinedObject.DocumentComponentChildrenDocumentComponentCollection == null || DocumentComponentChildrenDocumentComponentCollection.Count != specificDocumentComponentDefinedObject.DocumentComponentChildrenDocumentComponentCollection.Count)
+            {
+                return false;
+            }
+
+            for (uint documentComponentChildrenDocumentComponentCollectionIndex = uint.MinValue; documentComponentChildrenDocumentComponentCollectionIndex < DocumentComponentChildrenDocumentComponentCollection.Count; documentComponentChildrenDocumentComponentCollectionIndex++)
+            {
+                if (DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex].Equals(specificDocumentComponentUndefinedObject: specificDocumentComponentDefinedObject.DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex]) == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            const int DocumentComponentHashCodeInitialPrime = 17;
+            const int DocumentComponentHashCodeMultiplierPrime = 23;
+
+            int documentComponentHashCode = DocumentComponentHashCodeInitialPrime;
+
+            documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + DocumentComponentIdentifier?.GetHashCode() ?? default;
+            documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + DocumentComponentDescription?.GetHashCode() ?? default;
+
+            if (DocumentComponentChildrenDocumentComponentCollection != null)
+            {
+                foreach (DocumentComponentWithRegularStrategy documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+                {
+                    documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + documentComponentChildrenDocumentComponentElement?.GetHashCode() ?? default;
+                }
+            }
+
+            return documentComponentHashCode;
+        }
     }
 }

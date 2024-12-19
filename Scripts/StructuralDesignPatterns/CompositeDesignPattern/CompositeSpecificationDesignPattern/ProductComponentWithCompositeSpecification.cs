@@ -86,5 +86,39 @@
 
             return productComponentContentStringBuilder;
         }
+
+        public override bool Equals(object specificProductComponentUndefinedObject)
+        {
+            if (ReferenceEquals(objA: this, objB: specificProductComponentUndefinedObject) == true)
+            {
+                return true;
+            }
+
+            if (specificProductComponentUndefinedObject == null || specificProductComponentUndefinedObject is ProductComponentWithCompositeSpecification specificDocumentComponentDefinedObject == false)
+            {
+                return false;
+            }
+
+            if (ProductComponentShapeLabel != specificDocumentComponentDefinedObject.ProductComponentShapeLabel || ProductComponentSizeLabel != specificDocumentComponentDefinedObject.ProductComponentSizeLabel || ProductComponentMaterialLabel != specificDocumentComponentDefinedObject.ProductComponentMaterialLabel)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            const int ProductComponentHashCodeInitialPrime = 17;
+            const int ProductComponentHashCodeMultiplierPrime = 23;
+
+            int productComponentHashCode = ProductComponentHashCodeInitialPrime;
+
+            productComponentHashCode = productComponentHashCode * ProductComponentHashCodeMultiplierPrime + ProductComponentShapeLabel.GetHashCode();
+            productComponentHashCode = productComponentHashCode * ProductComponentHashCodeMultiplierPrime + ProductComponentSizeLabel.GetHashCode();
+            productComponentHashCode = productComponentHashCode * ProductComponentHashCodeMultiplierPrime + ProductComponentMaterialLabel.GetHashCode();
+
+            return productComponentHashCode;
+        }
     }
 }

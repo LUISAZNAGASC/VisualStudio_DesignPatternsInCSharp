@@ -106,5 +106,59 @@
 
             return compositeDocumentComponentContentStringBuilder;
         }
+
+        public override bool Equals(object specificCompositeDocumentComponentUndefinedObject)
+        {
+            if (ReferenceEquals(objA: this, objB: specificCompositeDocumentComponentUndefinedObject) == true)
+            {
+                return true;
+            }
+
+            if (specificCompositeDocumentComponentUndefinedObject == null || specificCompositeDocumentComponentUndefinedObject is CompositeDocumentComponentWithRegularComposite specificCompositeDocumentComponentDefinedObject == false)
+            {
+                return false;
+            }
+
+            if (DocumentComponentIdentifier != specificCompositeDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificCompositeDocumentComponentDefinedObject.DocumentComponentDescription)
+            {
+                return false;
+            }
+
+            if (CompositeDocumentComponentChildrenDocumentComponentCollection == null || specificCompositeDocumentComponentDefinedObject.CompositeDocumentComponentChildrenDocumentComponentCollection == null || CompositeDocumentComponentChildrenDocumentComponentCollection.Count != specificCompositeDocumentComponentDefinedObject.CompositeDocumentComponentChildrenDocumentComponentCollection.Count)
+            {
+                return false;
+            }
+
+            for (uint compositeDocumentComponentChildrenDocumentComponentCollectionIndex = uint.MinValue; compositeDocumentComponentChildrenDocumentComponentCollectionIndex < CompositeDocumentComponentChildrenDocumentComponentCollection.Count; compositeDocumentComponentChildrenDocumentComponentCollectionIndex++)
+            {
+                if (CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)compositeDocumentComponentChildrenDocumentComponentCollectionIndex].Equals(specificDocumentComponentUndefinedObject: specificCompositeDocumentComponentDefinedObject.CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)compositeDocumentComponentChildrenDocumentComponentCollectionIndex]) == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            const int CompositeDocumentComponentHashCodeInitialPrime = 17;
+            const int CompositeDocumentComponentHashCodeMultiplierPrime = 23;
+
+            int compositeDocumentComponentHashCode = CompositeDocumentComponentHashCodeInitialPrime;
+
+            compositeDocumentComponentHashCode = compositeDocumentComponentHashCode * CompositeDocumentComponentHashCodeMultiplierPrime + DocumentComponentIdentifier?.GetHashCode() ?? default;
+            compositeDocumentComponentHashCode = compositeDocumentComponentHashCode * CompositeDocumentComponentHashCodeMultiplierPrime + DocumentComponentDescription?.GetHashCode() ?? default;
+
+            if (CompositeDocumentComponentChildrenDocumentComponentCollection != null)
+            {
+                foreach (DocumentComponentWithRegularComposite compositeDocumentComponentChildrenDocumentComponentElement in CompositeDocumentComponentChildrenDocumentComponentCollection)
+                {
+                    compositeDocumentComponentHashCode = compositeDocumentComponentHashCode * CompositeDocumentComponentHashCodeMultiplierPrime + compositeDocumentComponentChildrenDocumentComponentElement?.GetHashCode() ?? default;
+                }
+            }
+
+            return compositeDocumentComponentHashCode;
+        }
     }
 }

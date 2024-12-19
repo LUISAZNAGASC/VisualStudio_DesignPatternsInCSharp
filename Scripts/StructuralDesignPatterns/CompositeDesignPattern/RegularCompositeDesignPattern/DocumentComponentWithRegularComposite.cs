@@ -62,5 +62,38 @@
 
             return documentComponentContentStringBuilder;
         }
+
+        public override bool Equals(object specificDocumentComponentUndefinedObject)
+        {
+            if (ReferenceEquals(objA: this, objB: specificDocumentComponentUndefinedObject) == true)
+            {
+                return true;
+            }
+
+            if (specificDocumentComponentUndefinedObject == null || specificDocumentComponentUndefinedObject is DocumentComponentWithRegularComposite specificDocumentComponentDefinedObject == false)
+            {
+                return false;
+            }
+
+            if (DocumentComponentIdentifier != specificDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificDocumentComponentDefinedObject.DocumentComponentDescription)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            const int DocumentComponentHashCodeInitialPrime = 17;
+            const int DocumentComponentHashCodeMultiplierPrime = 23;
+
+            int documentComponentHashCode = DocumentComponentHashCodeInitialPrime;
+
+            documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + DocumentComponentIdentifier?.GetHashCode() ?? default;
+            documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + DocumentComponentDescription?.GetHashCode() ?? default;
+
+            return documentComponentHashCode;
+        }
     }
 }

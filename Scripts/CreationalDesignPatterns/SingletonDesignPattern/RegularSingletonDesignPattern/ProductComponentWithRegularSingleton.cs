@@ -1,9 +1,9 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.BuilderDesignPattern.StepwiseBuilderDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.SingletonDesignPattern.RegularSingletonDesignPattern
 {
     using System;
     using System.Text;
 
-    public enum ProductShapeLabelWithStepwiseBuilder : uint
+    public enum ProductShapeLabelWithRegularSingleton : uint
     {
         ProductShapeUndefinedLabel = 0,
         ProductShapeFirstLabel = 1,
@@ -12,7 +12,7 @@
         ProductShapeFourthLabel = 4
     }
 
-    public enum ProductSizeLabelWithStepwiseBuilder : uint
+    public enum ProductSizeLabelWithRegularSingleton : uint
     {
         ProductSizeUndefinedLabel = 0,
         ProductSizeFirstLabel = 1,
@@ -21,7 +21,7 @@
         ProductSizeFourthLabel = 4
     }
 
-    public enum ProductMaterialLabelWithStepwiseBuilder : uint
+    public enum ProductMaterialLabelWithRegularSingleton : uint
     {
         ProductMaterialUndefinedLabel = 0,
         ProductMaterialFirstLabel = 1,
@@ -30,30 +30,30 @@
         ProductMaterialFourthLabel = 4
     }
 
-    public sealed class ProductComponentWithStepwiseBuilder
+    public sealed class ProductComponentWithRegularSingleton
     {
-        public ProductShapeLabelWithStepwiseBuilder ProductComponentShapeLabel { get; private set; }
-        public ProductSizeLabelWithStepwiseBuilder ProductComponentSizeLabel { get; private set; }
-        public ProductMaterialLabelWithStepwiseBuilder ProductComponentMaterialLabel { get; private set; }
+        public ProductShapeLabelWithRegularSingleton ProductComponentShapeLabel { get; private set; }
+        public ProductSizeLabelWithRegularSingleton ProductComponentSizeLabel { get; private set; }
+        public ProductMaterialLabelWithRegularSingleton ProductComponentMaterialLabel { get; private set; }
 
-        public ProductComponentWithStepwiseBuilder() : base()
+        public ProductComponentWithRegularSingleton(in ProductShapeLabelWithRegularSingleton newProductComponentShapeLabelToInitialize, in ProductSizeLabelWithRegularSingleton newProductComponentSizeLabelToInitilize, in ProductMaterialLabelWithRegularSingleton newProductComponentMaterialLabelToInitialize) : base()
         {
-            ProductComponentShapeLabel = ProductShapeLabelWithStepwiseBuilder.ProductShapeUndefinedLabel;
-            ProductComponentSizeLabel = ProductSizeLabelWithStepwiseBuilder.ProductSizeUndefinedLabel;
-            ProductComponentMaterialLabel = ProductMaterialLabelWithStepwiseBuilder.ProductMaterialUndefinedLabel;
+            ProductComponentShapeLabel = newProductComponentShapeLabelToInitialize;
+            ProductComponentSizeLabel = newProductComponentSizeLabelToInitilize;
+            ProductComponentMaterialLabel = newProductComponentMaterialLabelToInitialize;
         }
 
-        public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithStepwiseBuilder newProductComponentShapeLabelToDefine)
+        public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithRegularSingleton newProductComponentShapeLabelToDefine)
         {
             ProductComponentShapeLabel = newProductComponentShapeLabelToDefine;
         }
 
-        public void SetProductComponentSizeLabelUsing(in ProductSizeLabelWithStepwiseBuilder newProductComponentSizeLabelToDefine)
+        public void SetProductComponentSizeLabelUsing(in ProductSizeLabelWithRegularSingleton newProductComponentSizeLabelToDefine)
         {
             ProductComponentSizeLabel = newProductComponentSizeLabelToDefine;
         }
 
-        public void SetProductComponentMaterialLabelUsing(in ProductMaterialLabelWithStepwiseBuilder newProductComponentMaterialLabelToDefine)
+        public void SetProductComponentMaterialLabelUsing(in ProductMaterialLabelWithRegularSingleton newProductComponentMaterialLabelToDefine)
         {
             ProductComponentMaterialLabel = newProductComponentMaterialLabelToDefine;
         }
@@ -78,7 +78,7 @@
             return productComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithStepwiseBuilder specificProductComponentToHandle)
+        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithRegularSingleton specificProductComponentToHandle)
         {
             StringBuilder productComponentContentStringBuilder = new StringBuilder();
 
@@ -94,7 +94,7 @@
                 return true;
             }
 
-            if (specificProductComponentUndefinedObject == null || specificProductComponentUndefinedObject is ProductComponentWithStepwiseBuilder specificDocumentComponentDefinedObject == false)
+            if (specificProductComponentUndefinedObject == null || specificProductComponentUndefinedObject is ProductComponentWithRegularSingleton specificDocumentComponentDefinedObject == false)
             {
                 return false;
             }
