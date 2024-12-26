@@ -50,6 +50,8 @@
     <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductSizeLabelDefinitionWithStepwiseBuilder.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\ProductComponentWithStepwiseBuilder.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\ProductCreatorWithStepwiseBuilder.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\OrientationComponentWithFactoryMethod.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\VectorFourComponentWithFactoryMethod.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\SingletonDesignPattern\RegularSingletonDesignPattern\ProductComponentWithRegularSingleton.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\SingletonDesignPattern\RegularSingletonDesignPattern\ProductDatabaseWithRegularSingleton.cs" />
     <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductComponentWithCompositeSpecification.cs" />

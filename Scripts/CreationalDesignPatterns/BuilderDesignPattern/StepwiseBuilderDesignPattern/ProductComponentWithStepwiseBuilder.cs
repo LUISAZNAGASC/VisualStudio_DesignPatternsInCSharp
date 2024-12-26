@@ -120,5 +120,10 @@
 
             return productComponentHashCode;
         }
+
+        public override string ToString()
+        {
+            return GetProductComponentContentUsing(specificProductComponentToHandle: this).ToString();
+        }
     }
 }

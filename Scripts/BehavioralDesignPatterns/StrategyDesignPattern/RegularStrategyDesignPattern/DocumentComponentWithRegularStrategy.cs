@@ -145,5 +145,10 @@
 
             return documentComponentHashCode;
         }
+
+        public override string ToString()
+        {
+            return string.Empty.ToUpperInvariant();
+        }
     }
 }

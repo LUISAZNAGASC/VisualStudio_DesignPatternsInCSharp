@@ -63,5 +63,10 @@
 
             return primitiveDocumentComponentHashCode;
         }
+
+        public override string ToString()
+        {
+            return GetDocumentComponentContentUsing(specificDocumentComponentToHandle: this, specificDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+        }
     }
 }
