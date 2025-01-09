@@ -67,13 +67,15 @@
         {
             StringBuilder productComponentContentStringBuilder = new StringBuilder();
 
-            productComponentContentStringBuilder.Append(value: "[ ".ToUpperInvariant());
-            productComponentContentStringBuilder.Append(value: $"{ProductComponentShapeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
-            productComponentContentStringBuilder.Append(value: " , ".ToUpperInvariant());
-            productComponentContentStringBuilder.Append(value: $"{ProductComponentSizeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
-            productComponentContentStringBuilder.Append(value: " , ".ToUpperInvariant());
-            productComponentContentStringBuilder.Append(value: $"{ProductComponentMaterialLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
-            productComponentContentStringBuilder.Append(value: " ]".ToUpperInvariant());
+            productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
+            productComponentContentStringBuilder.AppendLine();
+            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SHAPE_LABEL : {ProductComponentShapeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            productComponentContentStringBuilder.AppendLine();
+            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SIZE_LABEL : {ProductComponentSizeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            productComponentContentStringBuilder.AppendLine();
+            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.MATERIAL_LABEL : {ProductComponentMaterialLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            productComponentContentStringBuilder.AppendLine();
+            productComponentContentStringBuilder.Append(value: "[<< EXIT_POINT::PRODUCT_COMPONENT::EXIT_POINT <<]".ToUpperInvariant());
 
             return productComponentContentStringBuilder;
         }

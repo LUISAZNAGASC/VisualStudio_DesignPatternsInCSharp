@@ -1,4 +1,4 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.StrategyDesignPatterns.RegularStrategyDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.StrategyDesignPattern.RegularStrategyDesignPattern
 {
     using System;
     using System.Text;
