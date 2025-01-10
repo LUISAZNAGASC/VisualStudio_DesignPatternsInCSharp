@@ -3,24 +3,43 @@
     using System;
     using System.Text;
 
+    public enum MatrixFourRowLevel : uint
+    {
+        MatrixFourRowLevelUndefined = 0,
+        MatrixFourRowLevelX = 1,
+        MatrixFourRowLevelY = 2,
+        MatrixFourRowLevelZ = 3,
+        MatrixFourRowLevelW = 4
+    }
+
+    public enum MatrixFourColumnLevel : uint
+    {
+        MatrixFourColumnLevelUndefined = 0,
+        MatrixFourColumnLevelA = 1,
+        MatrixFourColumnLevelB = 2,
+        MatrixFourColumnLevelC = 3,
+        MatrixFourColumnLevelD = 4
+
+    }
+
     public struct MatrixFourComponentWithFactoryMethod
     {
-        public double MatrixFourComponentAX { get; set; }
-        public double MatrixFourComponentAY { get; set; }
-        public double MatrixFourComponentAZ { get; set; }
-        public double MatrixFourComponentAW { get; set; }
-        public double MatrixFourComponentBX { get; set; }
-        public double MatrixFourComponentBY { get; set; }
-        public double MatrixFourComponentBZ { get; set; }
-        public double MatrixFourComponentBW { get; set; }
-        public double MatrixFourComponentCX { get; set; }
-        public double MatrixFourComponentCY { get; set; }
-        public double MatrixFourComponentCZ { get; set; }
-        public double MatrixFourComponentCW { get; set; }
-        public double MatrixFourComponentDX { get; set; }
-        public double MatrixFourComponentDY { get; set; }
-        public double MatrixFourComponentDZ { get; set; }
-        public double MatrixFourComponentDW { get; set; }
+        private double MatrixFourComponentAX { get; set; }
+        private double MatrixFourComponentAY { get; set; }
+        private double MatrixFourComponentAZ { get; set; }
+        private double MatrixFourComponentAW { get; set; }
+        private double MatrixFourComponentBX { get; set; }
+        private double MatrixFourComponentBY { get; set; }
+        private double MatrixFourComponentBZ { get; set; }
+        private double MatrixFourComponentBW { get; set; }
+        private double MatrixFourComponentCX { get; set; }
+        private double MatrixFourComponentCY { get; set; }
+        private double MatrixFourComponentCZ { get; set; }
+        private double MatrixFourComponentCW { get; set; }
+        private double MatrixFourComponentDX { get; set; }
+        private double MatrixFourComponentDY { get; set; }
+        private double MatrixFourComponentDZ { get; set; }
+        private double MatrixFourComponentDW { get; set; }
 
         public static MatrixFourComponentWithFactoryMethod GetMatrixFourComponentIdentity()
         {
@@ -50,7 +69,7 @@
             return matrixFourComponentIdentity;
         }
 
-        public static MatrixFourComponentWithFactoryMethod operator *(in MatrixFourComponentWithFactoryMethod firstMatrixFourComponentToHandle, in MatrixFourComponentWithFactoryMethod secondMatrixFourComponentToHandle)
+        public static MatrixFourComponentWithFactoryMethod GetMatrixFourComponentMultiplicationUsing(in MatrixFourComponentWithFactoryMethod firstMatrixFourComponentToHandle, in MatrixFourComponentWithFactoryMethod secondMatrixFourComponentToHandle)
         {
             MatrixFourComponentWithFactoryMethod finalMatrixFourComponentToHandle = new MatrixFourComponentWithFactoryMethod()
             {
@@ -73,6 +92,105 @@
             };
 
             return finalMatrixFourComponentToHandle;
+        }
+
+        public void SetMatrixFourComponentElementUsing(in MatrixFourRowLevel matrixFourComponentRowLevel, in MatrixFourColumnLevel matrixFourComponentColumnLevel, in double newMatrixFourComponentElementToDefine)
+        {
+            switch (matrixFourComponentColumnLevel)
+            {
+                case MatrixFourColumnLevel.MatrixFourColumnLevelUndefined:
+                    break;
+                case MatrixFourColumnLevel.MatrixFourColumnLevelA:
+                    switch (matrixFourComponentRowLevel)
+                    {
+                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelX:
+                            MatrixFourComponentAX = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelY:
+                            MatrixFourComponentAY = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
+                            MatrixFourComponentAZ = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelW:
+                            MatrixFourComponentAW = newMatrixFourComponentElementToDefine;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    break;
+                case MatrixFourColumnLevel.MatrixFourColumnLevelB:
+                    switch (matrixFourComponentRowLevel)
+                    {
+                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelX:
+                            MatrixFourComponentBX = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelY:
+                            MatrixFourComponentBY = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
+                            MatrixFourComponentBZ = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelW:
+                            MatrixFourComponentBW = newMatrixFourComponentElementToDefine;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    break;
+                case MatrixFourColumnLevel.MatrixFourColumnLevelC:
+                    switch (matrixFourComponentRowLevel)
+                    {
+                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelX:
+                            MatrixFourComponentCX = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelY:
+                            MatrixFourComponentCY = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
+                            MatrixFourComponentCZ = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelW:
+                            MatrixFourComponentCW = newMatrixFourComponentElementToDefine;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    break;
+                case MatrixFourColumnLevel.MatrixFourColumnLevelD:
+                    switch (matrixFourComponentRowLevel)
+                    {
+                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelX:
+                            MatrixFourComponentDX = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelY:
+                            MatrixFourComponentDY = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
+                            MatrixFourComponentDZ = newMatrixFourComponentElementToDefine;
+                            break;
+                        case MatrixFourRowLevel.MatrixFourRowLevelW:
+                            MatrixFourComponentDW = newMatrixFourComponentElementToDefine;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void DisplayMatrixFourComponentContent()

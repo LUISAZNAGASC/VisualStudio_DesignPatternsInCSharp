@@ -7,6 +7,7 @@
         public MatrixFourCreatorWithFactoryMethod(in double newMatrixFourCreatorXTransformationToInitialize, in double newMatrixFourCreatorYTransformationToInitialize, in double newMatrixFourCreatorZTransformationToInitialize) : base()
         {
             MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();
+
             SetMatrixFourCreatorXTransformationUsing(newMatrixFourCreatorXTransformationToDefine: newMatrixFourCreatorXTransformationToInitialize);
             SetMatrixFourCreatorYTransformationUsing(newMatrixFourCreatorYTransformationToDefine: newMatrixFourCreatorYTransformationToInitialize);
             SetMatrixFourCreatorZTransformationUsing(newMatrixFourCreatorZTransformationToDefine: newMatrixFourCreatorZTransformationToInitialize);

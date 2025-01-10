@@ -5,29 +5,28 @@
 
     public enum ProductShapeLabelWithCompositeSpecification : uint
     {
-        ProductShapeUndefinedLabel = 0,
-        ProductShapeFirstLabel = 1,
-        ProductShapeSecondLabel = 2,
-        ProductShapeThirdLabel = 3,
-        ProductShapeFourthLabel = 4
+        ProductShapeLabelUndefined = 0,
+        ProductShapeLabelCube = 1,
+        ProductShapeLabelSphere = 2,
+        ProductShapeLabelCapsule = 3,
+        ProductShapeLabelCylinder = 4
     }
 
     public enum ProductSizeLabelWithCompositeSpecification : uint
     {
-        ProductSizeUndefinedLabel = 0,
-        ProductSizeFirstLabel = 1,
-        ProductSizeSecondLabel = 2,
-        ProductSizeThirdLabel = 3,
-        ProductSizeFourthLabel = 4
+        ProductSizeLabelUndefined = 0,
+        ProductSizeLabelSmall = 1,
+        ProductSizeLabelMedium = 2,
+        ProductSizeLabelLarge = 3
     }
 
     public enum ProductMaterialLabelWithCompositeSpecification : uint
     {
-        ProductMaterialUndefinedLabel = 0,
-        ProductMaterialFirstLabel = 1,
-        ProductMaterialSecondLabel = 2,
-        ProductMaterialThirdLabel = 3,
-        ProductMaterialFourthLabel = 4
+        ProductMaterialLabelUndefined = 0,
+        ProductMaterialLabelFabric = 1,
+        ProductMaterialLabelWood = 2,
+        ProductMaterialLabelPlastic = 3,
+        ProductMaterialLabelMetal = 4
     }
 
     public sealed class ProductComponentWithCompositeSpecification
