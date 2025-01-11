@@ -8,15 +8,12 @@
 
         private ProductDatabaseWithRegularSingleton() : base()
         {
-            ProductDatabaseProductComponentCollection = new List<ProductComponentWithRegularSingleton>();
+            ProductDatabaseProductComponentCollection = [];
         }
 
         public IEnumerable<ProductComponentWithRegularSingleton> GetProductDatabaseProductComponentCollection()
         {
-            if (ProductDatabaseProductComponentCollection == null)
-            {
-                ProductDatabaseProductComponentCollection = new List<ProductComponentWithRegularSingleton>();
-            }
+            ProductDatabaseProductComponentCollection ??= [];
 
             foreach (ProductComponentWithRegularSingleton productDatabaseProductComponentElement in ProductDatabaseProductComponentCollection)
             {
@@ -80,10 +77,7 @@
 
         public static ProductDatabaseWithRegularSingleton GetProductDatabaseInstance()
         {
-            if (ProductDatabaseInstance == null)
-            {
-                ProductDatabaseInstance = new ProductDatabaseWithRegularSingleton();
-            }
+            ProductDatabaseInstance ??= new ProductDatabaseWithRegularSingleton();
 
             return ProductDatabaseInstance;
         }

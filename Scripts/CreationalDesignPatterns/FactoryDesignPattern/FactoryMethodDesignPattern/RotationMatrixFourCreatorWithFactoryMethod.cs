@@ -2,14 +2,9 @@
 {
     using System;
 
-    public sealed class RotationMatrixFourCreatorWithFactoryMethod : MatrixFourCreatorWithFactoryMethod
+    public sealed class RotationMatrixFourCreatorWithFactoryMethod(in double newRotationMatrixFourCreatorXOrientationToInitialize, in double newRotationMatrixFourCreatorYOrientationToInitialize, in double newRotationMatrixFourCreatorZOrientationToInitialize) : MatrixFourCreatorWithFactoryMethod(newMatrixFourCreatorXTransformationToInitialize: newRotationMatrixFourCreatorXOrientationToInitialize, newMatrixFourCreatorYTransformationToInitialize: newRotationMatrixFourCreatorYOrientationToInitialize, newMatrixFourCreatorZTransformationToInitialize: newRotationMatrixFourCreatorZOrientationToInitialize)
     {
         private const double RotationMatrixFourCreatorDegreesToRadiansConversor = Math.PI / 180.0;
-
-        public RotationMatrixFourCreatorWithFactoryMethod(in double newRotationMatrixFourCreatorXOrientationToInitialize, in double newRotationMatrixFourCreatorYOrientationToInitialize, in double newRotationMatrixFourCreatorZOrientationToInitialize) : base(newMatrixFourCreatorXTransformationToInitialize: newRotationMatrixFourCreatorXOrientationToInitialize, newMatrixFourCreatorYTransformationToInitialize: newRotationMatrixFourCreatorYOrientationToInitialize, newMatrixFourCreatorZTransformationToInitialize: newRotationMatrixFourCreatorZOrientationToInitialize)
-        {
-
-        }
 
         public override void SetMatrixFourCreatorXTransformationUsing(in double newRotationMatrixFourCreatorXOrientationToDefine)
         {

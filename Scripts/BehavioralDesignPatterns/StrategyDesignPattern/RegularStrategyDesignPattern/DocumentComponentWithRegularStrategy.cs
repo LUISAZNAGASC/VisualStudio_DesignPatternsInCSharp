@@ -2,20 +2,12 @@
 {
     using System.Collections.Generic;
 
-    public sealed class DocumentComponentWithRegularStrategy
+    public sealed class DocumentComponentWithRegularStrategy(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : object()
     {
-        public string DocumentComponentIdentifier { get; private set; }
-        public string DocumentComponentDescription { get; private set; }
+        public string DocumentComponentIdentifier { get; private set; } = newDocumentComponentIdentifierToInitialize;
+        public string DocumentComponentDescription { get; private set; } = newDocumentComponentDescriptionToInitialize;
 
-        private List<DocumentComponentWithRegularStrategy> DocumentComponentChildrenDocumentComponentCollection { get; set; }
-
-        public DocumentComponentWithRegularStrategy(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : base()
-        {
-            DocumentComponentIdentifier = newDocumentComponentIdentifierToInitialize;
-            DocumentComponentDescription = newDocumentComponentDescriptionToInitialize;
-
-            DocumentComponentChildrenDocumentComponentCollection = new List<DocumentComponentWithRegularStrategy>();
-        }
+        private List<DocumentComponentWithRegularStrategy> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
         public void SetDocumentComponentIdentifierUsing(in string newDocumentComponentIdentifierToDefine)
         {
@@ -29,10 +21,7 @@
 
         public IEnumerable<DocumentComponentWithRegularStrategy> GetDocumentComponentChildrenDocumentComponentCollection()
         {
-            if (DocumentComponentChildrenDocumentComponentCollection == null)
-            {
-                DocumentComponentChildrenDocumentComponentCollection = new List<DocumentComponentWithRegularStrategy>();
-            }
+            DocumentComponentChildrenDocumentComponentCollection ??= [];
 
             foreach (DocumentComponentWithRegularStrategy documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
             {

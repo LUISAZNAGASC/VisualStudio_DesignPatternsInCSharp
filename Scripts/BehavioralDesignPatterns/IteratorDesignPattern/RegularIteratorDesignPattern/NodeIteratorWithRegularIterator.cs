@@ -2,18 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public sealed class NodeIteratorWithRegularIterator<TTemplateComponentWithRegularIterator>
+    public sealed class NodeIteratorWithRegularIterator<TTemplateComponentWithRegularIterator>(in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> newNodeIteratorRootNodeComponentToInitialize) : object()
     {
-        private NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> NodeIteratorRootNodeComponent { get; set; }
-
-        public NodeIteratorWithRegularIterator(in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> newNodeIteratorRootNodeComponentToInitialize) : base()
-        {
-            NodeIteratorRootNodeComponent = newNodeIteratorRootNodeComponentToInitialize;
-        }
+        private NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> NodeIteratorRootNodeComponent { get; set; } = newNodeIteratorRootNodeComponentToInitialize;
 
         public IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPreOrderCollection()
         {
-            IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPreOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponent)
+            static IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPreOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponent)
             {
                 yield return nodeIteratorCurrentNodeComponent;
 
@@ -42,7 +37,7 @@
 
         public IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorInOrderCollection()
         {
-            IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorInOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponent)
+            static IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorInOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponent)
             {
                 if (nodeIteratorCurrentNodeComponent.NodeComponentLeftNodeComponent != null)
                 {
@@ -71,7 +66,7 @@
 
         public IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPostOrderCollection()
         {
-            IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPostOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponent)
+            static IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPostOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponent)
             {
                 if (nodeIteratorCurrentNodeComponent.NodeComponentLeftNodeComponent != null)
                 {

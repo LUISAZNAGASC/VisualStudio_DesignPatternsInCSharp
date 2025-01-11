@@ -1,12 +1,7 @@
 ﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.FactoryDesignPattern.FactoryMethodDesignPattern
 {
-    public sealed class PositionMatrixFourCreatorWithFactoryMethod : MatrixFourCreatorWithFactoryMethod
+    public sealed class PositionMatrixFourCreatorWithFactoryMethod(in double newPositionMatrixFourCreatorXTranslationToInitialize, in double newPositionMatrixFourCreatorYTranslationToInitialize, in double newPositionMatrixFourCreatorZTranslationToInitialize) : MatrixFourCreatorWithFactoryMethod(newMatrixFourCreatorXTransformationToInitialize: newPositionMatrixFourCreatorXTranslationToInitialize, newMatrixFourCreatorYTransformationToInitialize: newPositionMatrixFourCreatorYTranslationToInitialize, newMatrixFourCreatorZTransformationToInitialize: newPositionMatrixFourCreatorZTranslationToInitialize)
     {
-        public PositionMatrixFourCreatorWithFactoryMethod(in double newPositionMatrixFourCreatorXTranslationToInitialize, in double newPositionMatrixFourCreatorYTranslationToInitialize, in double newPositionMatrixFourCreatorZTranslationToInitialize) : base(newMatrixFourCreatorXTransformationToInitialize: newPositionMatrixFourCreatorXTranslationToInitialize, newMatrixFourCreatorYTransformationToInitialize: newPositionMatrixFourCreatorYTranslationToInitialize, newMatrixFourCreatorZTransformationToInitialize: newPositionMatrixFourCreatorZTranslationToInitialize)
-        {
-
-        }
-
         public override void SetMatrixFourCreatorXTransformationUsing(in double newPositionMatrixFourCreatorXTranslationToDefine)
         {
             MatrixFourComponentWithFactoryMethod positionMatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();

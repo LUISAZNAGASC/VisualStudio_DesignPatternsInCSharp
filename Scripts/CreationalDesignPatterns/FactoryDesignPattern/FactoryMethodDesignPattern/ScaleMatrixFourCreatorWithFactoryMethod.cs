@@ -1,12 +1,7 @@
 ﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.FactoryDesignPattern.FactoryMethodDesignPattern
 {
-    public sealed class ScaleMatrixFourCreatorWithFactoryMethod : MatrixFourCreatorWithFactoryMethod
+    public sealed class ScaleMatrixFourCreatorWithFactoryMethod(in double newScaleMatrixFourCreatorXDimensionToInitialize, in double newScaleMatrixFourCreatorYDimensionToInitialize, in double newScaleMatrixFourCreatorZDimensionToInitialize) : MatrixFourCreatorWithFactoryMethod(newMatrixFourCreatorXTransformationToInitialize: newScaleMatrixFourCreatorXDimensionToInitialize, newMatrixFourCreatorYTransformationToInitialize: newScaleMatrixFourCreatorYDimensionToInitialize, newMatrixFourCreatorZTransformationToInitialize: newScaleMatrixFourCreatorZDimensionToInitialize)
     {
-        public ScaleMatrixFourCreatorWithFactoryMethod(in double newScaleMatrixFourCreatorXDimensionToInitialize, in double newScaleMatrixFourCreatorYDimensionToInitialize, in double newScaleMatrixFourCreatorZDimensionToInitialize) : base(newMatrixFourCreatorXTransformationToInitialize: newScaleMatrixFourCreatorXDimensionToInitialize, newMatrixFourCreatorYTransformationToInitialize: newScaleMatrixFourCreatorYDimensionToInitialize, newMatrixFourCreatorZTransformationToInitialize: newScaleMatrixFourCreatorZDimensionToInitialize)
-        {
-
-        }
-
         public override void SetMatrixFourCreatorXTransformationUsing(in double newScaleMatrixFourCreatorXDimensionToDefine)
         {
             MatrixFourComponentWithFactoryMethod scaleMatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();

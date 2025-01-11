@@ -29,18 +29,11 @@
         ProductMaterialLabelMetal = 4
     }
 
-    public sealed class ProductComponentWithCompositeSpecification
+    public sealed class ProductComponentWithCompositeSpecification(in ProductShapeLabelWithCompositeSpecification newProductComponentShapeLabelToInitialize, in ProductSizeLabelWithCompositeSpecification newProductComponentSizeLabelToInitialize, in ProductMaterialLabelWithCompositeSpecification newProductComponentMaterialLabelToInitialize) : object()
     {
-        public ProductShapeLabelWithCompositeSpecification ProductComponentShapeLabel { get; private set; }
-        public ProductSizeLabelWithCompositeSpecification ProductComponentSizeLabel { get; private set; }
-        public ProductMaterialLabelWithCompositeSpecification ProductComponentMaterialLabel { get; private set; }
-
-        public ProductComponentWithCompositeSpecification(in ProductShapeLabelWithCompositeSpecification newProductComponentShapeLabelToInitialize, in ProductSizeLabelWithCompositeSpecification newProductComponentSizeLabelToInitialize, in ProductMaterialLabelWithCompositeSpecification newProductComponentMaterialLabelToInitialize) : base()
-        {
-            ProductComponentShapeLabel = newProductComponentShapeLabelToInitialize;
-            ProductComponentSizeLabel = newProductComponentSizeLabelToInitialize;
-            ProductComponentMaterialLabel = newProductComponentMaterialLabelToInitialize;
-        }
+        public ProductShapeLabelWithCompositeSpecification ProductComponentShapeLabel { get; private set; } = newProductComponentShapeLabelToInitialize;
+        public ProductSizeLabelWithCompositeSpecification ProductComponentSizeLabel { get; private set; } = newProductComponentSizeLabelToInitialize;
+        public ProductMaterialLabelWithCompositeSpecification ProductComponentMaterialLabel { get; private set; } = newProductComponentMaterialLabelToInitialize;
 
         public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithCompositeSpecification newProductComponentShapeLabelToDefine)
         {
@@ -64,7 +57,7 @@
 
         private StringBuilder GetProductComponentContent()
         {
-            StringBuilder productComponentContentStringBuilder = new StringBuilder();
+            StringBuilder productComponentContentStringBuilder = new();
 
             productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
             productComponentContentStringBuilder.AppendLine();
@@ -81,7 +74,7 @@
 
         private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithCompositeSpecification specificProductComponentToHandle)
         {
-            StringBuilder productComponentContentStringBuilder = new StringBuilder();
+            StringBuilder productComponentContentStringBuilder = new();
 
             productComponentContentStringBuilder.Append(value: specificProductComponentToHandle.GetProductComponentContent());
 

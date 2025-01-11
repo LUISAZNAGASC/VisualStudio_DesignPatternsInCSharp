@@ -2,17 +2,11 @@
 {
     using System.Text;
 
-    public sealed class PrimitiveDocumentComponentWithRegularComposite : DocumentComponentWithRegularComposite
+    public sealed class PrimitiveDocumentComponentWithRegularComposite(in string newPrimitiveDocumentComponentIdentifierToInitialize, in string newPrimitiveDocumentComponentDescriptionToInitialize) : DocumentComponentWithRegularComposite(newDocumentComponentIdentifierToInitialize: newPrimitiveDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newPrimitiveDocumentComponentDescriptionToInitialize)
     {
-        public PrimitiveDocumentComponentWithRegularComposite(in string newPrimitiveDocumentComponentIdentifierToInitialize, in string newPrimitiveDocumentComponentDescriptionToInitialize) : base(newDocumentComponentIdentifierToInitialize: newPrimitiveDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newPrimitiveDocumentComponentDescriptionToInitialize)
-        {
-            DocumentComponentIdentifier = newPrimitiveDocumentComponentIdentifierToInitialize;
-            DocumentComponentDescription = newPrimitiveDocumentComponentDescriptionToInitialize;
-        }
-
         protected override StringBuilder GetDocumentComponentContentUsing(in uint specificPrimitiveDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder primitiveDocumentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder primitiveDocumentComponentContentStringBuilder = new();
 
             SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificPrimitiveDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);

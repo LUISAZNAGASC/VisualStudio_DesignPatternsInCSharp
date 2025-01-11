@@ -64,7 +64,7 @@
 
         private StringBuilder GetProductComponentContent()
         {
-            StringBuilder productComponentContentStringBuilder = new StringBuilder();
+            StringBuilder productComponentContentStringBuilder = new();
 
             productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
             productComponentContentStringBuilder.AppendLine();
@@ -81,7 +81,7 @@
 
         private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithStepwiseBuilder specificProductComponentToHandle)
         {
-            StringBuilder productComponentContentStringBuilder = new StringBuilder();
+            StringBuilder productComponentContentStringBuilder = new();
 
             productComponentContentStringBuilder.Append(value: specificProductComponentToHandle.GetProductComponentContent());
 

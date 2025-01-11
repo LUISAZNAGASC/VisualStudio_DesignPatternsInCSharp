@@ -3,16 +3,10 @@
     using System;
     using System.Text;
 
-    public abstract class DocumentComponentWithRegularComposite
+    public abstract class DocumentComponentWithRegularComposite(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : object()
     {
-        public string DocumentComponentIdentifier { get; protected set; }
-        public string DocumentComponentDescription { get; protected set; }
-
-        public DocumentComponentWithRegularComposite(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : base()
-        {
-            DocumentComponentIdentifier = newDocumentComponentIdentifierToInitialize;
-            DocumentComponentDescription = newDocumentComponentDescriptionToInitialize;
-        }
+        public string DocumentComponentIdentifier { get; protected set; } = newDocumentComponentIdentifierToInitialize;
+        public string DocumentComponentDescription { get; protected set; } = newDocumentComponentDescriptionToInitialize;
 
         public void SetDocumentComponentIdentifierUsing(in string newDocumentComponentIdentifierToInitialize)
         {
@@ -56,7 +50,7 @@
 
         protected static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithRegularComposite specificDocumentComponentToHandle, in uint specificDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder documentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder documentComponentContentStringBuilder = new();
 
             documentComponentContentStringBuilder.Append(value: specificDocumentComponentToHandle.GetDocumentComponentContentUsing(specificDocumentComponentContentIndentLevelToHandle: specificDocumentComponentContentIndentLevelToHandle));
 

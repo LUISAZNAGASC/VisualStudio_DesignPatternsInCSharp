@@ -29,18 +29,11 @@
         ProductMaterialLabelMetal = 4
     }
 
-    public sealed class ProductComponentWithRegularSingleton
+    public sealed class ProductComponentWithRegularSingleton(in ProductShapeLabelWithRegularSingleton newProductComponentShapeLabelToInitialize, in ProductSizeLabelWithRegularSingleton newProductComponentSizeLabelToInitilize, in ProductMaterialLabelWithRegularSingleton newProductComponentMaterialLabelToInitialize) : object()
     {
-        public ProductShapeLabelWithRegularSingleton ProductComponentShapeLabel { get; private set; }
-        public ProductSizeLabelWithRegularSingleton ProductComponentSizeLabel { get; private set; }
-        public ProductMaterialLabelWithRegularSingleton ProductComponentMaterialLabel { get; private set; }
-
-        public ProductComponentWithRegularSingleton(in ProductShapeLabelWithRegularSingleton newProductComponentShapeLabelToInitialize, in ProductSizeLabelWithRegularSingleton newProductComponentSizeLabelToInitilize, in ProductMaterialLabelWithRegularSingleton newProductComponentMaterialLabelToInitialize) : base()
-        {
-            ProductComponentShapeLabel = newProductComponentShapeLabelToInitialize;
-            ProductComponentSizeLabel = newProductComponentSizeLabelToInitilize;
-            ProductComponentMaterialLabel = newProductComponentMaterialLabelToInitialize;
-        }
+        public ProductShapeLabelWithRegularSingleton ProductComponentShapeLabel { get; private set; } = newProductComponentShapeLabelToInitialize;
+        public ProductSizeLabelWithRegularSingleton ProductComponentSizeLabel { get; private set; } = newProductComponentSizeLabelToInitilize;
+        public ProductMaterialLabelWithRegularSingleton ProductComponentMaterialLabel { get; private set; } = newProductComponentMaterialLabelToInitialize;
 
         public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithRegularSingleton newProductComponentShapeLabelToDefine)
         {
@@ -64,7 +57,7 @@
 
         private StringBuilder GetProductComponentContent()
         {
-            StringBuilder productComponentContentStringBuilder = new StringBuilder();
+            StringBuilder productComponentContentStringBuilder = new();
 
             productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
             productComponentContentStringBuilder.AppendLine();
@@ -81,7 +74,7 @@
 
         private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithRegularSingleton specificProductComponentToHandle)
         {
-            StringBuilder productComponentContentStringBuilder = new StringBuilder();
+            StringBuilder productComponentContentStringBuilder = new();
 
             productComponentContentStringBuilder.Append(value: specificProductComponentToHandle.GetProductComponentContent());
 

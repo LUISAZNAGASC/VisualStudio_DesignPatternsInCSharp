@@ -3,24 +3,13 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public sealed class CompositeDocumentComponentWithRegularComposite : DocumentComponentWithRegularComposite
+    public sealed class CompositeDocumentComponentWithRegularComposite(in string newCompositeDocumentComponentIdentifierToInitialize, in string newCompositeDocumentComponentDescriptionToInitialize) : DocumentComponentWithRegularComposite(newDocumentComponentIdentifierToInitialize: newCompositeDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newCompositeDocumentComponentDescriptionToInitialize)
     {
-        private List<DocumentComponentWithRegularComposite> CompositeDocumentComponentChildrenDocumentComponentCollection { get; set; }
-
-        public CompositeDocumentComponentWithRegularComposite(in string newCompositeDocumentComponentIdentifierToInitialize, in string newCompositeDocumentComponentDescriptionToInitialize) : base(newDocumentComponentIdentifierToInitialize: newCompositeDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newCompositeDocumentComponentDescriptionToInitialize)
-        {
-            DocumentComponentIdentifier = newCompositeDocumentComponentIdentifierToInitialize;
-            DocumentComponentDescription = newCompositeDocumentComponentDescriptionToInitialize;
-
-            CompositeDocumentComponentChildrenDocumentComponentCollection = new List<DocumentComponentWithRegularComposite>();
-        }
+        private List<DocumentComponentWithRegularComposite> CompositeDocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
         public IEnumerable<DocumentComponentWithRegularComposite> GetCompositeDocumentComponentChildrenDocumentComponentCollection()
         {
-            if (CompositeDocumentComponentChildrenDocumentComponentCollection == null)
-            {
-                CompositeDocumentComponentChildrenDocumentComponentCollection = new List<DocumentComponentWithRegularComposite>();
-            }
+            CompositeDocumentComponentChildrenDocumentComponentCollection ??= [];
 
             foreach (DocumentComponentWithRegularComposite compositeDocumentComponentChildrenDocumentElement in CompositeDocumentComponentChildrenDocumentComponentCollection)
             {
@@ -82,7 +71,7 @@
 
         protected override StringBuilder GetDocumentComponentContentUsing(in uint specificCompositeDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder compositeDocumentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder compositeDocumentComponentContentStringBuilder = new();
 
             SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificCompositeDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder);

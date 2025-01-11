@@ -42,7 +42,7 @@
 
         private StringBuilder GetDocumentFormatterDocumentComponentContentUsing(in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle, in uint specificDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder documentFormatterDocumentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder documentFormatterDocumentComponentContentStringBuilder = new();
 
             SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle);
             SetDocumentFormatterDocumentComponentContentOpenedIdentifierContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
@@ -69,7 +69,7 @@
 
         private static StringBuilder GetDocumentFormatterDocumentComponentContentUsing(in DocumentFormatterWithRegularStrategy<TDocumentFormatWithRegularStrategy> specificDocumentFormatterToHandle, in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle, in uint specificDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder documentFormatterDocumentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder documentFormatterDocumentComponentContentStringBuilder = new();
 
             documentFormatterDocumentComponentContentStringBuilder.Append(value: specificDocumentFormatterToHandle.GetDocumentFormatterDocumentComponentContentUsing(specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle));
 

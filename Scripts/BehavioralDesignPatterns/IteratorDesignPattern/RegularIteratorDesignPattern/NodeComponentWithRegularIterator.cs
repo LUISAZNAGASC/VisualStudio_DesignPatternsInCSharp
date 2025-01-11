@@ -49,7 +49,7 @@
 
         private StringBuilder GetNodeComponentContent()
         {
-            StringBuilder nodeComponentContentStringBuilder = new StringBuilder();
+            StringBuilder nodeComponentContentStringBuilder = new();
 
             nodeComponentContentStringBuilder.Append(value: $"{NodeComponentValue.ToString().ToUpperInvariant()}".ToUpperInvariant());
 
@@ -58,7 +58,7 @@
 
         private static StringBuilder GetNodeComponentContentUsing(in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> specificNodeComponentToHandle)
         {
-            StringBuilder nodeComponentContentStringBuilder = new StringBuilder();
+            StringBuilder nodeComponentContentStringBuilder = new();
 
             nodeComponentContentStringBuilder.Append(value: specificNodeComponentToHandle.GetNodeComponentContent());
 

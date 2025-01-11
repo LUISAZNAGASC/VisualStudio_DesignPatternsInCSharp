@@ -4,20 +4,12 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public sealed class DocumentComponentWithFluentBuilder
+    public sealed class DocumentComponentWithFluentBuilder(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : object()
     {
-        public string DocumentComponentIdentifier { get; private set; }
-        public string DocumentComponentDescription { get; private set; }
+        public string DocumentComponentIdentifier { get; private set; } = newDocumentComponentIdentifierToInitialize;
+        public string DocumentComponentDescription { get; private set; } = newDocumentComponentDescriptionToInitialize;
 
-        private List<DocumentComponentWithFluentBuilder> DocumentComponentChildrenDocumentComponentCollection { get; set; }
-
-        public DocumentComponentWithFluentBuilder(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : base()
-        {
-            DocumentComponentIdentifier = newDocumentComponentIdentifierToInitialize;
-            DocumentComponentDescription = newDocumentComponentDescriptionToInitialize;
-
-            DocumentComponentChildrenDocumentComponentCollection = new List<DocumentComponentWithFluentBuilder>();
-        }
+        private List<DocumentComponentWithFluentBuilder> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
         public void SetDocumentComponentIdentifierUsing(in string newDocumentComponentIdentifierToDefine)
         {
@@ -31,10 +23,7 @@
 
         public IEnumerable<DocumentComponentWithFluentBuilder> GetDocumentComponentChildrenDocumentComponentCollection()
         {
-            if (DocumentComponentChildrenDocumentComponentCollection == null)
-            {
-                DocumentComponentChildrenDocumentComponentCollection = new List<DocumentComponentWithFluentBuilder>();
-            }
+            DocumentComponentChildrenDocumentComponentCollection ??= [];
 
             foreach (DocumentComponentWithFluentBuilder documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
             {
@@ -124,7 +113,7 @@
 
         private StringBuilder GetDocumentComponentContentUsing(in uint specificDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder documentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder documentComponentContentStringBuilder = new();
 
             SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder);
@@ -151,7 +140,7 @@
 
         private static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithFluentBuilder specificDocumentComponentToHandle, in uint specificDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
-            StringBuilder documentComponentContentStringBuilder = new StringBuilder();
+            StringBuilder documentComponentContentStringBuilder = new();
 
             documentComponentContentStringBuilder.Append(value: specificDocumentComponentToHandle.GetDocumentComponentContentUsing(specificDocumentComponentContentIndentLevelToHandle: specificDocumentComponentContentIndentLevelToHandle));
 
