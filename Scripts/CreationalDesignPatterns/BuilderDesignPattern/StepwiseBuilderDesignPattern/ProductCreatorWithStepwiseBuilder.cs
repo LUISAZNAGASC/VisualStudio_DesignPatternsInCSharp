@@ -8,26 +8,26 @@
 
             public ProductImplementationWithStepwiseBuilder() : base()
             {
-                ProductImplementationProductComponent = new ProductComponentWithStepwiseBuilder();
+                ProductImplementationProductComponent = new ProductComponentWithStepwiseBuilder(otherProductComponentShapeLabelToHandle: ProductShapeLabelWithStepwiseBuilder.ProductShapeLabelUndefined, otherProductComponentSizeLabelToHandle: ProductSizeLabelWithStepwiseBuilder.ProductSizeLabelUndefined, otherProductComponentMaterialLabelToHandle: ProductMaterialLabelWithStepwiseBuilder.ProductMaterialLabelUndefined);
             }
 
-            public IProductSizeLabelDefinitionWithStepwiseBuilder SetProductShapeLabelDefinitionUsing(in ProductShapeLabelWithStepwiseBuilder newProductImplementationProductShapeLabelToDefine)
+            public IProductSizeLabelDefinitionWithStepwiseBuilder SetProductShapeLabelDefinitionUsing(in ProductShapeLabelWithStepwiseBuilder otherProductImplementationProductShapeLabelToHandle)
             {
-                ProductImplementationProductComponent.SetProductComponentShapeLabelUsing(newProductComponentShapeLabelToDefine: newProductImplementationProductShapeLabelToDefine);
+                ProductImplementationProductComponent.SetProductComponentShapeLabelUsing(otherProductComponentShapeLabelToHandle: otherProductImplementationProductShapeLabelToHandle);
 
                 return this;
             }
 
-            public IProductMaterialLabelDefinitionWithStepwiseBuilder SetProductSizeLabelDefinitionUsing(in ProductSizeLabelWithStepwiseBuilder newProductImplementationProductSizeLabelToDefine)
+            public IProductMaterialLabelDefinitionWithStepwiseBuilder SetProductSizeLabelDefinitionUsing(in ProductSizeLabelWithStepwiseBuilder otherProductImplementationProductSizeLabelToHandle)
             {
-                ProductImplementationProductComponent.SetProductComponentSizeLabelUsing(newProductComponentSizeLabelToDefine: newProductImplementationProductSizeLabelToDefine);
+                ProductImplementationProductComponent.SetProductComponentSizeLabelUsing(otherProductComponentSizeLabelToHandle: otherProductImplementationProductSizeLabelToHandle);
 
                 return this;
             }
 
-            public IProductComponentDefinitionWithStepwiseBuilder SetProductMaterialLabelDefinitionUsing(in ProductMaterialLabelWithStepwiseBuilder newProductImplementationProductMaterialLabelToDefine)
+            public IProductComponentDefinitionWithStepwiseBuilder SetProductMaterialLabelDefinitionUsing(in ProductMaterialLabelWithStepwiseBuilder otherProductImplementationProductMaterialLabelToHandle)
             {
-                ProductImplementationProductComponent.SetProductComponentMaterialLabelUsing(newProductComponentMaterialLabelToDefine: newProductImplementationProductMaterialLabelToDefine);
+                ProductImplementationProductComponent.SetProductComponentMaterialLabelUsing(otherProductComponentMaterialLabelToHandle: otherProductImplementationProductMaterialLabelToHandle);
 
                 return this;
             }

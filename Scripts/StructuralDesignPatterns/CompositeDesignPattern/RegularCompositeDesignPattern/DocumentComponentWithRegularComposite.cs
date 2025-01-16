@@ -3,24 +3,24 @@
     using System;
     using System.Text;
 
-    public abstract class DocumentComponentWithRegularComposite(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : object()
+    public abstract class DocumentComponentWithRegularComposite(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
     {
-        public string DocumentComponentIdentifier { get; protected set; } = newDocumentComponentIdentifierToInitialize;
-        public string DocumentComponentDescription { get; protected set; } = newDocumentComponentDescriptionToInitialize;
+        public string DocumentComponentIdentifier { get; protected set; } = otherDocumentComponentIdentifierToHandle;
+        public string DocumentComponentDescription { get; protected set; } = otherDocumentComponentDescriptionToHandle;
 
-        public void SetDocumentComponentIdentifierUsing(in string newDocumentComponentIdentifierToInitialize)
+        public void SetDocumentComponentIdentifierUsing(in string otherDocumentComponentIdentifierToHandle)
         {
-            DocumentComponentIdentifier = newDocumentComponentIdentifierToInitialize;
+            DocumentComponentIdentifier = otherDocumentComponentIdentifierToHandle;
         }
 
-        public void SetDocumentComponentDescriptionUsing(in string newDocumentComponentDescriptionToInitialize)
+        public void SetDocumentComponentDescriptionUsing(in string otherDocumentComponentDescriptionToHandle)
         {
-            DocumentComponentDescription = newDocumentComponentDescriptionToInitialize;
+            DocumentComponentDescription = otherDocumentComponentDescriptionToHandle;
         }
 
         public void DisplayDocumentComponentContent()
         {
-            Console.WriteLine(value: GetDocumentComponentContentUsing(specificDocumentComponentToHandle: this, specificDocumentComponentContentIndentLevelToHandle: uint.MinValue));
+            Console.WriteLine(value: GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue));
         }
 
         protected void SetDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentComponentContentStringBuilder)
@@ -38,38 +38,38 @@
             documentComponentContentStringBuilder.Append(value: $"<!-- {DocumentComponentDescription.ToUpperInvariant()} -->".ToUpperInvariant());
         }
 
-        protected void SetDocumentComponentContentIndentContentUsing(StringBuilder documentComponentContentStringBuilder, in uint specificDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        protected void SetDocumentComponentContentIndentContentUsing(StringBuilder documentComponentContentStringBuilder, in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             const uint DocumentComponentContentIndentDimension = 5;
             const char DocumentComponentContentIndentCharacter = ' ';
 
-            documentComponentContentStringBuilder.Append(value: new string(c: DocumentComponentContentIndentCharacter, count: (int)specificDocumentComponentContentIndentLevelToHandle * (int)DocumentComponentContentIndentDimension).ToUpperInvariant());
+            documentComponentContentStringBuilder.Append(value: new string(c: DocumentComponentContentIndentCharacter, count: (int)otherDocumentComponentContentIndentLevelToHandle * (int)DocumentComponentContentIndentDimension).ToUpperInvariant());
         }
 
-        protected abstract StringBuilder GetDocumentComponentContentUsing(in uint specificDocumentComponentContentIndentLevelToHandle = uint.MinValue);
+        protected abstract StringBuilder GetDocumentComponentContentUsing(in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue);
 
-        protected static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithRegularComposite specificDocumentComponentToHandle, in uint specificDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        protected static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithRegularComposite otherDocumentComponentToHandle, in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             StringBuilder documentComponentContentStringBuilder = new();
 
-            documentComponentContentStringBuilder.Append(value: specificDocumentComponentToHandle.GetDocumentComponentContentUsing(specificDocumentComponentContentIndentLevelToHandle: specificDocumentComponentContentIndentLevelToHandle));
+            documentComponentContentStringBuilder.Append(value: otherDocumentComponentToHandle.GetDocumentComponentContentUsing(otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle));
 
             return documentComponentContentStringBuilder;
         }
 
-        public override bool Equals(object specificDocumentComponentUndefinedObject)
+        public override bool Equals(object otherDocumentComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificDocumentComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherDocumentComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificDocumentComponentUndefinedObject == null || specificDocumentComponentUndefinedObject is DocumentComponentWithRegularComposite specificDocumentComponentDefinedObject == false)
+            if (otherDocumentComponentUndefinedObjectToHandle == null || otherDocumentComponentUndefinedObjectToHandle is DocumentComponentWithRegularComposite otherDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (DocumentComponentIdentifier != specificDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificDocumentComponentDefinedObject.DocumentComponentDescription)
+            if (DocumentComponentIdentifier != otherDocumentComponentDefinedObjectToHandle.DocumentComponentIdentifier || DocumentComponentDescription != otherDocumentComponentDefinedObjectToHandle.DocumentComponentDescription)
             {
                 return false;
             }
@@ -92,7 +92,7 @@
 
         public override string ToString()
         {
-            return GetDocumentComponentContentUsing(specificDocumentComponentToHandle: this, specificDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+            return GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
         }
     }
 }

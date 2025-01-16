@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Scripts\BehavioralDesignPatterns\IteratorDesignPattern\RegularIteratorDesignPattern\NodeComponentWithRegularIterator.cs" />
     <Compile Include="Scripts\BehavioralDesignPatterns\IteratorDesignPattern\RegularIteratorDesignPattern\NodeIteratorWithRegularIterator.cs" />
+    <Compile Include="Scripts\BehavioralDesignPatterns\IteratorDesignPattern\RegularIteratorDesignPattern\ProductComponentWithRegularIterator.cs" />
     <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\ContainerDocumentFormatWithRegularStrategy.cs" />
     <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\DocumentComponentWithRegularStrategy.cs" />
     <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\DocumentFormatterWithRegularStrategy.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\PositionMatrixFourCreatorWithFactoryMethod.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\RotationMatrixFourCreatorWithFactoryMethod.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\ScaleMatrixFourCreatorWithFactoryMethod.cs" />
+    <Compile Include="Scripts\CreationalDesignPatterns\PrototypeDesignPattern\RegularPrototypeDesignPattern\DocumentComponentWithRegularPrototype.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\SingletonDesignPattern\RegularSingletonDesignPattern\ProductComponentWithRegularSingleton.cs" />
     <Compile Include="Scripts\CreationalDesignPatterns\SingletonDesignPattern\RegularSingletonDesignPattern\ProductDatabaseWithRegularSingleton.cs" />
     <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductComponentWithCompositeSpecification.cs" />

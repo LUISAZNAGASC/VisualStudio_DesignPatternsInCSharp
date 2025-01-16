@@ -4,9 +4,14 @@
     {
         private DocumentComponentWithFluentBuilder DocumentCreatorRootDocumentComponent { get; set; }
 
-        private DocumentCreatorWithFluentBuilder(in string newDocumentCreatorRootDocumentComponentIdentifierToInitialize, in string newDocumentCreatorRootDocumentComponentDescriptionToInitialize) : base()
+        private DocumentCreatorWithFluentBuilder(in string otherDocumentCreatorRootDocumentComponentIdentifierToHandle, in string otherDocumentCreatorRootDocumentComponentDescriptionToHandle) : base()
         {
-            DocumentCreatorRootDocumentComponent = new DocumentComponentWithFluentBuilder(newDocumentComponentIdentifierToInitialize: newDocumentCreatorRootDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newDocumentCreatorRootDocumentComponentDescriptionToInitialize);
+            DocumentCreatorRootDocumentComponent = new DocumentComponentWithFluentBuilder(otherDocumentComponentIdentifierToHandle: otherDocumentCreatorRootDocumentComponentIdentifierToHandle, otherDocumentComponentDescriptionToHandle: otherDocumentCreatorRootDocumentComponentDescriptionToHandle);
+        }
+
+        public static DocumentCreatorWithFluentBuilder CreateDocumentCreatorRootDocumentComponentUsing(in string otherDocumentCreatorRootDocumentComponentIdentifierToHandle, in string otherDocumentCreatorRootDocumentComponentDescriptionToHandle)
+        {
+            return new DocumentCreatorWithFluentBuilder(otherDocumentCreatorRootDocumentComponentIdentifierToHandle: otherDocumentCreatorRootDocumentComponentIdentifierToHandle, otherDocumentCreatorRootDocumentComponentDescriptionToHandle: otherDocumentCreatorRootDocumentComponentDescriptionToHandle);
         }
 
         public DocumentComponentWithFluentBuilder GetDocumentCreatorRootDocumentComponent()
@@ -14,26 +19,21 @@
             return DocumentCreatorRootDocumentComponent;
         }
 
-        public DocumentCreatorWithFluentBuilder AddDocumentCreatorRootDocumentComponentChildrenDocumentComponentElementUsing(in string newDocumentCreatorRootDocumentComponentChildrenDocumentComponentIdentifierToAdd, in string newDocumentCreatorRootDocumentComponentChildrenDocumentComponentDescriptionToAdd)
+        public DocumentCreatorWithFluentBuilder AddDocumentCreatorRootDocumentComponentChildrenDocumentComponentElementUsing(in string otherDocumentCreatorRootDocumentComponentChildrenDocumentComponentIdentifierToHandle, in string otherDocumentCreatorRootDocumentComponentChildrenDocumentComponentDescriptionToHandle)
         {
             if (DocumentCreatorRootDocumentComponent == null)
             {
                 return null;
             }
 
-            DocumentComponentWithFluentBuilder newDocumentCreatorRootDocumentComponentChildrenDocumentComponentElement = new(newDocumentComponentIdentifierToInitialize: newDocumentCreatorRootDocumentComponentChildrenDocumentComponentIdentifierToAdd, newDocumentComponentDescriptionToInitialize: newDocumentCreatorRootDocumentComponentChildrenDocumentComponentDescriptionToAdd);
+            DocumentComponentWithFluentBuilder documentCreatorRootDocumentComponentChildrenDocumentComponentElement = new(otherDocumentComponentIdentifierToHandle: otherDocumentCreatorRootDocumentComponentChildrenDocumentComponentIdentifierToHandle, otherDocumentComponentDescriptionToHandle: otherDocumentCreatorRootDocumentComponentChildrenDocumentComponentDescriptionToHandle);
 
-            if (DocumentCreatorRootDocumentComponent.AddDocumentComponentChildrenDocumentComponentElementUsing(newDocumentComponentChildrenDocumentComponentElementToAdd: newDocumentCreatorRootDocumentComponentChildrenDocumentComponentElement) == false)
+            if (DocumentCreatorRootDocumentComponent.AddDocumentComponentChildrenDocumentComponentElementUsing(otherDocumentComponentChildrenDocumentComponentElementToHandle: documentCreatorRootDocumentComponentChildrenDocumentComponentElement) == false)
             {
                 return null;
             }
 
             return this;
-        }
-
-        public static DocumentCreatorWithFluentBuilder CreateDocumentCreatorRootDocumentComponentUsing(in string newDocumentCreatorRootDocumentComponentIdentifierToCreate, in string newDocumentCreatorRootDocumentComponentDescriptionToCreate)
-        {
-            return new DocumentCreatorWithFluentBuilder(newDocumentCreatorRootDocumentComponentIdentifierToInitialize: newDocumentCreatorRootDocumentComponentIdentifierToCreate, newDocumentCreatorRootDocumentComponentDescriptionToInitialize: newDocumentCreatorRootDocumentComponentDescriptionToCreate);
         }
     }
 }

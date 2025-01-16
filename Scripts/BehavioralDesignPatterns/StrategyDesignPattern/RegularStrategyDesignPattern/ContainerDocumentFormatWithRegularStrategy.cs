@@ -4,19 +4,24 @@
 
     public sealed class ContainerDocumentFormatWithRegularStrategy : IDocumentFormatWithRegularStrategy
     {
-        public void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificContainerDocumentFormatDocumentComponentToHandle)
+        private ContainerDocumentFormatWithRegularStrategy() : base()
         {
-            containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"< {specificContainerDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
+
         }
 
-        public void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificContainerDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
         {
-            containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"</ {specificContainerDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
+            containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"< {otherContainerDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
         }
 
-        public void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificContainerDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
         {
-            containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"<!-- {specificContainerDocumentFormatDocumentComponentToHandle.DocumentComponentDescription.ToUpperInvariant()} -->".ToUpperInvariant());
+            containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"</ {otherContainerDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
+        }
+
+        public void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
+        {
+            containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"<!-- {otherContainerDocumentFormatDocumentComponentToHandle.DocumentComponentDescription.ToUpperInvariant()} -->".ToUpperInvariant());
         }
     }
 }

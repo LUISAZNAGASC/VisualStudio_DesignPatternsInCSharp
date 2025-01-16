@@ -2,42 +2,42 @@
 {
     using System.Text;
 
-    public sealed class PrimitiveDocumentComponentWithRegularComposite(in string newPrimitiveDocumentComponentIdentifierToInitialize, in string newPrimitiveDocumentComponentDescriptionToInitialize) : DocumentComponentWithRegularComposite(newDocumentComponentIdentifierToInitialize: newPrimitiveDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newPrimitiveDocumentComponentDescriptionToInitialize)
+    public sealed class PrimitiveDocumentComponentWithRegularComposite(in string otherPrimitiveDocumentComponentIdentifierToHandle, in string otherPrimitiveDocumentComponentDescriptionToHandle) : DocumentComponentWithRegularComposite(otherDocumentComponentIdentifierToHandle: otherPrimitiveDocumentComponentIdentifierToHandle, otherDocumentComponentDescriptionToHandle: otherPrimitiveDocumentComponentDescriptionToHandle)
     {
-        protected override StringBuilder GetDocumentComponentContentUsing(in uint specificPrimitiveDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        protected override StringBuilder GetDocumentComponentContentUsing(in uint otherPrimitiveDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             StringBuilder primitiveDocumentComponentContentStringBuilder = new();
 
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificPrimitiveDocumentComponentContentIndentLevelToHandle);
+            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherPrimitiveDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);
             primitiveDocumentComponentContentStringBuilder.AppendLine();
 
             if (string.IsNullOrEmpty(value: DocumentComponentDescription) == false || string.IsNullOrWhiteSpace(value: DocumentComponentDescription) == false)
             {
-                SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificPrimitiveDocumentComponentContentIndentLevelToHandle + 1);
+                SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherPrimitiveDocumentComponentContentIndentLevelToHandle + 1);
                 SetDocumentComponentContentDescriptionContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);
                 primitiveDocumentComponentContentStringBuilder.AppendLine();
             }
 
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificPrimitiveDocumentComponentContentIndentLevelToHandle);
+            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherPrimitiveDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentClosedIdentifierContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);
 
             return primitiveDocumentComponentContentStringBuilder;
         }
 
-        public override bool Equals(object specificPrimitiveDocumentComponentUndefinedObject)
+        public override bool Equals(object otherPrimitiveDocumentComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificPrimitiveDocumentComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherPrimitiveDocumentComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificPrimitiveDocumentComponentUndefinedObject == null || specificPrimitiveDocumentComponentUndefinedObject is PrimitiveDocumentComponentWithRegularComposite specificPrimitiveDocumentComponentDefinedObject == false)
+            if (otherPrimitiveDocumentComponentUndefinedObjectToHandle == null || otherPrimitiveDocumentComponentUndefinedObjectToHandle is PrimitiveDocumentComponentWithRegularComposite otherPrimitiveDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (DocumentComponentIdentifier != specificPrimitiveDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificPrimitiveDocumentComponentDefinedObject.DocumentComponentDescription)
+            if (DocumentComponentIdentifier != otherPrimitiveDocumentComponentDefinedObjectToHandle.DocumentComponentIdentifier || DocumentComponentDescription != otherPrimitiveDocumentComponentDefinedObjectToHandle.DocumentComponentDescription)
             {
                 return false;
             }
@@ -60,7 +60,7 @@
 
         public override string ToString()
         {
-            return GetDocumentComponentContentUsing(specificDocumentComponentToHandle: this, specificDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+            return GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
         }
     }
 }

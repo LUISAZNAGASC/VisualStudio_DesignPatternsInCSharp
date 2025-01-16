@@ -8,8 +8,8 @@
         ProductShapeLabelUndefined = 0,
         ProductShapeLabelCube = 1,
         ProductShapeLabelSphere = 2,
-        ProductShapeLabelCapsule = 3,
-        ProductShapeLabelCylinder = 4
+        ProductShapeLabelCylinder = 3,
+        ProductShapeLabelCapsule = 4
     }
 
     public enum ProductSizeLabelWithCompositeSpecification : uint
@@ -29,71 +29,96 @@
         ProductMaterialLabelMetal = 4
     }
 
-    public sealed class ProductComponentWithCompositeSpecification(in ProductShapeLabelWithCompositeSpecification newProductComponentShapeLabelToInitialize, in ProductSizeLabelWithCompositeSpecification newProductComponentSizeLabelToInitialize, in ProductMaterialLabelWithCompositeSpecification newProductComponentMaterialLabelToInitialize) : object()
+    public sealed class ProductComponentWithCompositeSpecification(in ProductShapeLabelWithCompositeSpecification otherProductComponentShapeLabelToHandle, in ProductSizeLabelWithCompositeSpecification otherProductComponentSizeLabelToHandle, in ProductMaterialLabelWithCompositeSpecification otherProductComponentMaterialLabelToHandle) : object()
     {
-        public ProductShapeLabelWithCompositeSpecification ProductComponentShapeLabel { get; private set; } = newProductComponentShapeLabelToInitialize;
-        public ProductSizeLabelWithCompositeSpecification ProductComponentSizeLabel { get; private set; } = newProductComponentSizeLabelToInitialize;
-        public ProductMaterialLabelWithCompositeSpecification ProductComponentMaterialLabel { get; private set; } = newProductComponentMaterialLabelToInitialize;
+        public ProductShapeLabelWithCompositeSpecification ProductComponentShapeLabel { get; private set; } = otherProductComponentShapeLabelToHandle;
+        public ProductSizeLabelWithCompositeSpecification ProductComponentSizeLabel { get; private set; } = otherProductComponentSizeLabelToHandle;
+        public ProductMaterialLabelWithCompositeSpecification ProductComponentMaterialLabel { get; private set; } = otherProductComponentMaterialLabelToHandle;
 
-        public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithCompositeSpecification newProductComponentShapeLabelToDefine)
+        public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithCompositeSpecification otherProductComponentShapeLabelToHandle)
         {
-            ProductComponentShapeLabel = newProductComponentShapeLabelToDefine;
+            ProductComponentShapeLabel = otherProductComponentShapeLabelToHandle;
         }
 
-        public void SetProductComponentSizeLabelUsing(in ProductSizeLabelWithCompositeSpecification newProductComponentSizeLabelToDefine)
+        public void SetProductComponentSizeLabelUsing(in ProductSizeLabelWithCompositeSpecification otherProductComponentSizeLabelToHandle)
         {
-            ProductComponentSizeLabel = newProductComponentSizeLabelToDefine;
+            ProductComponentSizeLabel = otherProductComponentSizeLabelToHandle;
         }
 
-        public void SetProductComponentMaterialLabelUsing(in ProductMaterialLabelWithCompositeSpecification newProductComponentMaterialLabelToDefine)
+        public void SetProductComponentMaterialLabelUsing(in ProductMaterialLabelWithCompositeSpecification otherProductComponentMaterialLabelToHandle)
         {
-            ProductComponentMaterialLabel = newProductComponentMaterialLabelToDefine;
+            ProductComponentMaterialLabel = otherProductComponentMaterialLabelToHandle;
         }
 
         public void DisplayProductComponentContent()
         {
-            Console.WriteLine(value: GetProductComponentContentUsing(specificProductComponentToHandle: this));
+            Console.WriteLine(value: GetProductComponentContentUsing(otherProductComponentToHandle: this));
+        }
+
+        private void SetProductComponentContentEntryPointContentUsing(StringBuilder productComponentContentStringBuilder)
+        {
+            productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
+        }
+
+        private void SetProductComponentContentShapeLabelContentUsing(StringBuilder productComponentContentStringBuilder)
+        {
+            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SHAPE_LABEL : {ProductComponentShapeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+        }
+
+        private void SetProductComponentContentSizeLabelContentUsing(StringBuilder productComponentContentStringBuilder)
+        {
+            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SIZE_LABEL : {ProductComponentSizeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+        }
+
+        private void SetProductComponentContentMaterialLabelContentUsing(StringBuilder productComponentContentStringBuilder)
+        {
+            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.MATERIAL_LABEL : {ProductComponentMaterialLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+        }
+
+        private void SetProductComponentContentExitPointContentUsing(StringBuilder productComponentContentStringBuilder)
+        {
+            productComponentContentStringBuilder.Append(value: "[<< EXIT_POINT::PRODUCT_COMPONENT::EXIT_POINT <<]".ToUpperInvariant());
         }
 
         private StringBuilder GetProductComponentContent()
         {
             StringBuilder productComponentContentStringBuilder = new();
 
-            productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
+            SetProductComponentContentEntryPointContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
             productComponentContentStringBuilder.AppendLine();
-            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SHAPE_LABEL : {ProductComponentShapeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            SetProductComponentContentShapeLabelContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
             productComponentContentStringBuilder.AppendLine();
-            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SIZE_LABEL : {ProductComponentSizeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            SetProductComponentContentSizeLabelContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
             productComponentContentStringBuilder.AppendLine();
-            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.MATERIAL_LABEL : {ProductComponentMaterialLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            SetProductComponentContentMaterialLabelContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
             productComponentContentStringBuilder.AppendLine();
-            productComponentContentStringBuilder.Append(value: "[<< EXIT_POINT::PRODUCT_COMPONENT::EXIT_POINT <<]".ToUpperInvariant());
+            SetProductComponentContentExitPointContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
 
             return productComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithCompositeSpecification specificProductComponentToHandle)
+        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithCompositeSpecification otherProductComponentToHandle)
         {
             StringBuilder productComponentContentStringBuilder = new();
 
-            productComponentContentStringBuilder.Append(value: specificProductComponentToHandle.GetProductComponentContent());
+            productComponentContentStringBuilder.Append(value: otherProductComponentToHandle.GetProductComponentContent());
 
             return productComponentContentStringBuilder;
         }
 
-        public override bool Equals(object specificProductComponentUndefinedObject)
+        public override bool Equals(object otherProductComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificProductComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherProductComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificProductComponentUndefinedObject == null || specificProductComponentUndefinedObject is ProductComponentWithCompositeSpecification specificDocumentComponentDefinedObject == false)
+            if (otherProductComponentUndefinedObjectToHandle == null || otherProductComponentUndefinedObjectToHandle is ProductComponentWithCompositeSpecification otherDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (ProductComponentShapeLabel != specificDocumentComponentDefinedObject.ProductComponentShapeLabel || ProductComponentSizeLabel != specificDocumentComponentDefinedObject.ProductComponentSizeLabel || ProductComponentMaterialLabel != specificDocumentComponentDefinedObject.ProductComponentMaterialLabel)
+            if (ProductComponentShapeLabel != otherDocumentComponentDefinedObjectToHandle.ProductComponentShapeLabel || ProductComponentSizeLabel != otherDocumentComponentDefinedObjectToHandle.ProductComponentSizeLabel || ProductComponentMaterialLabel != otherDocumentComponentDefinedObjectToHandle.ProductComponentMaterialLabel)
             {
                 return false;
             }
@@ -117,7 +142,7 @@
 
         public override string ToString()
         {
-            return GetProductComponentContentUsing(specificProductComponentToHandle: this).ToString().ToUpperInvariant();
+            return GetProductComponentContentUsing(otherProductComponentToHandle: this).ToString().ToUpperInvariant();
         }
     }
 }

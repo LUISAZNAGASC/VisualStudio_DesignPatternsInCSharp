@@ -1,29 +1,29 @@
 ﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.FactoryDesignPattern.FactoryMethodDesignPattern
 {
-    public sealed class ScaleMatrixFourCreatorWithFactoryMethod(in double newScaleMatrixFourCreatorXDimensionToInitialize, in double newScaleMatrixFourCreatorYDimensionToInitialize, in double newScaleMatrixFourCreatorZDimensionToInitialize) : MatrixFourCreatorWithFactoryMethod(newMatrixFourCreatorXTransformationToInitialize: newScaleMatrixFourCreatorXDimensionToInitialize, newMatrixFourCreatorYTransformationToInitialize: newScaleMatrixFourCreatorYDimensionToInitialize, newMatrixFourCreatorZTransformationToInitialize: newScaleMatrixFourCreatorZDimensionToInitialize)
+    public sealed class ScaleMatrixFourCreatorWithFactoryMethod(in double otherScaleMatrixFourCreatorXDimensionToHandle, in double otherScaleMatrixFourCreatorYDimensionToHandle, in double otherScaleMatrixFourCreatorZDimensionToHandle) : MatrixFourCreatorWithFactoryMethod(otherMatrixFourCreatorXTransformationToHandle: otherScaleMatrixFourCreatorXDimensionToHandle, otherMatrixFourCreatorYTransformationToHandle: otherScaleMatrixFourCreatorYDimensionToHandle, otherMatrixFourCreatorZTransformationToHandle: otherScaleMatrixFourCreatorZDimensionToHandle)
     {
-        public override void SetMatrixFourCreatorXTransformationUsing(in double newScaleMatrixFourCreatorXDimensionToDefine)
+        public override void SetMatrixFourCreatorXTransformationUsing(in double otherScaleMatrixFourCreatorXDimensionToHandle)
         {
             MatrixFourComponentWithFactoryMethod scaleMatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();
-            scaleMatrixFourCreatorMatrixFourComponent.SetMatrixFourComponentElementUsing(matrixFourComponentRowLevel: MatrixFourRowLevel.MatrixFourRowLevelX, matrixFourComponentColumnLevel: MatrixFourColumnLevel.MatrixFourColumnLevelA, newMatrixFourComponentElementToDefine: newScaleMatrixFourCreatorXDimensionToDefine);
+            scaleMatrixFourCreatorMatrixFourComponent.SetMatrixFourComponentElementUsing(otherMatrixFourComponentRowLevelToHandle: MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelX, otherMatrixFourComponentColumnLevelToHandle: MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelA, otherMatrixFourComponentElementToHandle: otherScaleMatrixFourCreatorXDimensionToHandle);
 
-            MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentMultiplicationUsing(firstMatrixFourComponentToHandle: MatrixFourCreatorMatrixFourComponent, secondMatrixFourComponentToHandle: scaleMatrixFourCreatorMatrixFourComponent);
+            MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentMultiplicationUsing(leftMatrixFourComponentToHandle: MatrixFourCreatorMatrixFourComponent, rightMatrixFourComponentToHandle: scaleMatrixFourCreatorMatrixFourComponent);
         }
 
-        public override void SetMatrixFourCreatorYTransformationUsing(in double newScaleMatrixFourCreatorYDimensionToDefine)
+        public override void SetMatrixFourCreatorYTransformationUsing(in double otherScaleMatrixFourCreatorYDimensionToHandle)
         {
             MatrixFourComponentWithFactoryMethod scaleMatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();
-            scaleMatrixFourCreatorMatrixFourComponent.SetMatrixFourComponentElementUsing(matrixFourComponentRowLevel: MatrixFourRowLevel.MatrixFourRowLevelY, matrixFourComponentColumnLevel: MatrixFourColumnLevel.MatrixFourColumnLevelB, newMatrixFourComponentElementToDefine: newScaleMatrixFourCreatorYDimensionToDefine);
+            scaleMatrixFourCreatorMatrixFourComponent.SetMatrixFourComponentElementUsing(otherMatrixFourComponentRowLevelToHandle: MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelY, otherMatrixFourComponentColumnLevelToHandle: MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelB, otherMatrixFourComponentElementToHandle: otherScaleMatrixFourCreatorYDimensionToHandle);
 
-            MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentMultiplicationUsing(firstMatrixFourComponentToHandle: MatrixFourCreatorMatrixFourComponent, secondMatrixFourComponentToHandle: scaleMatrixFourCreatorMatrixFourComponent);
+            MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentMultiplicationUsing(leftMatrixFourComponentToHandle: MatrixFourCreatorMatrixFourComponent, rightMatrixFourComponentToHandle: scaleMatrixFourCreatorMatrixFourComponent);
         }
 
-        public override void SetMatrixFourCreatorZTransformationUsing(in double newScaleMatrixFourCreatorZDimensionToDefine)
+        public override void SetMatrixFourCreatorZTransformationUsing(in double otherScaleMatrixFourCreatorZDimensionToHandle)
         {
             MatrixFourComponentWithFactoryMethod scaleMatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();
-            scaleMatrixFourCreatorMatrixFourComponent.SetMatrixFourComponentElementUsing(matrixFourComponentRowLevel: MatrixFourRowLevel.MatrixFourRowLevelZ, matrixFourComponentColumnLevel: MatrixFourColumnLevel.MatrixFourColumnLevelC, newMatrixFourComponentElementToDefine: newScaleMatrixFourCreatorZDimensionToDefine);
+            scaleMatrixFourCreatorMatrixFourComponent.SetMatrixFourComponentElementUsing(otherMatrixFourComponentRowLevelToHandle: MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelZ, otherMatrixFourComponentColumnLevelToHandle: MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelC, otherMatrixFourComponentElementToHandle: otherScaleMatrixFourCreatorZDimensionToHandle);
 
-            MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentMultiplicationUsing(firstMatrixFourComponentToHandle: MatrixFourCreatorMatrixFourComponent, secondMatrixFourComponentToHandle: scaleMatrixFourCreatorMatrixFourComponent);
+            MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentMultiplicationUsing(leftMatrixFourComponentToHandle: MatrixFourCreatorMatrixFourComponent, rightMatrixFourComponentToHandle: scaleMatrixFourCreatorMatrixFourComponent);
         }
     }
 }

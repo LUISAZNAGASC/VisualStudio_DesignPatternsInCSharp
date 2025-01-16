@@ -12,9 +12,9 @@
         public NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> NodeComponentLeftNodeComponent { get; private set; }
         public NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> NodeComponentRightNodeComponent { get; private set; }
 
-        public NodeComponentWithRegularIterator(in TTemplateComponentWithRegularIterator newNodeComponentValueToInitialize)
+        public NodeComponentWithRegularIterator(in TTemplateComponentWithRegularIterator otherNodeComponentValueToHandle)
         {
-            NodeComponentValue = newNodeComponentValueToInitialize;
+            NodeComponentValue = otherNodeComponentValueToHandle;
 
             NodeComponentParentNodeComponent = null;
 
@@ -22,14 +22,14 @@
             NodeComponentRightNodeComponent = null;
         }
 
-        public NodeComponentWithRegularIterator(in TTemplateComponentWithRegularIterator newNodeComponentValueToInitialize, in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> newNodeComponentLeftNodeComponentToInitialize, in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> newNodeComponentRightNodeComponentToInitialize) : base()
+        public NodeComponentWithRegularIterator(in TTemplateComponentWithRegularIterator otherNodeComponentValueToHandle, in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeComponentLeftNodeComponentToHandle, in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeComponentRightNodeComponentToHandle) : base()
         {
-            NodeComponentValue = newNodeComponentValueToInitialize;
+            NodeComponentValue = otherNodeComponentValueToHandle;
 
             NodeComponentParentNodeComponent = null;
 
-            NodeComponentLeftNodeComponent = newNodeComponentLeftNodeComponentToInitialize;
-            NodeComponentRightNodeComponent = newNodeComponentRightNodeComponentToInitialize;
+            NodeComponentLeftNodeComponent = otherNodeComponentLeftNodeComponentToHandle;
+            NodeComponentRightNodeComponent = otherNodeComponentRightNodeComponentToHandle;
 
             if (NodeComponentLeftNodeComponent != null)
             {
@@ -44,50 +44,55 @@
 
         public void DisplayNodeComponentContent()
         {
-            Console.WriteLine(value: GetNodeComponentContentUsing(specificNodeComponentToHandle: this));
+            Console.WriteLine(value: GetNodeComponentContentUsing(otherNodeComponentToHandle: this));
+        }
+
+        private void SetNodeComponentContentValueContentUsing(StringBuilder nodeComponentContentStringBuilder)
+        {
+            nodeComponentContentStringBuilder.Append(value: $"{NodeComponentValue.ToString().ToUpperInvariant()}".ToUpperInvariant());
         }
 
         private StringBuilder GetNodeComponentContent()
         {
             StringBuilder nodeComponentContentStringBuilder = new();
 
-            nodeComponentContentStringBuilder.Append(value: $"{NodeComponentValue.ToString().ToUpperInvariant()}".ToUpperInvariant());
+            SetNodeComponentContentValueContentUsing(nodeComponentContentStringBuilder: nodeComponentContentStringBuilder);
 
             return nodeComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetNodeComponentContentUsing(in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> specificNodeComponentToHandle)
+        private static StringBuilder GetNodeComponentContentUsing(in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeComponentToHandle)
         {
             StringBuilder nodeComponentContentStringBuilder = new();
 
-            nodeComponentContentStringBuilder.Append(value: specificNodeComponentToHandle.GetNodeComponentContent());
+            nodeComponentContentStringBuilder.Append(value: otherNodeComponentToHandle.GetNodeComponentContent());
 
             return nodeComponentContentStringBuilder;
         }
 
-        public override bool Equals(object specificNodeComponentUndefinedObject)
+        public override bool Equals(object otherNodeComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificNodeComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherNodeComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificNodeComponentUndefinedObject == null || specificNodeComponentUndefinedObject is NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> specificNodeComponentDefinedObject == false)
+            if (otherNodeComponentUndefinedObjectToHandle == null || otherNodeComponentUndefinedObjectToHandle is NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (NodeComponentValue.Equals(obj: specificNodeComponentDefinedObject.NodeComponentValue) == false)
+            if (NodeComponentValue.Equals(obj: otherNodeComponentDefinedObjectToHandle.NodeComponentValue) == false)
             {
                 return false;
             }
 
-            if (NodeComponentParentNodeComponent.Equals(specificNodeComponentUndefinedObject: specificNodeComponentDefinedObject.NodeComponentParentNodeComponent) == false)
+            if (NodeComponentParentNodeComponent.Equals(otherNodeComponentUndefinedObjectToHandle: otherNodeComponentDefinedObjectToHandle.NodeComponentParentNodeComponent) == false)
             {
                 return false;
             }
 
-            if (NodeComponentLeftNodeComponent.Equals(specificNodeComponentUndefinedObject: specificNodeComponentDefinedObject.NodeComponentLeftNodeComponent) == false || NodeComponentRightNodeComponent.Equals(specificNodeComponentUndefinedObject: specificNodeComponentDefinedObject.NodeComponentRightNodeComponent) == false)
+            if (NodeComponentLeftNodeComponent.Equals(otherNodeComponentUndefinedObjectToHandle: otherNodeComponentDefinedObjectToHandle.NodeComponentLeftNodeComponent) == false || NodeComponentRightNodeComponent.Equals(otherNodeComponentUndefinedObjectToHandle: otherNodeComponentDefinedObjectToHandle.NodeComponentRightNodeComponent) == false)
             {
                 return false;
             }
@@ -114,7 +119,7 @@
 
         public override string ToString()
         {
-            return GetNodeComponentContentUsing(specificNodeComponentToHandle: this).ToString().ToUpperInvariant();
+            return GetNodeComponentContentUsing(otherNodeComponentToHandle: this).ToString().ToUpperInvariant();
         }
     }
 }

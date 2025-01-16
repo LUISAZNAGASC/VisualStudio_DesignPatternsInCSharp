@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
 
-    public abstract class TemplateCompositeSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>(params TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>[] newTemplateCompositeSpecificationTemplateSpecificationCollectionToInitialize) : TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>()
+    public abstract class TemplateCompositeSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>(params TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>[] otherTemplateCompositeSpecificationTemplateSpecificationCollectionToHandle) : TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>()
     {
-        protected IEnumerable<TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>> TemplateCompositeSpecificationTemplateSpecificationCollection { get; set; } = newTemplateCompositeSpecificationTemplateSpecificationCollectionToInitialize;
+        protected IEnumerable<TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>> TemplateCompositeSpecificationTemplateSpecificationCollection { get; } = otherTemplateCompositeSpecificationTemplateSpecificationCollectionToHandle;
     }
 }

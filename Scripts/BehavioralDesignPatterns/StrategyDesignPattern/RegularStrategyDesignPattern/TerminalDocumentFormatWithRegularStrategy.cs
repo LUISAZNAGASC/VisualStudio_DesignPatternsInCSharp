@@ -4,19 +4,24 @@
 
     public sealed class TerminalDocumentFormatWithRegularStrategy : IDocumentFormatWithRegularStrategy
     {
-        public void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificTerminalDocumentFormatDocumentComponentToHandle)
+        private TerminalDocumentFormatWithRegularStrategy() : base()
         {
-            terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[>> $ {specificTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} $ >>]".ToUpperInvariant());
+
         }
 
-        public void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificTerminalDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
         {
-            terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[<< $ {specificTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} $ <<]".ToUpperInvariant());
+            terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[>> $ {otherTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} $ >>]".ToUpperInvariant());
         }
 
-        public void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificTerminalDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
         {
-            terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[// $ {specificTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentDescription.ToUpperInvariant()} $ //]".ToUpperInvariant());
+            terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[<< $ {otherTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} $ <<]".ToUpperInvariant());
+        }
+
+        public void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
+        {
+            terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[// $ {otherTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentDescription.ToUpperInvariant()} $ //]".ToUpperInvariant());
         }
     }
 }

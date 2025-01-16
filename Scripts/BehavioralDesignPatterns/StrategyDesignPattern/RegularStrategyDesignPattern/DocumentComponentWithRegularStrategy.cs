@@ -2,21 +2,21 @@
 {
     using System.Collections.Generic;
 
-    public sealed class DocumentComponentWithRegularStrategy(in string newDocumentComponentIdentifierToInitialize, in string newDocumentComponentDescriptionToInitialize) : object()
+    public sealed class DocumentComponentWithRegularStrategy(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
     {
-        public string DocumentComponentIdentifier { get; private set; } = newDocumentComponentIdentifierToInitialize;
-        public string DocumentComponentDescription { get; private set; } = newDocumentComponentDescriptionToInitialize;
+        public string DocumentComponentIdentifier { get; private set; } = otherDocumentComponentIdentifierToHandle;
+        public string DocumentComponentDescription { get; private set; } = otherDocumentComponentDescriptionToHandle;
 
         private List<DocumentComponentWithRegularStrategy> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
-        public void SetDocumentComponentIdentifierUsing(in string newDocumentComponentIdentifierToDefine)
+        public void SetDocumentComponentIdentifierUsing(in string otherDocumentComponentIdentifierToHandle)
         {
-            DocumentComponentIdentifier = newDocumentComponentIdentifierToDefine;
+            DocumentComponentIdentifier = otherDocumentComponentIdentifierToHandle;
         }
 
-        public void SetDocumentComponentDescriptionUsing(in string newDocumentComponentDescriptionToDefine)
+        public void SetDocumentComponentDescriptionUsing(in string otherDocumentComponentDescriptionToHandle)
         {
-            DocumentComponentDescription = newDocumentComponentDescriptionToDefine;
+            DocumentComponentDescription = otherDocumentComponentDescriptionToHandle;
         }
 
         public IEnumerable<DocumentComponentWithRegularStrategy> GetDocumentComponentChildrenDocumentComponentCollection()
@@ -29,83 +29,83 @@
             }
         }
 
-        public DocumentComponentWithRegularStrategy GetDocumentComponentChildrenDocumentComponentElementUsing(in uint specificDocumentComponentChildrenDocumentComponentCollectionIndex)
+        public DocumentComponentWithRegularStrategy GetDocumentComponentChildrenDocumentComponentElementUsing(in uint otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
                 return null;
             }
 
-            if (specificDocumentComponentChildrenDocumentComponentCollectionIndex < uint.MinValue || specificDocumentComponentChildrenDocumentComponentCollectionIndex >= DocumentComponentChildrenDocumentComponentCollection.Count)
+            if (otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle < uint.MinValue || otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle >= DocumentComponentChildrenDocumentComponentCollection.Count)
             {
                 return null;
             }
 
-            return DocumentComponentChildrenDocumentComponentCollection[index: (int)specificDocumentComponentChildrenDocumentComponentCollectionIndex];
+            return DocumentComponentChildrenDocumentComponentCollection[index: (int)otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle];
         }
 
-        public bool AddDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularStrategy newDocumentComponentChildrenDocumentComponentElementToAdd)
+        public bool AddDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularStrategy otherDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
                 return false;
             }
 
-            if (newDocumentComponentChildrenDocumentComponentElementToAdd == null)
+            if (otherDocumentComponentChildrenDocumentComponentElementToHandle == null)
             {
                 return false;
             }
 
-            DocumentComponentChildrenDocumentComponentCollection.Add(item: newDocumentComponentChildrenDocumentComponentElementToAdd);
+            DocumentComponentChildrenDocumentComponentCollection.Add(item: otherDocumentComponentChildrenDocumentComponentElementToHandle);
 
             return true;
         }
 
-        public bool RemoveDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularStrategy existingDocumentComponentChildrenDocumentComponentElementToRemove)
+        public bool RemoveDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularStrategy otherDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
                 return false;
             }
 
-            if (existingDocumentComponentChildrenDocumentComponentElementToRemove == null)
+            if (otherDocumentComponentChildrenDocumentComponentElementToHandle == null)
             {
                 return false;
             }
 
-            if (DocumentComponentChildrenDocumentComponentCollection.Contains(item: existingDocumentComponentChildrenDocumentComponentElementToRemove) == false)
+            if (DocumentComponentChildrenDocumentComponentCollection.Contains(item: otherDocumentComponentChildrenDocumentComponentElementToHandle) == false)
             {
                 return false;
             }
 
-            return DocumentComponentChildrenDocumentComponentCollection.Remove(item: existingDocumentComponentChildrenDocumentComponentElementToRemove);
+            return DocumentComponentChildrenDocumentComponentCollection.Remove(item: otherDocumentComponentChildrenDocumentComponentElementToHandle);
         }
 
-        public override bool Equals(object specificDocumentComponentUndefinedObject)
+        public override bool Equals(object otherDocumentComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificDocumentComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherDocumentComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificDocumentComponentUndefinedObject == null || specificDocumentComponentUndefinedObject is DocumentComponentWithRegularStrategy specificDocumentComponentDefinedObject == false)
+            if (otherDocumentComponentUndefinedObjectToHandle == null || otherDocumentComponentUndefinedObjectToHandle is DocumentComponentWithRegularStrategy otherDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (DocumentComponentIdentifier != specificDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificDocumentComponentDefinedObject.DocumentComponentDescription)
+            if (DocumentComponentIdentifier != otherDocumentComponentDefinedObjectToHandle.DocumentComponentIdentifier || DocumentComponentDescription != otherDocumentComponentDefinedObjectToHandle.DocumentComponentDescription)
             {
                 return false;
             }
 
-            if (DocumentComponentChildrenDocumentComponentCollection == null || specificDocumentComponentDefinedObject.DocumentComponentChildrenDocumentComponentCollection == null || DocumentComponentChildrenDocumentComponentCollection.Count != specificDocumentComponentDefinedObject.DocumentComponentChildrenDocumentComponentCollection.Count)
+            if (DocumentComponentChildrenDocumentComponentCollection == null || otherDocumentComponentDefinedObjectToHandle.DocumentComponentChildrenDocumentComponentCollection == null || DocumentComponentChildrenDocumentComponentCollection.Count != otherDocumentComponentDefinedObjectToHandle.DocumentComponentChildrenDocumentComponentCollection.Count)
             {
                 return false;
             }
 
             for (uint documentComponentChildrenDocumentComponentCollectionIndex = uint.MinValue; documentComponentChildrenDocumentComponentCollectionIndex < DocumentComponentChildrenDocumentComponentCollection.Count; documentComponentChildrenDocumentComponentCollectionIndex++)
             {
-                if (DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex].Equals(specificDocumentComponentUndefinedObject: specificDocumentComponentDefinedObject.DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex]) == false)
+                if (DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex].Equals(otherDocumentComponentUndefinedObjectToHandle: otherDocumentComponentDefinedObjectToHandle.DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex]) == false)
                 {
                     return false;
                 }

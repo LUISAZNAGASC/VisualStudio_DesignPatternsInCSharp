@@ -2,6 +2,6 @@
 {
     public interface IProductMaterialLabelDefinitionWithStepwiseBuilder
     {
-        IProductComponentDefinitionWithStepwiseBuilder SetProductMaterialLabelDefinitionUsing(in ProductMaterialLabelWithStepwiseBuilder newProductMaterialLabelDefinitionProductMaterialLabelToDefine);
+        IProductComponentDefinitionWithStepwiseBuilder SetProductMaterialLabelDefinitionUsing(in ProductMaterialLabelWithStepwiseBuilder otherProductMaterialLabelDefinitionProductMaterialLabelToHandle);
     }
 }

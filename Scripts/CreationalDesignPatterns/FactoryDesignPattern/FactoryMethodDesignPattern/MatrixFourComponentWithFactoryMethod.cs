@@ -3,7 +3,7 @@
     using System;
     using System.Text;
 
-    public enum MatrixFourRowLevel : uint
+    public enum MatrixFourRowLevelWithFactoryMethod : uint
     {
         MatrixFourRowLevelUndefined = 0,
         MatrixFourRowLevelX = 1,
@@ -12,7 +12,7 @@
         MatrixFourRowLevelW = 4
     }
 
-    public enum MatrixFourColumnLevel : uint
+    public enum MatrixFourColumnLevelWithFactoryMethod : uint
     {
         MatrixFourColumnLevelUndefined = 0,
         MatrixFourColumnLevelA = 1,
@@ -69,119 +69,119 @@
             return matrixFourComponentIdentity;
         }
 
-        public static MatrixFourComponentWithFactoryMethod GetMatrixFourComponentMultiplicationUsing(in MatrixFourComponentWithFactoryMethod firstMatrixFourComponentToHandle, in MatrixFourComponentWithFactoryMethod secondMatrixFourComponentToHandle)
+        public static MatrixFourComponentWithFactoryMethod GetMatrixFourComponentMultiplicationUsing(in MatrixFourComponentWithFactoryMethod leftMatrixFourComponentToHandle, in MatrixFourComponentWithFactoryMethod rightMatrixFourComponentToHandle)
         {
             MatrixFourComponentWithFactoryMethod finalMatrixFourComponentToHandle = new()
             {
-                MatrixFourComponentAX = firstMatrixFourComponentToHandle.MatrixFourComponentAX * secondMatrixFourComponentToHandle.MatrixFourComponentAX + firstMatrixFourComponentToHandle.MatrixFourComponentAY * secondMatrixFourComponentToHandle.MatrixFourComponentBX + firstMatrixFourComponentToHandle.MatrixFourComponentAZ * secondMatrixFourComponentToHandle.MatrixFourComponentCX + firstMatrixFourComponentToHandle.MatrixFourComponentAW * secondMatrixFourComponentToHandle.MatrixFourComponentDX,
-                MatrixFourComponentAY = firstMatrixFourComponentToHandle.MatrixFourComponentAX * secondMatrixFourComponentToHandle.MatrixFourComponentAY + firstMatrixFourComponentToHandle.MatrixFourComponentAY * secondMatrixFourComponentToHandle.MatrixFourComponentBY + firstMatrixFourComponentToHandle.MatrixFourComponentAZ * secondMatrixFourComponentToHandle.MatrixFourComponentCY + firstMatrixFourComponentToHandle.MatrixFourComponentAW * secondMatrixFourComponentToHandle.MatrixFourComponentDY,
-                MatrixFourComponentAZ = firstMatrixFourComponentToHandle.MatrixFourComponentAX * secondMatrixFourComponentToHandle.MatrixFourComponentAZ + firstMatrixFourComponentToHandle.MatrixFourComponentAY * secondMatrixFourComponentToHandle.MatrixFourComponentBZ + firstMatrixFourComponentToHandle.MatrixFourComponentAZ * secondMatrixFourComponentToHandle.MatrixFourComponentCZ + firstMatrixFourComponentToHandle.MatrixFourComponentAW * secondMatrixFourComponentToHandle.MatrixFourComponentDZ,
-                MatrixFourComponentAW = firstMatrixFourComponentToHandle.MatrixFourComponentAX * secondMatrixFourComponentToHandle.MatrixFourComponentAW + firstMatrixFourComponentToHandle.MatrixFourComponentAY * secondMatrixFourComponentToHandle.MatrixFourComponentBW + firstMatrixFourComponentToHandle.MatrixFourComponentAZ * secondMatrixFourComponentToHandle.MatrixFourComponentCW + firstMatrixFourComponentToHandle.MatrixFourComponentAW * secondMatrixFourComponentToHandle.MatrixFourComponentDW,
-                MatrixFourComponentBX = firstMatrixFourComponentToHandle.MatrixFourComponentBX * secondMatrixFourComponentToHandle.MatrixFourComponentAX + firstMatrixFourComponentToHandle.MatrixFourComponentBY * secondMatrixFourComponentToHandle.MatrixFourComponentBX + firstMatrixFourComponentToHandle.MatrixFourComponentBZ * secondMatrixFourComponentToHandle.MatrixFourComponentCX + firstMatrixFourComponentToHandle.MatrixFourComponentBW * secondMatrixFourComponentToHandle.MatrixFourComponentDX,
-                MatrixFourComponentBY = firstMatrixFourComponentToHandle.MatrixFourComponentBX * secondMatrixFourComponentToHandle.MatrixFourComponentAY + firstMatrixFourComponentToHandle.MatrixFourComponentBY * secondMatrixFourComponentToHandle.MatrixFourComponentBY + firstMatrixFourComponentToHandle.MatrixFourComponentBZ * secondMatrixFourComponentToHandle.MatrixFourComponentCY + firstMatrixFourComponentToHandle.MatrixFourComponentBW * secondMatrixFourComponentToHandle.MatrixFourComponentDY,
-                MatrixFourComponentBZ = firstMatrixFourComponentToHandle.MatrixFourComponentBX * secondMatrixFourComponentToHandle.MatrixFourComponentAZ + firstMatrixFourComponentToHandle.MatrixFourComponentBY * secondMatrixFourComponentToHandle.MatrixFourComponentBZ + firstMatrixFourComponentToHandle.MatrixFourComponentBZ * secondMatrixFourComponentToHandle.MatrixFourComponentCZ + firstMatrixFourComponentToHandle.MatrixFourComponentBW * secondMatrixFourComponentToHandle.MatrixFourComponentDZ,
-                MatrixFourComponentBW = firstMatrixFourComponentToHandle.MatrixFourComponentBX * secondMatrixFourComponentToHandle.MatrixFourComponentAW + firstMatrixFourComponentToHandle.MatrixFourComponentBY * secondMatrixFourComponentToHandle.MatrixFourComponentBW + firstMatrixFourComponentToHandle.MatrixFourComponentBZ * secondMatrixFourComponentToHandle.MatrixFourComponentCW + firstMatrixFourComponentToHandle.MatrixFourComponentBW * secondMatrixFourComponentToHandle.MatrixFourComponentDW,
-                MatrixFourComponentCX = firstMatrixFourComponentToHandle.MatrixFourComponentCX * secondMatrixFourComponentToHandle.MatrixFourComponentAX + firstMatrixFourComponentToHandle.MatrixFourComponentCY * secondMatrixFourComponentToHandle.MatrixFourComponentBX + firstMatrixFourComponentToHandle.MatrixFourComponentCZ * secondMatrixFourComponentToHandle.MatrixFourComponentCX + firstMatrixFourComponentToHandle.MatrixFourComponentCW * secondMatrixFourComponentToHandle.MatrixFourComponentDX,
-                MatrixFourComponentCY = firstMatrixFourComponentToHandle.MatrixFourComponentCX * secondMatrixFourComponentToHandle.MatrixFourComponentAY + firstMatrixFourComponentToHandle.MatrixFourComponentCY * secondMatrixFourComponentToHandle.MatrixFourComponentBY + firstMatrixFourComponentToHandle.MatrixFourComponentCZ * secondMatrixFourComponentToHandle.MatrixFourComponentCY + firstMatrixFourComponentToHandle.MatrixFourComponentCW * secondMatrixFourComponentToHandle.MatrixFourComponentDY,
-                MatrixFourComponentCZ = firstMatrixFourComponentToHandle.MatrixFourComponentCX * secondMatrixFourComponentToHandle.MatrixFourComponentAZ + firstMatrixFourComponentToHandle.MatrixFourComponentCY * secondMatrixFourComponentToHandle.MatrixFourComponentBZ + firstMatrixFourComponentToHandle.MatrixFourComponentCZ * secondMatrixFourComponentToHandle.MatrixFourComponentCZ + firstMatrixFourComponentToHandle.MatrixFourComponentCW * secondMatrixFourComponentToHandle.MatrixFourComponentDZ,
-                MatrixFourComponentCW = firstMatrixFourComponentToHandle.MatrixFourComponentCX * secondMatrixFourComponentToHandle.MatrixFourComponentAW + firstMatrixFourComponentToHandle.MatrixFourComponentCY * secondMatrixFourComponentToHandle.MatrixFourComponentBW + firstMatrixFourComponentToHandle.MatrixFourComponentCZ * secondMatrixFourComponentToHandle.MatrixFourComponentCW + firstMatrixFourComponentToHandle.MatrixFourComponentCW * secondMatrixFourComponentToHandle.MatrixFourComponentDW,
-                MatrixFourComponentDX = firstMatrixFourComponentToHandle.MatrixFourComponentDX * secondMatrixFourComponentToHandle.MatrixFourComponentAX + firstMatrixFourComponentToHandle.MatrixFourComponentDY * secondMatrixFourComponentToHandle.MatrixFourComponentBX + firstMatrixFourComponentToHandle.MatrixFourComponentDZ * secondMatrixFourComponentToHandle.MatrixFourComponentCX + firstMatrixFourComponentToHandle.MatrixFourComponentDW * secondMatrixFourComponentToHandle.MatrixFourComponentDX,
-                MatrixFourComponentDY = firstMatrixFourComponentToHandle.MatrixFourComponentDX * secondMatrixFourComponentToHandle.MatrixFourComponentAY + firstMatrixFourComponentToHandle.MatrixFourComponentDY * secondMatrixFourComponentToHandle.MatrixFourComponentBY + firstMatrixFourComponentToHandle.MatrixFourComponentDZ * secondMatrixFourComponentToHandle.MatrixFourComponentCY + firstMatrixFourComponentToHandle.MatrixFourComponentDW * secondMatrixFourComponentToHandle.MatrixFourComponentDY,
-                MatrixFourComponentDZ = firstMatrixFourComponentToHandle.MatrixFourComponentDX * secondMatrixFourComponentToHandle.MatrixFourComponentAZ + firstMatrixFourComponentToHandle.MatrixFourComponentDY * secondMatrixFourComponentToHandle.MatrixFourComponentBZ + firstMatrixFourComponentToHandle.MatrixFourComponentDZ * secondMatrixFourComponentToHandle.MatrixFourComponentCZ + firstMatrixFourComponentToHandle.MatrixFourComponentDW * secondMatrixFourComponentToHandle.MatrixFourComponentDZ,
-                MatrixFourComponentDW = firstMatrixFourComponentToHandle.MatrixFourComponentDX * secondMatrixFourComponentToHandle.MatrixFourComponentAW + firstMatrixFourComponentToHandle.MatrixFourComponentDY * secondMatrixFourComponentToHandle.MatrixFourComponentBW + firstMatrixFourComponentToHandle.MatrixFourComponentDZ * secondMatrixFourComponentToHandle.MatrixFourComponentCW + firstMatrixFourComponentToHandle.MatrixFourComponentDW * secondMatrixFourComponentToHandle.MatrixFourComponentDW
+                MatrixFourComponentAX = leftMatrixFourComponentToHandle.MatrixFourComponentAX * rightMatrixFourComponentToHandle.MatrixFourComponentAX + leftMatrixFourComponentToHandle.MatrixFourComponentAY * rightMatrixFourComponentToHandle.MatrixFourComponentBX + leftMatrixFourComponentToHandle.MatrixFourComponentAZ * rightMatrixFourComponentToHandle.MatrixFourComponentCX + leftMatrixFourComponentToHandle.MatrixFourComponentAW * rightMatrixFourComponentToHandle.MatrixFourComponentDX,
+                MatrixFourComponentAY = leftMatrixFourComponentToHandle.MatrixFourComponentAX * rightMatrixFourComponentToHandle.MatrixFourComponentAY + leftMatrixFourComponentToHandle.MatrixFourComponentAY * rightMatrixFourComponentToHandle.MatrixFourComponentBY + leftMatrixFourComponentToHandle.MatrixFourComponentAZ * rightMatrixFourComponentToHandle.MatrixFourComponentCY + leftMatrixFourComponentToHandle.MatrixFourComponentAW * rightMatrixFourComponentToHandle.MatrixFourComponentDY,
+                MatrixFourComponentAZ = leftMatrixFourComponentToHandle.MatrixFourComponentAX * rightMatrixFourComponentToHandle.MatrixFourComponentAZ + leftMatrixFourComponentToHandle.MatrixFourComponentAY * rightMatrixFourComponentToHandle.MatrixFourComponentBZ + leftMatrixFourComponentToHandle.MatrixFourComponentAZ * rightMatrixFourComponentToHandle.MatrixFourComponentCZ + leftMatrixFourComponentToHandle.MatrixFourComponentAW * rightMatrixFourComponentToHandle.MatrixFourComponentDZ,
+                MatrixFourComponentAW = leftMatrixFourComponentToHandle.MatrixFourComponentAX * rightMatrixFourComponentToHandle.MatrixFourComponentAW + leftMatrixFourComponentToHandle.MatrixFourComponentAY * rightMatrixFourComponentToHandle.MatrixFourComponentBW + leftMatrixFourComponentToHandle.MatrixFourComponentAZ * rightMatrixFourComponentToHandle.MatrixFourComponentCW + leftMatrixFourComponentToHandle.MatrixFourComponentAW * rightMatrixFourComponentToHandle.MatrixFourComponentDW,
+                MatrixFourComponentBX = leftMatrixFourComponentToHandle.MatrixFourComponentBX * rightMatrixFourComponentToHandle.MatrixFourComponentAX + leftMatrixFourComponentToHandle.MatrixFourComponentBY * rightMatrixFourComponentToHandle.MatrixFourComponentBX + leftMatrixFourComponentToHandle.MatrixFourComponentBZ * rightMatrixFourComponentToHandle.MatrixFourComponentCX + leftMatrixFourComponentToHandle.MatrixFourComponentBW * rightMatrixFourComponentToHandle.MatrixFourComponentDX,
+                MatrixFourComponentBY = leftMatrixFourComponentToHandle.MatrixFourComponentBX * rightMatrixFourComponentToHandle.MatrixFourComponentAY + leftMatrixFourComponentToHandle.MatrixFourComponentBY * rightMatrixFourComponentToHandle.MatrixFourComponentBY + leftMatrixFourComponentToHandle.MatrixFourComponentBZ * rightMatrixFourComponentToHandle.MatrixFourComponentCY + leftMatrixFourComponentToHandle.MatrixFourComponentBW * rightMatrixFourComponentToHandle.MatrixFourComponentDY,
+                MatrixFourComponentBZ = leftMatrixFourComponentToHandle.MatrixFourComponentBX * rightMatrixFourComponentToHandle.MatrixFourComponentAZ + leftMatrixFourComponentToHandle.MatrixFourComponentBY * rightMatrixFourComponentToHandle.MatrixFourComponentBZ + leftMatrixFourComponentToHandle.MatrixFourComponentBZ * rightMatrixFourComponentToHandle.MatrixFourComponentCZ + leftMatrixFourComponentToHandle.MatrixFourComponentBW * rightMatrixFourComponentToHandle.MatrixFourComponentDZ,
+                MatrixFourComponentBW = leftMatrixFourComponentToHandle.MatrixFourComponentBX * rightMatrixFourComponentToHandle.MatrixFourComponentAW + leftMatrixFourComponentToHandle.MatrixFourComponentBY * rightMatrixFourComponentToHandle.MatrixFourComponentBW + leftMatrixFourComponentToHandle.MatrixFourComponentBZ * rightMatrixFourComponentToHandle.MatrixFourComponentCW + leftMatrixFourComponentToHandle.MatrixFourComponentBW * rightMatrixFourComponentToHandle.MatrixFourComponentDW,
+                MatrixFourComponentCX = leftMatrixFourComponentToHandle.MatrixFourComponentCX * rightMatrixFourComponentToHandle.MatrixFourComponentAX + leftMatrixFourComponentToHandle.MatrixFourComponentCY * rightMatrixFourComponentToHandle.MatrixFourComponentBX + leftMatrixFourComponentToHandle.MatrixFourComponentCZ * rightMatrixFourComponentToHandle.MatrixFourComponentCX + leftMatrixFourComponentToHandle.MatrixFourComponentCW * rightMatrixFourComponentToHandle.MatrixFourComponentDX,
+                MatrixFourComponentCY = leftMatrixFourComponentToHandle.MatrixFourComponentCX * rightMatrixFourComponentToHandle.MatrixFourComponentAY + leftMatrixFourComponentToHandle.MatrixFourComponentCY * rightMatrixFourComponentToHandle.MatrixFourComponentBY + leftMatrixFourComponentToHandle.MatrixFourComponentCZ * rightMatrixFourComponentToHandle.MatrixFourComponentCY + leftMatrixFourComponentToHandle.MatrixFourComponentCW * rightMatrixFourComponentToHandle.MatrixFourComponentDY,
+                MatrixFourComponentCZ = leftMatrixFourComponentToHandle.MatrixFourComponentCX * rightMatrixFourComponentToHandle.MatrixFourComponentAZ + leftMatrixFourComponentToHandle.MatrixFourComponentCY * rightMatrixFourComponentToHandle.MatrixFourComponentBZ + leftMatrixFourComponentToHandle.MatrixFourComponentCZ * rightMatrixFourComponentToHandle.MatrixFourComponentCZ + leftMatrixFourComponentToHandle.MatrixFourComponentCW * rightMatrixFourComponentToHandle.MatrixFourComponentDZ,
+                MatrixFourComponentCW = leftMatrixFourComponentToHandle.MatrixFourComponentCX * rightMatrixFourComponentToHandle.MatrixFourComponentAW + leftMatrixFourComponentToHandle.MatrixFourComponentCY * rightMatrixFourComponentToHandle.MatrixFourComponentBW + leftMatrixFourComponentToHandle.MatrixFourComponentCZ * rightMatrixFourComponentToHandle.MatrixFourComponentCW + leftMatrixFourComponentToHandle.MatrixFourComponentCW * rightMatrixFourComponentToHandle.MatrixFourComponentDW,
+                MatrixFourComponentDX = leftMatrixFourComponentToHandle.MatrixFourComponentDX * rightMatrixFourComponentToHandle.MatrixFourComponentAX + leftMatrixFourComponentToHandle.MatrixFourComponentDY * rightMatrixFourComponentToHandle.MatrixFourComponentBX + leftMatrixFourComponentToHandle.MatrixFourComponentDZ * rightMatrixFourComponentToHandle.MatrixFourComponentCX + leftMatrixFourComponentToHandle.MatrixFourComponentDW * rightMatrixFourComponentToHandle.MatrixFourComponentDX,
+                MatrixFourComponentDY = leftMatrixFourComponentToHandle.MatrixFourComponentDX * rightMatrixFourComponentToHandle.MatrixFourComponentAY + leftMatrixFourComponentToHandle.MatrixFourComponentDY * rightMatrixFourComponentToHandle.MatrixFourComponentBY + leftMatrixFourComponentToHandle.MatrixFourComponentDZ * rightMatrixFourComponentToHandle.MatrixFourComponentCY + leftMatrixFourComponentToHandle.MatrixFourComponentDW * rightMatrixFourComponentToHandle.MatrixFourComponentDY,
+                MatrixFourComponentDZ = leftMatrixFourComponentToHandle.MatrixFourComponentDX * rightMatrixFourComponentToHandle.MatrixFourComponentAZ + leftMatrixFourComponentToHandle.MatrixFourComponentDY * rightMatrixFourComponentToHandle.MatrixFourComponentBZ + leftMatrixFourComponentToHandle.MatrixFourComponentDZ * rightMatrixFourComponentToHandle.MatrixFourComponentCZ + leftMatrixFourComponentToHandle.MatrixFourComponentDW * rightMatrixFourComponentToHandle.MatrixFourComponentDZ,
+                MatrixFourComponentDW = leftMatrixFourComponentToHandle.MatrixFourComponentDX * rightMatrixFourComponentToHandle.MatrixFourComponentAW + leftMatrixFourComponentToHandle.MatrixFourComponentDY * rightMatrixFourComponentToHandle.MatrixFourComponentBW + leftMatrixFourComponentToHandle.MatrixFourComponentDZ * rightMatrixFourComponentToHandle.MatrixFourComponentCW + leftMatrixFourComponentToHandle.MatrixFourComponentDW * rightMatrixFourComponentToHandle.MatrixFourComponentDW
             };
 
             return finalMatrixFourComponentToHandle;
         }
 
-        public void SetMatrixFourComponentElementUsing(in MatrixFourRowLevel matrixFourComponentRowLevel, in MatrixFourColumnLevel matrixFourComponentColumnLevel, in double newMatrixFourComponentElementToDefine)
+        public void SetMatrixFourComponentElementUsing(in MatrixFourRowLevelWithFactoryMethod otherMatrixFourComponentRowLevelToHandle, in MatrixFourColumnLevelWithFactoryMethod otherMatrixFourComponentColumnLevelToHandle, in double otherMatrixFourComponentElementToHandle)
         {
-            switch (matrixFourComponentColumnLevel)
+            switch (otherMatrixFourComponentColumnLevelToHandle)
             {
-                case MatrixFourColumnLevel.MatrixFourColumnLevelUndefined:
+                case MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelUndefined:
                     break;
-                case MatrixFourColumnLevel.MatrixFourColumnLevelA:
-                    switch (matrixFourComponentRowLevel)
+                case MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelA:
+                    switch (otherMatrixFourComponentRowLevelToHandle)
                     {
-                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelUndefined:
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelX:
-                            MatrixFourComponentAX = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelX:
+                            MatrixFourComponentAX = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelY:
-                            MatrixFourComponentAY = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelY:
+                            MatrixFourComponentAY = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
-                            MatrixFourComponentAZ = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelZ:
+                            MatrixFourComponentAZ = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelW:
-                            MatrixFourComponentAW = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelW:
+                            MatrixFourComponentAW = otherMatrixFourComponentElementToHandle;
                             break;
                         default:
                             break;
                     }
 
                     break;
-                case MatrixFourColumnLevel.MatrixFourColumnLevelB:
-                    switch (matrixFourComponentRowLevel)
+                case MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelB:
+                    switch (otherMatrixFourComponentRowLevelToHandle)
                     {
-                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelUndefined:
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelX:
-                            MatrixFourComponentBX = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelX:
+                            MatrixFourComponentBX = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelY:
-                            MatrixFourComponentBY = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelY:
+                            MatrixFourComponentBY = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
-                            MatrixFourComponentBZ = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelZ:
+                            MatrixFourComponentBZ = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelW:
-                            MatrixFourComponentBW = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelW:
+                            MatrixFourComponentBW = otherMatrixFourComponentElementToHandle;
                             break;
                         default:
                             break;
                     }
 
                     break;
-                case MatrixFourColumnLevel.MatrixFourColumnLevelC:
-                    switch (matrixFourComponentRowLevel)
+                case MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelC:
+                    switch (otherMatrixFourComponentRowLevelToHandle)
                     {
-                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelUndefined:
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelX:
-                            MatrixFourComponentCX = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelX:
+                            MatrixFourComponentCX = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelY:
-                            MatrixFourComponentCY = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelY:
+                            MatrixFourComponentCY = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
-                            MatrixFourComponentCZ = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelZ:
+                            MatrixFourComponentCZ = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelW:
-                            MatrixFourComponentCW = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelW:
+                            MatrixFourComponentCW = otherMatrixFourComponentElementToHandle;
                             break;
                         default:
                             break;
                     }
 
                     break;
-                case MatrixFourColumnLevel.MatrixFourColumnLevelD:
-                    switch (matrixFourComponentRowLevel)
+                case MatrixFourColumnLevelWithFactoryMethod.MatrixFourColumnLevelD:
+                    switch (otherMatrixFourComponentRowLevelToHandle)
                     {
-                        case MatrixFourRowLevel.MatrixFourRowLevelUndefined:
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelUndefined:
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelX:
-                            MatrixFourComponentDX = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelX:
+                            MatrixFourComponentDX = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelY:
-                            MatrixFourComponentDY = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelY:
+                            MatrixFourComponentDY = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelZ:
-                            MatrixFourComponentDZ = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelZ:
+                            MatrixFourComponentDZ = otherMatrixFourComponentElementToHandle;
                             break;
-                        case MatrixFourRowLevel.MatrixFourRowLevelW:
-                            MatrixFourComponentDW = newMatrixFourComponentElementToDefine;
+                        case MatrixFourRowLevelWithFactoryMethod.MatrixFourRowLevelW:
+                            MatrixFourComponentDW = otherMatrixFourComponentElementToHandle;
                             break;
                         default:
                             break;
@@ -195,87 +195,100 @@
 
         public readonly void DisplayMatrixFourComponentContent()
         {
-            Console.WriteLine(value: GetMatrixFourComponentContentUsing(specificMatrixFourComponentToHandle: this));
+            Console.WriteLine(value: GetMatrixFourComponentContentUsing(otherMatrixFourComponentToHandle: this));
+        }
+
+        private readonly void SetMatrixFourComponentContentElementContentUsing(StringBuilder matrixFourComponentContentStringBuilder, in double otherMatrixFourComponentContentElementToHandle)
+        {
+            const string MatrixFourComponentContentElementContentFormat = "+#000000.000000;-#000000.000000";
+
+            matrixFourComponentContentStringBuilder.Append(value: $"{otherMatrixFourComponentContentElementToHandle.ToString(format: MatrixFourComponentContentElementContentFormat).ToUpperInvariant()}".ToUpperInvariant());
+        }
+
+        private readonly void SetMatrixFourComponentContentWhiteSpaceContentUsing(StringBuilder matrixFourComponentContentStringBuilder)
+        {
+            const uint MatrixFourComponentContentWhiteSpaceDimension = 1;
+            const char MatrixFourComponentContentWhiteSpaceCharacter = ' ';
+
+            matrixFourComponentContentStringBuilder.Append(value: new string(c: MatrixFourComponentContentWhiteSpaceCharacter, count: (int)MatrixFourComponentContentWhiteSpaceDimension).ToUpperInvariant());
         }
 
         private readonly StringBuilder GetMatrixFourComponentContent()
         {
-            const string MatrixFourComponentContentElementFormat = "+#000000.000000;-#000000.000000";
-
             StringBuilder matrixFourComponentContentStringBuilder = new();
 
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentAX.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentAY.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentAZ.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentAW.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentAX);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentAY);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentAZ);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentAW);
             matrixFourComponentContentStringBuilder.AppendLine();
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentBX.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentBY.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentBZ.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentBW.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentBX);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentBY);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentBZ);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentBW);
             matrixFourComponentContentStringBuilder.AppendLine();
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentCX.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentCY.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentCZ.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentCW.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentCX);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentCY);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentCZ);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentCW);
             matrixFourComponentContentStringBuilder.AppendLine();
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentDX.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentDY.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentDZ.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: " ".ToUpperInvariant());
-            matrixFourComponentContentStringBuilder.Append(value: $"{MatrixFourComponentDW.ToString(format: MatrixFourComponentContentElementFormat).ToUpperInvariant()}".ToUpperInvariant());
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentDX);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentDY);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentDZ);
+            SetMatrixFourComponentContentWhiteSpaceContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder);
+            SetMatrixFourComponentContentElementContentUsing(matrixFourComponentContentStringBuilder: matrixFourComponentContentStringBuilder, otherMatrixFourComponentContentElementToHandle: MatrixFourComponentDW);
 
             return matrixFourComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetMatrixFourComponentContentUsing(in MatrixFourComponentWithFactoryMethod specificMatrixFourComponentToHandle)
+        private static StringBuilder GetMatrixFourComponentContentUsing(in MatrixFourComponentWithFactoryMethod otherMatrixFourComponentToHandle)
         {
             StringBuilder matrixFourComponentContentStringBuilder = new();
 
-            matrixFourComponentContentStringBuilder.Append(value: specificMatrixFourComponentToHandle.GetMatrixFourComponentContent());
+            matrixFourComponentContentStringBuilder.Append(value: otherMatrixFourComponentToHandle.GetMatrixFourComponentContent());
 
             return matrixFourComponentContentStringBuilder;
         }
 
-        public override readonly bool Equals(object specificMatrixFourComponentUndefinedObject)
+        public override readonly bool Equals(object otherMatrixFourComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificMatrixFourComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherMatrixFourComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificMatrixFourComponentUndefinedObject == null || specificMatrixFourComponentUndefinedObject is MatrixFourComponentWithFactoryMethod specificMatrixFourComponentDefinedObject == false)
+            if (otherMatrixFourComponentUndefinedObjectToHandle == null || otherMatrixFourComponentUndefinedObjectToHandle is MatrixFourComponentWithFactoryMethod otherMatrixFourComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (Math.Abs(value: MatrixFourComponentAX - specificMatrixFourComponentDefinedObject.MatrixFourComponentAX) > double.Epsilon || Math.Abs(value: MatrixFourComponentAY - specificMatrixFourComponentDefinedObject.MatrixFourComponentAY) > double.Epsilon || Math.Abs(value: MatrixFourComponentAZ - specificMatrixFourComponentDefinedObject.MatrixFourComponentAZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentAW - specificMatrixFourComponentDefinedObject.MatrixFourComponentAW) > double.Epsilon)
+            if (Math.Abs(value: MatrixFourComponentAX - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentAX) > double.Epsilon || Math.Abs(value: MatrixFourComponentAY - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentAY) > double.Epsilon || Math.Abs(value: MatrixFourComponentAZ - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentAZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentAW - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentAW) > double.Epsilon)
             {
                 return false;
             }
 
-            if (Math.Abs(value: MatrixFourComponentBX - specificMatrixFourComponentDefinedObject.MatrixFourComponentBX) > double.Epsilon || Math.Abs(value: MatrixFourComponentBY - specificMatrixFourComponentDefinedObject.MatrixFourComponentBY) > double.Epsilon || Math.Abs(value: MatrixFourComponentBZ - specificMatrixFourComponentDefinedObject.MatrixFourComponentBZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentBW - specificMatrixFourComponentDefinedObject.MatrixFourComponentBW) > double.Epsilon)
+            if (Math.Abs(value: MatrixFourComponentBX - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentBX) > double.Epsilon || Math.Abs(value: MatrixFourComponentBY - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentBY) > double.Epsilon || Math.Abs(value: MatrixFourComponentBZ - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentBZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentBW - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentBW) > double.Epsilon)
             {
                 return false;
             }
 
-            if (Math.Abs(value: MatrixFourComponentCX - specificMatrixFourComponentDefinedObject.MatrixFourComponentCX) > double.Epsilon || Math.Abs(value: MatrixFourComponentCY - specificMatrixFourComponentDefinedObject.MatrixFourComponentCY) > double.Epsilon || Math.Abs(value: MatrixFourComponentCZ - specificMatrixFourComponentDefinedObject.MatrixFourComponentCZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentCW - specificMatrixFourComponentDefinedObject.MatrixFourComponentCW) > double.Epsilon)
+            if (Math.Abs(value: MatrixFourComponentCX - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentCX) > double.Epsilon || Math.Abs(value: MatrixFourComponentCY - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentCY) > double.Epsilon || Math.Abs(value: MatrixFourComponentCZ - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentCZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentCW - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentCW) > double.Epsilon)
             {
                 return false;
             }
 
-            if (Math.Abs(value: MatrixFourComponentDX - specificMatrixFourComponentDefinedObject.MatrixFourComponentDX) > double.Epsilon || Math.Abs(value: MatrixFourComponentDY - specificMatrixFourComponentDefinedObject.MatrixFourComponentDY) > double.Epsilon || Math.Abs(value: MatrixFourComponentDZ - specificMatrixFourComponentDefinedObject.MatrixFourComponentDZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentDW - specificMatrixFourComponentDefinedObject.MatrixFourComponentDW) > double.Epsilon)
+            if (Math.Abs(value: MatrixFourComponentDX - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentDX) > double.Epsilon || Math.Abs(value: MatrixFourComponentDY - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentDY) > double.Epsilon || Math.Abs(value: MatrixFourComponentDZ - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentDZ) > double.Epsilon || Math.Abs(value: MatrixFourComponentDW - otherMatrixFourComponentDefinedObjectToHandle.MatrixFourComponentDW) > double.Epsilon)
             {
                 return false;
             }
@@ -312,7 +325,7 @@
 
         public override readonly string ToString()
         {
-            return GetMatrixFourComponentContentUsing(specificMatrixFourComponentToHandle: this).ToString().ToUpperInvariant();
+            return GetMatrixFourComponentContentUsing(otherMatrixFourComponentToHandle: this).ToString().ToUpperInvariant();
         }
     }
 }

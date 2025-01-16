@@ -5,73 +5,73 @@
 
     public sealed class DocumentFormatterWithRegularStrategy<TDocumentFormatWithRegularStrategy> where TDocumentFormatWithRegularStrategy : IDocumentFormatWithRegularStrategy, new()
     {
-        private TDocumentFormatWithRegularStrategy DocumentFormatterDocumentFormat { get; set; }
+        private TDocumentFormatWithRegularStrategy DocumentFormatterDocumentFormat { get; }
 
         public DocumentFormatterWithRegularStrategy() : base()
         {
             DocumentFormatterDocumentFormat = new TDocumentFormatWithRegularStrategy();
         }
 
-        public void DisplayDocumentFormatterDocumentComponentContentUsing(in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToDisplay)
+        public void DisplayDocumentFormatterDocumentComponentContentUsing(in DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentToHandle)
         {
-            Console.WriteLine(value: GetDocumentFormatterDocumentComponentContentUsing(specificDocumentFormatterToHandle: this, specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToDisplay, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: uint.MinValue));
+            Console.WriteLine(value: GetDocumentFormatterDocumentComponentContentUsing(otherDocumentFormatterToHandle: this, otherDocumentFormatterDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle, otherDocumentFormatterDocumentComponentContentIndentLevelToHandle: uint.MinValue));
         }
 
-        private void SetDocumentFormatterDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle)
+        private void SetDocumentFormatterDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentToHandle)
         {
-            DocumentFormatterDocumentFormat.SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(documentFormatDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
+            DocumentFormatterDocumentFormat.SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(documentFormatDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle);
         }
 
-        private void SetDocumentFormatterDocumentComponentContentClosedIdentifierContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle)
+        private void SetDocumentFormatterDocumentComponentContentClosedIdentifierContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentToHandle)
         {
-            DocumentFormatterDocumentFormat.SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(documentFormatDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
+            DocumentFormatterDocumentFormat.SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(documentFormatDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle);
         }
 
-        private void SetDocumentFormatterDocumentComponentContentDescriptionContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle)
+        private void SetDocumentFormatterDocumentComponentContentDescriptionContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentToHandle)
         {
-            DocumentFormatterDocumentFormat.SetDocumentFormatDocumentComponentContentDescriptionContentUsing(documentFormatDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
+            DocumentFormatterDocumentFormat.SetDocumentFormatDocumentComponentContentDescriptionContentUsing(documentFormatDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle);
         }
 
-        private void SetDocumentFormatterDocumentComponentContentIndentContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in uint specificDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        private void SetDocumentFormatterDocumentComponentContentIndentContentUsing(StringBuilder documentFormatterDocumentComponentContentStringBuilder, in uint otherDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             const uint DocumentFormatterDocumentComponentContentIndentDimension = 5;
             const char DocumentFormatterDocumentComponentContentIndentCharacter = ' ';
 
-            documentFormatterDocumentComponentContentStringBuilder.Append(value: new string(c: DocumentFormatterDocumentComponentContentIndentCharacter, count: (int)specificDocumentFormatterDocumentComponentContentIndentLevelToHandle * (int)DocumentFormatterDocumentComponentContentIndentDimension).ToUpperInvariant());
+            documentFormatterDocumentComponentContentStringBuilder.Append(value: new string(c: DocumentFormatterDocumentComponentContentIndentCharacter, count: (int)otherDocumentFormatterDocumentComponentContentIndentLevelToHandle * (int)DocumentFormatterDocumentComponentContentIndentDimension).ToUpperInvariant());
         }
 
-        private StringBuilder GetDocumentFormatterDocumentComponentContentUsing(in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle, in uint specificDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        private StringBuilder GetDocumentFormatterDocumentComponentContentUsing(in DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentToHandle, in uint otherDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             StringBuilder documentFormatterDocumentComponentContentStringBuilder = new();
 
-            SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle);
-            SetDocumentFormatterDocumentComponentContentOpenedIdentifierContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
+            SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatterDocumentComponentContentIndentLevelToHandle: otherDocumentFormatterDocumentComponentContentIndentLevelToHandle);
+            SetDocumentFormatterDocumentComponentContentOpenedIdentifierContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatterDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle);
             documentFormatterDocumentComponentContentStringBuilder.AppendLine();
 
-            if (string.IsNullOrEmpty(value: specificDocumentFormatterDocumentComponentToHandle.DocumentComponentDescription) == false || string.IsNullOrWhiteSpace(value: specificDocumentFormatterDocumentComponentToHandle.DocumentComponentDescription) == false)
+            if (string.IsNullOrEmpty(value: otherDocumentFormatterDocumentComponentToHandle.DocumentComponentDescription) == false || string.IsNullOrWhiteSpace(value: otherDocumentFormatterDocumentComponentToHandle.DocumentComponentDescription) == false)
             {
-                SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle + 1);
-                SetDocumentFormatterDocumentComponentContentDescriptionContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
+                SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatterDocumentComponentContentIndentLevelToHandle: otherDocumentFormatterDocumentComponentContentIndentLevelToHandle + 1);
+                SetDocumentFormatterDocumentComponentContentDescriptionContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatterDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle);
                 documentFormatterDocumentComponentContentStringBuilder.AppendLine();
             }
 
-            foreach (DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentChildrenDocumentComponentElement in specificDocumentFormatterDocumentComponentToHandle.GetDocumentComponentChildrenDocumentComponentCollection())
+            foreach (DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentChildrenDocumentComponentElementToHandle in otherDocumentFormatterDocumentComponentToHandle.GetDocumentComponentChildrenDocumentComponentCollection())
             {
-                documentFormatterDocumentComponentContentStringBuilder.Append(value: GetDocumentFormatterDocumentComponentContentUsing(specificDocumentFormatterToHandle: this, specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentChildrenDocumentComponentElement, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle + 1));
+                documentFormatterDocumentComponentContentStringBuilder.Append(value: GetDocumentFormatterDocumentComponentContentUsing(otherDocumentFormatterToHandle: this, otherDocumentFormatterDocumentComponentToHandle: otherDocumentFormatterDocumentComponentChildrenDocumentComponentElementToHandle, otherDocumentFormatterDocumentComponentContentIndentLevelToHandle: otherDocumentFormatterDocumentComponentContentIndentLevelToHandle + 1));
                 documentFormatterDocumentComponentContentStringBuilder.AppendLine();
             }
 
-            SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle);
-            SetDocumentFormatterDocumentComponentContentClosedIdentifierContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle);
+            SetDocumentFormatterDocumentComponentContentIndentContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatterDocumentComponentContentIndentLevelToHandle: otherDocumentFormatterDocumentComponentContentIndentLevelToHandle);
+            SetDocumentFormatterDocumentComponentContentClosedIdentifierContentUsing(documentFormatterDocumentComponentContentStringBuilder: documentFormatterDocumentComponentContentStringBuilder, otherDocumentFormatterDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle);
 
             return documentFormatterDocumentComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetDocumentFormatterDocumentComponentContentUsing(in DocumentFormatterWithRegularStrategy<TDocumentFormatWithRegularStrategy> specificDocumentFormatterToHandle, in DocumentComponentWithRegularStrategy specificDocumentFormatterDocumentComponentToHandle, in uint specificDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        private static StringBuilder GetDocumentFormatterDocumentComponentContentUsing(in DocumentFormatterWithRegularStrategy<TDocumentFormatWithRegularStrategy> otherDocumentFormatterToHandle, in DocumentComponentWithRegularStrategy otherDocumentFormatterDocumentComponentToHandle, in uint otherDocumentFormatterDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             StringBuilder documentFormatterDocumentComponentContentStringBuilder = new();
 
-            documentFormatterDocumentComponentContentStringBuilder.Append(value: specificDocumentFormatterToHandle.GetDocumentFormatterDocumentComponentContentUsing(specificDocumentFormatterDocumentComponentToHandle: specificDocumentFormatterDocumentComponentToHandle, specificDocumentFormatterDocumentComponentContentIndentLevelToHandle: specificDocumentFormatterDocumentComponentContentIndentLevelToHandle));
+            documentFormatterDocumentComponentContentStringBuilder.Append(value: otherDocumentFormatterToHandle.GetDocumentFormatterDocumentComponentContentUsing(otherDocumentFormatterDocumentComponentToHandle: otherDocumentFormatterDocumentComponentToHandle, otherDocumentFormatterDocumentComponentContentIndentLevelToHandle: otherDocumentFormatterDocumentComponentContentIndentLevelToHandle));
 
             return documentFormatterDocumentComponentContentStringBuilder;
         }

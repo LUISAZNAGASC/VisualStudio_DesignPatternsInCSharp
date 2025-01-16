@@ -2,6 +2,6 @@
 {
     public interface IProductSizeLabelDefinitionWithStepwiseBuilder
     {
-        IProductMaterialLabelDefinitionWithStepwiseBuilder SetProductSizeLabelDefinitionUsing(in ProductSizeLabelWithStepwiseBuilder newProductSizeLabelDefinitionProductSizeLabelToDefine);
+        IProductMaterialLabelDefinitionWithStepwiseBuilder SetProductSizeLabelDefinitionUsing(in ProductSizeLabelWithStepwiseBuilder otherProductSizeLabelDefinitionProductSizeLabelToHandle);
     }
 }

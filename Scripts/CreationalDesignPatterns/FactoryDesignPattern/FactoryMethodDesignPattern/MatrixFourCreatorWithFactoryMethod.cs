@@ -4,13 +4,13 @@
     {
         protected MatrixFourComponentWithFactoryMethod MatrixFourCreatorMatrixFourComponent { get; set; }
 
-        public MatrixFourCreatorWithFactoryMethod(in double newMatrixFourCreatorXTransformationToInitialize, in double newMatrixFourCreatorYTransformationToInitialize, in double newMatrixFourCreatorZTransformationToInitialize) : base()
+        public MatrixFourCreatorWithFactoryMethod(in double otherMatrixFourCreatorXTransformationToHandle, in double otherMatrixFourCreatorYTransformationToHandle, in double otherMatrixFourCreatorZTransformationToHandle) : base()
         {
             MatrixFourCreatorMatrixFourComponent = MatrixFourComponentWithFactoryMethod.GetMatrixFourComponentIdentity();
 
-            SetMatrixFourCreatorXTransformationUsing(newMatrixFourCreatorXTransformationToDefine: newMatrixFourCreatorXTransformationToInitialize);
-            SetMatrixFourCreatorYTransformationUsing(newMatrixFourCreatorYTransformationToDefine: newMatrixFourCreatorYTransformationToInitialize);
-            SetMatrixFourCreatorZTransformationUsing(newMatrixFourCreatorZTransformationToDefine: newMatrixFourCreatorZTransformationToInitialize);
+            SetMatrixFourCreatorXTransformationUsing(otherMatrixFourCreatorXTransformationToHandle: otherMatrixFourCreatorXTransformationToHandle);
+            SetMatrixFourCreatorYTransformationUsing(otherMatrixFourCreatorYTransformationToHandle: otherMatrixFourCreatorYTransformationToHandle);
+            SetMatrixFourCreatorZTransformationUsing(otherMatrixFourCreatorZTransformationToHandle: otherMatrixFourCreatorZTransformationToHandle);
         }
 
         public MatrixFourComponentWithFactoryMethod GetMatrixFourCreatorMatrixFourComponent()
@@ -18,10 +18,10 @@
             return MatrixFourCreatorMatrixFourComponent;
         }
 
-        public abstract void SetMatrixFourCreatorXTransformationUsing(in double newMatrixFourCreatorXTransformationToDefine);
+        public abstract void SetMatrixFourCreatorXTransformationUsing(in double otherMatrixFourCreatorXTransformationToHandle);
 
-        public abstract void SetMatrixFourCreatorYTransformationUsing(in double newMatrixFourCreatorYTransformationToDefine);
+        public abstract void SetMatrixFourCreatorYTransformationUsing(in double otherMatrixFourCreatorYTransformationToHandle);
 
-        public abstract void SetMatrixFourCreatorZTransformationUsing(in double newMatrixFourCreatorZTransformationToDefine);
+        public abstract void SetMatrixFourCreatorZTransformationUsing(in double otherMatrixFourCreatorZTransformationToHandle);
     }
 }

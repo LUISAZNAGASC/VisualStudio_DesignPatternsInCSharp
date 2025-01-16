@@ -6,9 +6,18 @@
     {
         private List<ProductComponentWithRegularSingleton> ProductDatabaseProductComponentCollection { get; set; }
 
+        private static ProductDatabaseWithRegularSingleton ProductDatabaseInstance { get; set; }
+
         private ProductDatabaseWithRegularSingleton() : base()
         {
             ProductDatabaseProductComponentCollection = [];
+        }
+
+        public static ProductDatabaseWithRegularSingleton GetProductDatabaseInstance()
+        {
+            ProductDatabaseInstance ??= new ProductDatabaseWithRegularSingleton();
+
+            return ProductDatabaseInstance;
         }
 
         public IEnumerable<ProductComponentWithRegularSingleton> GetProductDatabaseProductComponentCollection()
@@ -21,65 +30,56 @@
             }
         }
 
-        public ProductComponentWithRegularSingleton GetProductDatabaseProductComponentElementUsing(in uint specificProductDatabaseProductComponentCollectionIndex)
+        public ProductComponentWithRegularSingleton GetProductDatabaseProductComponentElementUsing(in uint otherProductDatabaseProductComponentCollectionIndexToHandle)
         {
             if (ProductDatabaseProductComponentCollection == null)
             {
                 return null;
             }
 
-            if (specificProductDatabaseProductComponentCollectionIndex < uint.MinValue || specificProductDatabaseProductComponentCollectionIndex >= ProductDatabaseProductComponentCollection.Count)
+            if (otherProductDatabaseProductComponentCollectionIndexToHandle < uint.MinValue || otherProductDatabaseProductComponentCollectionIndexToHandle >= ProductDatabaseProductComponentCollection.Count)
             {
                 return null;
             }
 
-            return ProductDatabaseProductComponentCollection[index: (int)specificProductDatabaseProductComponentCollectionIndex];
+            return ProductDatabaseProductComponentCollection[index: (int)otherProductDatabaseProductComponentCollectionIndexToHandle];
         }
 
-        public bool AddProductDatabaseProductComponentElementUsing(in ProductComponentWithRegularSingleton newProductDatabaseProductComponentElementToAdd)
+        public bool AddProductDatabaseProductComponentElementUsing(in ProductComponentWithRegularSingleton otherProductDatabaseProductComponentElementToHandle)
         {
             if (ProductDatabaseProductComponentCollection == null)
             {
                 return false;
             }
 
-            if (newProductDatabaseProductComponentElementToAdd == null)
+            if (otherProductDatabaseProductComponentElementToHandle == null)
             {
                 return false;
             }
 
-            ProductDatabaseProductComponentCollection.Add(item: newProductDatabaseProductComponentElementToAdd);
+            ProductDatabaseProductComponentCollection.Add(item: otherProductDatabaseProductComponentElementToHandle);
 
             return true;
         }
 
-        public bool RemoveProductDatabaseProductComponentElementUsing(in ProductComponentWithRegularSingleton existingProductDatabaseProductComponentElementToRemove)
+        public bool RemoveProductDatabaseProductComponentElementUsing(in ProductComponentWithRegularSingleton otherProductDatabaseProductComponentElementToHandle)
         {
             if (ProductDatabaseProductComponentCollection == null)
             {
                 return false;
             }
 
-            if (existingProductDatabaseProductComponentElementToRemove == null)
+            if (otherProductDatabaseProductComponentElementToHandle == null)
             {
                 return false;
             }
 
-            if (ProductDatabaseProductComponentCollection.Contains(item: existingProductDatabaseProductComponentElementToRemove) == false)
+            if (ProductDatabaseProductComponentCollection.Contains(item: otherProductDatabaseProductComponentElementToHandle) == false)
             {
                 return false;
             }
 
-            return ProductDatabaseProductComponentCollection.Remove(item: existingProductDatabaseProductComponentElementToRemove);
-        }
-
-        private static ProductDatabaseWithRegularSingleton ProductDatabaseInstance { get; set; }
-
-        public static ProductDatabaseWithRegularSingleton GetProductDatabaseInstance()
-        {
-            ProductDatabaseInstance ??= new ProductDatabaseWithRegularSingleton();
-
-            return ProductDatabaseInstance;
+            return ProductDatabaseProductComponentCollection.Remove(item: otherProductDatabaseProductComponentElementToHandle);
         }
     }
 }

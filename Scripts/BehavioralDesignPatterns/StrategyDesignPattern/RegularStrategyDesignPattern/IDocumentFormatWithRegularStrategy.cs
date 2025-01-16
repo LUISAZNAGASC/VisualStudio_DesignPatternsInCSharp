@@ -4,10 +4,10 @@
 
     public interface IDocumentFormatWithRegularStrategy
     {
-        void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatDocumentComponentToHandle);
+        void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherDocumentFormatDocumentComponentToHandle);
 
-        void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatDocumentComponentToHandle);
+        void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherDocumentFormatDocumentComponentToHandle);
 
-        void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy specificDocumentFormatDocumentComponentToHandle);
+        void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder documentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherDocumentFormatDocumentComponentToHandle);
     }
 }

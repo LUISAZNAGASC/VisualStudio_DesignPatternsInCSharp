@@ -7,6 +7,6 @@
 
         }
 
-        public abstract bool CheckTemplateSpecificationIsValidUsing(in TTemplateComponentWithCompositeSpecification specificTemplateSpecificationTemplateComponentToCheck);
+        public abstract bool CheckTemplateSpecificationIsValidUsing(in TTemplateComponentWithCompositeSpecification otherTemplateSpecificationTemplateComponentToHandle);
     }
 }

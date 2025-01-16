@@ -7,25 +7,25 @@
     {
         public static IEnumerable<ProductComponentWithCompositeSpecification> GetProductFilterAllProductComponentCombinationCollection()
         {
-            foreach (ProductShapeLabelWithCompositeSpecification currentProductFilterProductShapeLabelToRead in Enum.GetValues(enumType: typeof(ProductShapeLabelWithCompositeSpecification)))
+            foreach (ProductShapeLabelWithCompositeSpecification productFilterProductShapeLabelElement in Enum.GetValues(enumType: typeof(ProductShapeLabelWithCompositeSpecification)))
             {
-                foreach (ProductSizeLabelWithCompositeSpecification currentProductFilterProductSizeLabelToRead in Enum.GetValues(enumType: typeof(ProductSizeLabelWithCompositeSpecification)))
+                foreach (ProductSizeLabelWithCompositeSpecification productFilterProductSizeLabelElement in Enum.GetValues(enumType: typeof(ProductSizeLabelWithCompositeSpecification)))
                 {
-                    foreach (ProductMaterialLabelWithCompositeSpecification currentProductFilterProductMaterialLabelToRead in Enum.GetValues(enumType: typeof(ProductMaterialLabelWithCompositeSpecification)))
+                    foreach (ProductMaterialLabelWithCompositeSpecification productFilterProductMaterialLabelElement in Enum.GetValues(enumType: typeof(ProductMaterialLabelWithCompositeSpecification)))
                     {
-                        yield return new ProductComponentWithCompositeSpecification(newProductComponentShapeLabelToInitialize: currentProductFilterProductShapeLabelToRead, newProductComponentSizeLabelToInitialize: currentProductFilterProductSizeLabelToRead, newProductComponentMaterialLabelToInitialize: currentProductFilterProductMaterialLabelToRead); ;
+                        yield return new ProductComponentWithCompositeSpecification(otherProductComponentShapeLabelToHandle: productFilterProductShapeLabelElement, otherProductComponentSizeLabelToHandle: productFilterProductSizeLabelElement, otherProductComponentMaterialLabelToHandle: productFilterProductMaterialLabelElement);
                     }
                 }
             }
         }
 
-        public static IEnumerable<ProductComponentWithCompositeSpecification> GetProductFilterFilteredProductComponentCollectionUsing(IEnumerable<ProductComponentWithCompositeSpecification> specificProductFilterProductComponentCollectionToFilter, TemplateSpecificationWithCompositeSpecification<ProductComponentWithCompositeSpecification> specificProductFilterProductSpecificationToFilter)
+        public static IEnumerable<ProductComponentWithCompositeSpecification> GetProductFilterFilteredProductComponentCollectionUsing(IEnumerable<ProductComponentWithCompositeSpecification> otherProductFilterProductComponentCollectionToHandle, TemplateSpecificationWithCompositeSpecification<ProductComponentWithCompositeSpecification> otherProductFilterProductSpecificationToHandle)
         {
-            foreach (ProductComponentWithCompositeSpecification specificProductFilterProductComponentElementToFilter in specificProductFilterProductComponentCollectionToFilter)
+            foreach (ProductComponentWithCompositeSpecification otherProductFilterProductComponentElementToHandle in otherProductFilterProductComponentCollectionToHandle)
             {
-                if (specificProductFilterProductSpecificationToFilter.CheckTemplateSpecificationIsValidUsing(specificTemplateSpecificationTemplateComponentToCheck: specificProductFilterProductComponentElementToFilter) == true)
+                if (otherProductFilterProductSpecificationToHandle.CheckTemplateSpecificationIsValidUsing(otherTemplateSpecificationTemplateComponentToHandle: otherProductFilterProductComponentElementToHandle) == true)
                 {
-                    yield return specificProductFilterProductComponentElementToFilter;
+                    yield return otherProductFilterProductComponentElementToHandle;
                 }
             }
         }

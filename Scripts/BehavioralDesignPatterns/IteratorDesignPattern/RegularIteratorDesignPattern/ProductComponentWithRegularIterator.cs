@@ -1,9 +1,9 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.SingletonDesignPattern.RegularSingletonDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
 {
     using System;
     using System.Text;
 
-    public enum ProductShapeLabelWithRegularSingleton : uint
+    public enum ProductShapeLabelWithRegularIterator : uint
     {
         ProductShapeLabelUndefined = 0,
         ProductShapeLabelCube = 1,
@@ -12,7 +12,7 @@
         ProductShapeLabelCapsule = 4
     }
 
-    public enum ProductSizeLabelWithRegularSingleton : uint
+    public enum ProductSizeLabelWithRegularIterator : uint
     {
         ProductSizeLabelUndefined = 0,
         ProductSizeLabelSmall = 1,
@@ -20,7 +20,7 @@
         ProductSizeLabelLarge = 3
     }
 
-    public enum ProductMaterialLabelWithRegularSingleton : uint
+    public enum ProductMaterialLabelWithRegularIterator : uint
     {
         ProductMaterialLabelUndefined = 0,
         ProductMaterialLabelFabric = 1,
@@ -29,23 +29,23 @@
         ProductMaterialLabelMetal = 4
     }
 
-    public sealed class ProductComponentWithRegularSingleton(in ProductShapeLabelWithRegularSingleton otherProductComponentShapeLabelToHandle, in ProductSizeLabelWithRegularSingleton otherProductComponentSizeLabelToHandle, in ProductMaterialLabelWithRegularSingleton otherProductComponentMaterialLabelToHandle) : object()
+    public sealed class ProductComponentWithRegularIterator(in ProductShapeLabelWithRegularIterator otherProductComponentShapeLabelToHandle, in ProductSizeLabelWithRegularIterator otherProductComponentSizeLabelToHandle, in ProductMaterialLabelWithRegularIterator otherProductComponentMaterialLabelToHandle) : object()
     {
-        public ProductShapeLabelWithRegularSingleton ProductComponentShapeLabel { get; private set; } = otherProductComponentShapeLabelToHandle;
-        public ProductSizeLabelWithRegularSingleton ProductComponentSizeLabel { get; private set; } = otherProductComponentSizeLabelToHandle;
-        public ProductMaterialLabelWithRegularSingleton ProductComponentMaterialLabel { get; private set; } = otherProductComponentMaterialLabelToHandle;
+        public ProductShapeLabelWithRegularIterator ProductComponentShapeLabel { get; private set; } = otherProductComponentShapeLabelToHandle;
+        public ProductSizeLabelWithRegularIterator ProductComponentSizeLabel { get; private set; } = otherProductComponentSizeLabelToHandle;
+        public ProductMaterialLabelWithRegularIterator ProductComponentMaterialLabel { get; private set; } = otherProductComponentMaterialLabelToHandle;
 
-        public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithRegularSingleton otherProductComponentShapeLabelToHandle)
+        public void SetProductComponentShapeLabelUsing(in ProductShapeLabelWithRegularIterator otherProductComponentShapeLabelToHandle)
         {
             ProductComponentShapeLabel = otherProductComponentShapeLabelToHandle;
         }
 
-        public void SetProductComponentSizeLabelUsing(in ProductSizeLabelWithRegularSingleton otherProductComponentSizeLabelToHandle)
+        public void SetProductComponentSizeLabelUsing(in ProductSizeLabelWithRegularIterator otherProductComponentSizeLabelToHandle)
         {
             ProductComponentSizeLabel = otherProductComponentSizeLabelToHandle;
         }
 
-        public void SetProductComponentMaterialLabelUsing(in ProductMaterialLabelWithRegularSingleton otherProductComponentMaterialLabelToHandle)
+        public void SetProductComponentMaterialLabelUsing(in ProductMaterialLabelWithRegularIterator otherProductComponentMaterialLabelToHandle)
         {
             ProductComponentMaterialLabel = otherProductComponentMaterialLabelToHandle;
         }
@@ -97,7 +97,7 @@
             return productComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithRegularSingleton otherProductComponentToHandle)
+        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithRegularIterator otherProductComponentToHandle)
         {
             StringBuilder productComponentContentStringBuilder = new();
 
@@ -113,7 +113,7 @@
                 return true;
             }
 
-            if (otherProductComponentUndefinedObjectToHandle == null || otherProductComponentUndefinedObjectToHandle is ProductComponentWithRegularSingleton otherDocumentComponentDefinedObjectToHandle == false)
+            if (otherProductComponentUndefinedObjectToHandle == null || otherProductComponentUndefinedObjectToHandle is ProductComponentWithRegularIterator otherDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public sealed class CompositeDocumentComponentWithRegularComposite(in string newCompositeDocumentComponentIdentifierToInitialize, in string newCompositeDocumentComponentDescriptionToInitialize) : DocumentComponentWithRegularComposite(newDocumentComponentIdentifierToInitialize: newCompositeDocumentComponentIdentifierToInitialize, newDocumentComponentDescriptionToInitialize: newCompositeDocumentComponentDescriptionToInitialize)
+    public sealed class CompositeDocumentComponentWithRegularComposite(in string otherCompositeDocumentComponentIdentifierToHandle, in string otherCompositeDocumentComponentDescriptionToHandle) : DocumentComponentWithRegularComposite(otherDocumentComponentIdentifierToHandle: otherCompositeDocumentComponentIdentifierToHandle, otherDocumentComponentDescriptionToHandle: otherCompositeDocumentComponentDescriptionToHandle)
     {
         private List<DocumentComponentWithRegularComposite> CompositeDocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
@@ -17,110 +17,110 @@
             }
         }
 
-        public DocumentComponentWithRegularComposite GetCompositeDocumentComponentChildrenDocumentComponentElementUsing(in uint specificCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
+        public DocumentComponentWithRegularComposite GetCompositeDocumentComponentChildrenDocumentComponentElementUsing(in uint otherCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
         {
             if (CompositeDocumentComponentChildrenDocumentComponentCollection == null)
             {
                 return null;
             }
 
-            if (specificCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle < uint.MinValue || specificCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle >= CompositeDocumentComponentChildrenDocumentComponentCollection.Count)
+            if (otherCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle < uint.MinValue || otherCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle >= CompositeDocumentComponentChildrenDocumentComponentCollection.Count)
             {
                 return null;
             }
 
-            return CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)specificCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle];
+            return CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)otherCompositeDocumentComponentChildrenDocumentComponentCollectionIndexToHandle];
         }
 
-        public bool AddCompositeDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularComposite newCompositeDocumentComponentChildrenDocumentComponentElementToAdd)
+        public bool AddCompositeDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularComposite otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (CompositeDocumentComponentChildrenDocumentComponentCollection == null)
             {
                 return false;
             }
 
-            if (newCompositeDocumentComponentChildrenDocumentComponentElementToAdd == null)
+            if (otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle == null)
             {
                 return false;
             }
 
-            CompositeDocumentComponentChildrenDocumentComponentCollection.Add(item: newCompositeDocumentComponentChildrenDocumentComponentElementToAdd);
+            CompositeDocumentComponentChildrenDocumentComponentCollection.Add(item: otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle);
 
             return true;
         }
 
-        public bool RemoveCompositeDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularComposite existingCompositeDocumentComponentChildrenDocumentComponentElementToRemove)
+        public bool RemoveCompositeDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularComposite otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (CompositeDocumentComponentChildrenDocumentComponentCollection == null)
             {
                 return false;
             }
 
-            if (existingCompositeDocumentComponentChildrenDocumentComponentElementToRemove == null)
+            if (otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle == null)
             {
                 return false;
             }
 
-            if (CompositeDocumentComponentChildrenDocumentComponentCollection.Contains(item: existingCompositeDocumentComponentChildrenDocumentComponentElementToRemove) == false)
+            if (CompositeDocumentComponentChildrenDocumentComponentCollection.Contains(item: otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle) == false)
             {
                 return false;
             }
 
-            return CompositeDocumentComponentChildrenDocumentComponentCollection.Remove(item: existingCompositeDocumentComponentChildrenDocumentComponentElementToRemove);
+            return CompositeDocumentComponentChildrenDocumentComponentCollection.Remove(item: otherCompositeDocumentComponentChildrenDocumentComponentElementToHandle);
         }
 
-        protected override StringBuilder GetDocumentComponentContentUsing(in uint specificCompositeDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        protected override StringBuilder GetDocumentComponentContentUsing(in uint otherCompositeDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             StringBuilder compositeDocumentComponentContentStringBuilder = new();
 
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificCompositeDocumentComponentContentIndentLevelToHandle);
+            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherCompositeDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder);
             compositeDocumentComponentContentStringBuilder.AppendLine();
 
             if (string.IsNullOrEmpty(value: DocumentComponentDescription) == false || string.IsNullOrWhiteSpace(value: DocumentComponentDescription) == false)
             {
-                SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificCompositeDocumentComponentContentIndentLevelToHandle + 1);
+                SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherCompositeDocumentComponentContentIndentLevelToHandle + 1);
                 SetDocumentComponentContentDescriptionContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder);
                 compositeDocumentComponentContentStringBuilder.AppendLine();
             }
 
             foreach (DocumentComponentWithRegularComposite compositeDocumentComponentChildrenDocumentComponentElement in CompositeDocumentComponentChildrenDocumentComponentCollection)
             {
-                compositeDocumentComponentContentStringBuilder.Append(value: GetDocumentComponentContentUsing(specificDocumentComponentToHandle: compositeDocumentComponentChildrenDocumentComponentElement, specificDocumentComponentContentIndentLevelToHandle: specificCompositeDocumentComponentContentIndentLevelToHandle + 1));
+                compositeDocumentComponentContentStringBuilder.Append(value: GetDocumentComponentContentUsing(otherDocumentComponentToHandle: compositeDocumentComponentChildrenDocumentComponentElement, otherDocumentComponentContentIndentLevelToHandle: otherCompositeDocumentComponentContentIndentLevelToHandle + 1));
                 compositeDocumentComponentContentStringBuilder.AppendLine();
             }
 
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, specificDocumentComponentContentIndentLevelToHandle: specificCompositeDocumentComponentContentIndentLevelToHandle);
+            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherCompositeDocumentComponentContentIndentLevelToHandle);
             SetDocumentComponentContentClosedIdentifierContentUsing(documentComponentContentStringBuilder: compositeDocumentComponentContentStringBuilder);
 
             return compositeDocumentComponentContentStringBuilder;
         }
 
-        public override bool Equals(object specificCompositeDocumentComponentUndefinedObject)
+        public override bool Equals(object otherCompositeDocumentComponentUndefinedObjectToHandle)
         {
-            if (ReferenceEquals(objA: this, objB: specificCompositeDocumentComponentUndefinedObject) == true)
+            if (ReferenceEquals(objA: this, objB: otherCompositeDocumentComponentUndefinedObjectToHandle) == true)
             {
                 return true;
             }
 
-            if (specificCompositeDocumentComponentUndefinedObject == null || specificCompositeDocumentComponentUndefinedObject is CompositeDocumentComponentWithRegularComposite specificCompositeDocumentComponentDefinedObject == false)
+            if (otherCompositeDocumentComponentUndefinedObjectToHandle == null || otherCompositeDocumentComponentUndefinedObjectToHandle is CompositeDocumentComponentWithRegularComposite otherCompositeDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
 
-            if (DocumentComponentIdentifier != specificCompositeDocumentComponentDefinedObject.DocumentComponentIdentifier || DocumentComponentDescription != specificCompositeDocumentComponentDefinedObject.DocumentComponentDescription)
+            if (DocumentComponentIdentifier != otherCompositeDocumentComponentDefinedObjectToHandle.DocumentComponentIdentifier || DocumentComponentDescription != otherCompositeDocumentComponentDefinedObjectToHandle.DocumentComponentDescription)
             {
                 return false;
             }
 
-            if (CompositeDocumentComponentChildrenDocumentComponentCollection == null || specificCompositeDocumentComponentDefinedObject.CompositeDocumentComponentChildrenDocumentComponentCollection == null || CompositeDocumentComponentChildrenDocumentComponentCollection.Count != specificCompositeDocumentComponentDefinedObject.CompositeDocumentComponentChildrenDocumentComponentCollection.Count)
+            if (CompositeDocumentComponentChildrenDocumentComponentCollection == null || otherCompositeDocumentComponentDefinedObjectToHandle.CompositeDocumentComponentChildrenDocumentComponentCollection == null || CompositeDocumentComponentChildrenDocumentComponentCollection.Count != otherCompositeDocumentComponentDefinedObjectToHandle.CompositeDocumentComponentChildrenDocumentComponentCollection.Count)
             {
                 return false;
             }
 
             for (uint compositeDocumentComponentChildrenDocumentComponentCollectionIndex = uint.MinValue; compositeDocumentComponentChildrenDocumentComponentCollectionIndex < CompositeDocumentComponentChildrenDocumentComponentCollection.Count; compositeDocumentComponentChildrenDocumentComponentCollectionIndex++)
             {
-                if (CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)compositeDocumentComponentChildrenDocumentComponentCollectionIndex].Equals(specificDocumentComponentUndefinedObject: specificCompositeDocumentComponentDefinedObject.CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)compositeDocumentComponentChildrenDocumentComponentCollectionIndex]) == false)
+                if (CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)compositeDocumentComponentChildrenDocumentComponentCollectionIndex].Equals(otherDocumentComponentUndefinedObjectToHandle: otherCompositeDocumentComponentDefinedObjectToHandle.CompositeDocumentComponentChildrenDocumentComponentCollection[index: (int)compositeDocumentComponentChildrenDocumentComponentCollectionIndex]) == false)
                 {
                     return false;
                 }
@@ -152,7 +152,7 @@
 
         public override string ToString()
         {
-            return GetDocumentComponentContentUsing(specificDocumentComponentToHandle: this, specificDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+            return GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
         }
     }
 }

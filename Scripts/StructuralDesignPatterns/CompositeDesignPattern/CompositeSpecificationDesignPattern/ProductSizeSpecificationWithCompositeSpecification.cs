@@ -1,12 +1,12 @@
 ﻿namespace VisualStudio_DesignPatternsInCSharp.StructuralDesignPatterns.CompositeDesignPattern.CompositeSpecificationDesignPattern
 {
-    public sealed class ProductSizeSpecificationWithCompositeSpecification(in ProductSizeLabelWithCompositeSpecification newProductSizeSpecificationProductSizeLabelToInitialize) : TemplateSpecificationWithCompositeSpecification<ProductComponentWithCompositeSpecification>()
+    public sealed class ProductSizeSpecificationWithCompositeSpecification(in ProductSizeLabelWithCompositeSpecification otherProductSizeSpecificationProductSizeLabelToHandle) : TemplateSpecificationWithCompositeSpecification<ProductComponentWithCompositeSpecification>()
     {
-        private ProductSizeLabelWithCompositeSpecification ProductSizeSpecificationProductSizeLabel { get; set; } = newProductSizeSpecificationProductSizeLabelToInitialize;
+        private ProductSizeLabelWithCompositeSpecification ProductSizeSpecificationProductSizeLabel { get; } = otherProductSizeSpecificationProductSizeLabelToHandle;
 
-        public override bool CheckTemplateSpecificationIsValidUsing(in ProductComponentWithCompositeSpecification specificProductSizeSpecificationProductComponentToCheck)
+        public override bool CheckTemplateSpecificationIsValidUsing(in ProductComponentWithCompositeSpecification otherProductSizeSpecificationProductComponentToHandle)
         {
-            return ProductSizeSpecificationProductSizeLabel == specificProductSizeSpecificationProductComponentToCheck.ProductComponentSizeLabel;
+            return ProductSizeSpecificationProductSizeLabel == otherProductSizeSpecificationProductComponentToHandle.ProductComponentSizeLabel;
         }
     }
 }

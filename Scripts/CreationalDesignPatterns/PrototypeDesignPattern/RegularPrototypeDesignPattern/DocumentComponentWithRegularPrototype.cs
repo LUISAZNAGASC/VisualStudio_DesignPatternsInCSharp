@@ -1,15 +1,15 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.BuilderDesignPattern.FluentBuilderDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.PrototypeDesignPattern.RegularPrototypeDesignPattern
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
-    public sealed class DocumentComponentWithFluentBuilder(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
+    public sealed class DocumentComponentWithRegularPrototype(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
     {
         public string DocumentComponentIdentifier { get; private set; } = otherDocumentComponentIdentifierToHandle;
         public string DocumentComponentDescription { get; private set; } = otherDocumentComponentDescriptionToHandle;
 
-        private List<DocumentComponentWithFluentBuilder> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
+        private List<DocumentComponentWithRegularPrototype> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
         public void SetDocumentComponentIdentifierUsing(in string otherDocumentComponentIdentifierToHandle)
         {
@@ -21,17 +21,17 @@
             DocumentComponentDescription = otherDocumentComponentDescriptionToHandle;
         }
 
-        public IEnumerable<DocumentComponentWithFluentBuilder> GetDocumentComponentChildrenDocumentComponentCollection()
+        public IEnumerable<DocumentComponentWithRegularPrototype> GetDocumentComponentChildrenDocumentComponentCollection()
         {
             DocumentComponentChildrenDocumentComponentCollection ??= [];
 
-            foreach (DocumentComponentWithFluentBuilder documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+            foreach (DocumentComponentWithRegularPrototype documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
             {
                 yield return documentComponentChildrenDocumentComponentElement;
             }
         }
 
-        public DocumentComponentWithFluentBuilder GetDocumentComponentChildrenDocumentComponentElementUsing(in uint otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
+        public DocumentComponentWithRegularPrototype GetDocumentComponentChildrenDocumentComponentElementUsing(in uint otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
@@ -46,7 +46,7 @@
             return DocumentComponentChildrenDocumentComponentCollection[index: (int)otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle];
         }
 
-        public bool AddDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithFluentBuilder otherDocumentComponentChildrenDocumentComponentElementToHandle)
+        public bool AddDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularPrototype otherDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
@@ -63,7 +63,7 @@
             return true;
         }
 
-        public bool RemoveDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithFluentBuilder otherDocumentComponentChildrenDocumentComponentElementToHandle)
+        public bool RemoveDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularPrototype otherDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
@@ -126,7 +126,7 @@
                 documentComponentContentStringBuilder.AppendLine();
             }
 
-            foreach (DocumentComponentWithFluentBuilder documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+            foreach (DocumentComponentWithRegularPrototype documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
             {
                 documentComponentContentStringBuilder.Append(value: GetDocumentComponentContentUsing(otherDocumentComponentToHandle: documentComponentChildrenDocumentComponentElement, otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle + 1));
                 documentComponentContentStringBuilder.AppendLine();
@@ -138,7 +138,7 @@
             return documentComponentContentStringBuilder;
         }
 
-        private static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithFluentBuilder otherDocumentComponentToHandle, in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
+        private static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithRegularPrototype otherDocumentComponentToHandle, in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
         {
             StringBuilder documentComponentContentStringBuilder = new();
 
@@ -147,14 +147,14 @@
             return documentComponentContentStringBuilder;
         }
 
-        public override bool Equals(object otherDocumentComponentUndefinedObjectToHandle)
+        public override bool Equals(object otherDocumentComponentUndefinedObjectTOHandle)
         {
-            if (ReferenceEquals(objA: this, objB: otherDocumentComponentUndefinedObjectToHandle) == true)
+            if (ReferenceEquals(objA: this, objB: otherDocumentComponentUndefinedObjectTOHandle) == true)
             {
                 return true;
             }
 
-            if (otherDocumentComponentUndefinedObjectToHandle == null || otherDocumentComponentUndefinedObjectToHandle is DocumentComponentWithFluentBuilder otherDocumentComponentDefinedObjectToHandle == false)
+            if (otherDocumentComponentUndefinedObjectTOHandle == null || otherDocumentComponentUndefinedObjectTOHandle is DocumentComponentWithRegularPrototype otherDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
@@ -171,7 +171,7 @@
 
             for (uint documentComponentChildrenDocumentComponentCollectionIndex = uint.MinValue; documentComponentChildrenDocumentComponentCollectionIndex < DocumentComponentChildrenDocumentComponentCollection.Count; documentComponentChildrenDocumentComponentCollectionIndex++)
             {
-                if (DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex].Equals(otherDocumentComponentUndefinedObjectToHandle: otherDocumentComponentDefinedObjectToHandle.DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex]) == false)
+                if (DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex].Equals(otherDocumentComponentUndefinedObjectTOHandle: otherDocumentComponentDefinedObjectToHandle.DocumentComponentChildrenDocumentComponentCollection[index: (int)documentComponentChildrenDocumentComponentCollectionIndex]) == false)
                 {
                     return false;
                 }
@@ -192,7 +192,7 @@
 
             if (DocumentComponentChildrenDocumentComponentCollection != null)
             {
-                foreach (DocumentComponentWithFluentBuilder documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+                foreach (DocumentComponentWithRegularPrototype documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
                 {
                     documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + documentComponentChildrenDocumentComponentElement?.GetHashCode() ?? default;
                 }
@@ -204,6 +204,18 @@
         public override string ToString()
         {
             return GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+        }
+
+        public DocumentComponentWithRegularPrototype GetDocumentComponentDeepCopy()
+        {
+            DocumentComponentWithRegularPrototype documentComponentDeepCopy = new(otherDocumentComponentIdentifierToHandle: DocumentComponentIdentifier, otherDocumentComponentDescriptionToHandle: DocumentComponentDescription);
+
+            foreach (DocumentComponentWithRegularPrototype documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+            {
+                documentComponentDeepCopy.AddDocumentComponentChildrenDocumentComponentElementUsing(otherDocumentComponentChildrenDocumentComponentElementToHandle: documentComponentChildrenDocumentComponentElement.GetDocumentComponentDeepCopy());
+            }
+
+            return documentComponentDeepCopy;
         }
     }
 }
