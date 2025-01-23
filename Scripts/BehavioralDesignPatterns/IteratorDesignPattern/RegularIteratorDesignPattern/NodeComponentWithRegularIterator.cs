@@ -1,8 +1,5 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
 {
-    using System;
-    using System.Text;
-
     public sealed class NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>
     {
         public TTemplateComponentWithRegularIterator NodeComponentValue { get; private set; }
@@ -40,34 +37,6 @@
             {
                 NodeComponentRightNodeComponent.NodeComponentParentNodeComponent = this;
             }
-        }
-
-        public void DisplayNodeComponentContent()
-        {
-            Console.WriteLine(value: GetNodeComponentContentUsing(otherNodeComponentToHandle: this));
-        }
-
-        private void SetNodeComponentContentValueContentUsing(StringBuilder nodeComponentContentStringBuilder)
-        {
-            nodeComponentContentStringBuilder.Append(value: $"{NodeComponentValue.ToString().ToUpperInvariant()}".ToUpperInvariant());
-        }
-
-        private StringBuilder GetNodeComponentContent()
-        {
-            StringBuilder nodeComponentContentStringBuilder = new();
-
-            SetNodeComponentContentValueContentUsing(nodeComponentContentStringBuilder: nodeComponentContentStringBuilder);
-
-            return nodeComponentContentStringBuilder;
-        }
-
-        private static StringBuilder GetNodeComponentContentUsing(in NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeComponentToHandle)
-        {
-            StringBuilder nodeComponentContentStringBuilder = new();
-
-            nodeComponentContentStringBuilder.Append(value: otherNodeComponentToHandle.GetNodeComponentContent());
-
-            return nodeComponentContentStringBuilder;
         }
 
         public override bool Equals(object otherNodeComponentUndefinedObjectToHandle)
@@ -119,7 +88,7 @@
 
         public override string ToString()
         {
-            return GetNodeComponentContentUsing(otherNodeComponentToHandle: this).ToString().ToUpperInvariant();
+            return string.Empty.ToUpperInvariant();
         }
     }
 }

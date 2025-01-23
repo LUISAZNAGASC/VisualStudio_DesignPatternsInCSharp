@@ -1,4 +1,4 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
 {
     using System.Collections.Generic;
 
@@ -10,6 +10,11 @@
         {
             static IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPreOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeIteratorCurrentNodeComponentToHandle)
             {
+                if (otherNodeIteratorCurrentNodeComponentToHandle == null)
+                {
+                    yield break;
+                }
+
                 yield return otherNodeIteratorCurrentNodeComponentToHandle;
 
                 if (otherNodeIteratorCurrentNodeComponentToHandle.NodeComponentLeftNodeComponent != null)
@@ -39,6 +44,11 @@
         {
             static IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorInOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeIteratorCurrentNodeComponentToHandle)
             {
+                if (otherNodeIteratorCurrentNodeComponentToHandle == null)
+                {
+                    yield break;
+                }
+
                 if (otherNodeIteratorCurrentNodeComponentToHandle.NodeComponentLeftNodeComponent != null)
                 {
                     foreach (NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponentLeftNodeComponent in GetNodeIteratorInOrderCollectionUsing(otherNodeIteratorCurrentNodeComponentToHandle: otherNodeIteratorCurrentNodeComponentToHandle.NodeComponentLeftNodeComponent))
@@ -68,6 +78,11 @@
         {
             static IEnumerable<NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator>> GetNodeIteratorPostOrderCollectionUsing(NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> otherNodeIteratorCurrentNodeComponentToHandle)
             {
+                if (otherNodeIteratorCurrentNodeComponentToHandle == null)
+                {
+                    yield break;
+                }
+
                 if (otherNodeIteratorCurrentNodeComponentToHandle.NodeComponentLeftNodeComponent != null)
                 {
                     foreach (NodeComponentWithRegularIterator<TTemplateComponentWithRegularIterator> nodeIteratorCurrentNodeComponentLeftNodeComponent in GetNodeIteratorPostOrderCollectionUsing(otherNodeIteratorCurrentNodeComponentToHandle: otherNodeIteratorCurrentNodeComponentToHandle.NodeComponentLeftNodeComponent))

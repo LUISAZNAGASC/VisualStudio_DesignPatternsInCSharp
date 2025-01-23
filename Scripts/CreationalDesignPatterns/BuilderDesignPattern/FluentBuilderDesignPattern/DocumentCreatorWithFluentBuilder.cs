@@ -1,4 +1,4 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.BuilderDesignPattern.FluentBuilderDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.CreationalDesignPatterns.BuilderDesignPattern.FluentBuilderDesignPattern
 {
     public sealed class DocumentCreatorWithFluentBuilder
     {

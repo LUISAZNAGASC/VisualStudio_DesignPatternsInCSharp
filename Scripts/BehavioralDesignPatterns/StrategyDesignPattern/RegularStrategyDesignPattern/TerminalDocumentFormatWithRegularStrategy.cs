@@ -1,25 +1,25 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.StrategyDesignPattern.RegularStrategyDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.StrategyDesignPattern.RegularStrategyDesignPattern
 {
     using System.Text;
 
     public sealed class TerminalDocumentFormatWithRegularStrategy : IDocumentFormatWithRegularStrategy
     {
-        private TerminalDocumentFormatWithRegularStrategy() : base()
+        public TerminalDocumentFormatWithRegularStrategy() : base()
         {
 
         }
 
-        public void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentOpenedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
         {
             terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[>> $ {otherTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} $ >>]".ToUpperInvariant());
         }
 
-        public void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentClosedIdentifierContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
         {
             terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[<< $ {otherTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} $ <<]".ToUpperInvariant());
         }
 
-        public void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentDescriptionContentUsing(StringBuilder terminalDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherTerminalDocumentFormatDocumentComponentToHandle)
         {
             terminalDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"[// $ {otherTerminalDocumentFormatDocumentComponentToHandle.DocumentComponentDescription.ToUpperInvariant()} $ //]".ToUpperInvariant());
         }

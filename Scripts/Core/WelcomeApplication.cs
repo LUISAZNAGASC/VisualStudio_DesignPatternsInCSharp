@@ -1,4 +1,4 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.Core
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.Core
 {
     using System;
 

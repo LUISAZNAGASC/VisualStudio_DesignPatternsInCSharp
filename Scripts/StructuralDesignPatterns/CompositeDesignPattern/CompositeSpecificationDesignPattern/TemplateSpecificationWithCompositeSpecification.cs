@@ -1,6 +1,6 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.StructuralDesignPatterns.CompositeDesignPattern.CompositeSpecificationDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.StructuralDesignPatterns.CompositeDesignPattern.CompositeSpecificationDesignPattern
 {
-    public abstract class TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>
+    public abstract class TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification> where TTemplateComponentWithCompositeSpecification : class
     {
         public TemplateSpecificationWithCompositeSpecification() : base()
         {

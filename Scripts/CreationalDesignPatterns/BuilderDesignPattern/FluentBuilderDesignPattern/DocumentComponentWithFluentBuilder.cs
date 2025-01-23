@@ -1,8 +1,6 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.CreationalDesignPatterns.BuilderDesignPattern.FluentBuilderDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.CreationalDesignPatterns.BuilderDesignPattern.FluentBuilderDesignPattern
 {
-    using System;
     using System.Collections.Generic;
-    using System.Text;
 
     public sealed class DocumentComponentWithFluentBuilder(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
     {
@@ -83,70 +81,6 @@
             return DocumentComponentChildrenDocumentComponentCollection.Remove(item: otherDocumentComponentChildrenDocumentComponentElementToHandle);
         }
 
-        public void DisplayDocumentComponentContent()
-        {
-            Console.WriteLine(value: GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue));
-        }
-
-        private void SetDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder documentComponentContentStringBuilder)
-        {
-            documentComponentContentStringBuilder.Append(value: $"< {DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
-        }
-
-        private void SetDocumentComponentContentClosedIdentifierContentUsing(StringBuilder documentComponentContentStringBuilder)
-        {
-            documentComponentContentStringBuilder.Append(value: $"</ {DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
-        }
-
-        private void SetDocumentComponentContentDescriptionContentUsing(StringBuilder documentComponentContentStringBuilder)
-        {
-            documentComponentContentStringBuilder.Append(value: $"<!-- {DocumentComponentDescription.ToUpperInvariant()} -->".ToUpperInvariant());
-        }
-
-        private void SetDocumentComponentContentIndentContentUsing(StringBuilder documentComponentContentStringBuilder, in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
-        {
-            const uint DocumentComponentContentIndentDimension = 5;
-            const char DocumentComponentContentIndentCharacter = ' ';
-
-            documentComponentContentStringBuilder.Append(value: new string(c: DocumentComponentContentIndentCharacter, count: (int)otherDocumentComponentContentIndentLevelToHandle * (int)DocumentComponentContentIndentDimension).ToUpperInvariant());
-        }
-
-        private StringBuilder GetDocumentComponentContentUsing(in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
-        {
-            StringBuilder documentComponentContentStringBuilder = new();
-
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle);
-            SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder);
-            documentComponentContentStringBuilder.AppendLine();
-
-            if (string.IsNullOrEmpty(value: DocumentComponentDescription) == false || string.IsNullOrWhiteSpace(value: DocumentComponentDescription) == false)
-            {
-                SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle + 1);
-                SetDocumentComponentContentDescriptionContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder);
-                documentComponentContentStringBuilder.AppendLine();
-            }
-
-            foreach (DocumentComponentWithFluentBuilder documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
-            {
-                documentComponentContentStringBuilder.Append(value: GetDocumentComponentContentUsing(otherDocumentComponentToHandle: documentComponentChildrenDocumentComponentElement, otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle + 1));
-                documentComponentContentStringBuilder.AppendLine();
-            }
-
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle);
-            SetDocumentComponentContentClosedIdentifierContentUsing(documentComponentContentStringBuilder: documentComponentContentStringBuilder);
-
-            return documentComponentContentStringBuilder;
-        }
-
-        private static StringBuilder GetDocumentComponentContentUsing(in DocumentComponentWithFluentBuilder otherDocumentComponentToHandle, in uint otherDocumentComponentContentIndentLevelToHandle = uint.MinValue)
-        {
-            StringBuilder documentComponentContentStringBuilder = new();
-
-            documentComponentContentStringBuilder.Append(value: otherDocumentComponentToHandle.GetDocumentComponentContentUsing(otherDocumentComponentContentIndentLevelToHandle: otherDocumentComponentContentIndentLevelToHandle));
-
-            return documentComponentContentStringBuilder;
-        }
-
         public override bool Equals(object otherDocumentComponentUndefinedObjectToHandle)
         {
             if (ReferenceEquals(objA: this, objB: otherDocumentComponentUndefinedObjectToHandle) == true)
@@ -203,7 +137,7 @@
 
         public override string ToString()
         {
-            return GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+            return string.Empty.ToUpperInvariant();
         }
     }
 }

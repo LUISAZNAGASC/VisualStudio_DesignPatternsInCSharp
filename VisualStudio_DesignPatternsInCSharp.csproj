@@ -1,105 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C0B4E0E-0C07-4838-983D-1A6DE285CDD5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>VisualStudio_DesignPatternsInCSharp</RootNamespace>
-    <AssemblyName>VisualStudio_DesignPatternsInCSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Scripts\BehavioralDesignPatterns\IteratorDesignPattern\RegularIteratorDesignPattern\NodeComponentWithRegularIterator.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\IteratorDesignPattern\RegularIteratorDesignPattern\NodeIteratorWithRegularIterator.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\IteratorDesignPattern\RegularIteratorDesignPattern\ProductComponentWithRegularIterator.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\ContainerDocumentFormatWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\DocumentComponentWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\DocumentFormatterWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\IDocumentFormatWithRegularStrategy.cs" />
-    <Compile Include="Scripts\BehavioralDesignPatterns\StrategyDesignPattern\RegularStrategyDesignPattern\TerminalDocumentFormatWithRegularStrategy.cs" />
-    <Compile Include="Scripts\Core\WelcomeApplication.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\FluentBuilderDesignPattern\DocumentComponentWithFluentBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\FluentBuilderDesignPattern\DocumentCreatorWithFluentBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductComponentDefinitionWithStepwsiseBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductMaterialLabelDefinitionWithStepwiseBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductShapeLabelDefinitionWithStepwiseBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\IProductSizeLabelDefinitionWithStepwiseBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\ProductComponentWithStepwiseBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\BuilderDesignPattern\StepwiseBuilderDesignPattern\ProductCreatorWithStepwiseBuilder.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\MatrixFourComponentWithFactoryMethod.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\MatrixFourCreatorWithFactoryMethod.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\PositionMatrixFourCreatorWithFactoryMethod.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\RotationMatrixFourCreatorWithFactoryMethod.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\FactoryDesignPattern\FactoryMethodDesignPattern\ScaleMatrixFourCreatorWithFactoryMethod.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\PrototypeDesignPattern\RegularPrototypeDesignPattern\DocumentComponentWithRegularPrototype.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\SingletonDesignPattern\RegularSingletonDesignPattern\ProductComponentWithRegularSingleton.cs" />
-    <Compile Include="Scripts\CreationalDesignPatterns\SingletonDesignPattern\RegularSingletonDesignPattern\ProductDatabaseWithRegularSingleton.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductComponentWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductFilterWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductMaterialSpecificationWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductShapeSpecificationWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\ProductSizeSpecificationWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\TemplateCompositeSpecificationWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\TemplateConjunctionSpecificationWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\CompositeSpecificationDesignPattern\TemplateSpecificationWithCompositeSpecification.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\RegularCompositeDesignPattern\CompositeDocumentComponentWithRegularComposite.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\RegularCompositeDesignPattern\PrimitiveDocumentComponentWithRegularComposite.cs" />
-    <Compile Include="Scripts\StructuralDesignPatterns\CompositeDesignPattern\RegularCompositeDesignPattern\DocumentComponentWithRegularComposite.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>VisualStudio_DesignPatternsInCSharp</RootNamespace>
+		<AssemblyName>VisualStudio_DesignPatternsInCSharp</AssemblyName>
+		<Deterministic>true</Deterministic>
+		<PublishUrl>publish\</PublishUrl>
+		<Install>true</Install>
+		<InstallFrom>Disk</InstallFrom>
+		<UpdateEnabled>false</UpdateEnabled>
+		<UpdateMode>Foreground</UpdateMode>
+		<UpdateInterval>7</UpdateInterval>
+		<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		<UpdatePeriodically>false</UpdatePeriodically>
+		<UpdateRequired>false</UpdateRequired>
+		<ApplicationRevision>0</ApplicationRevision>
+		<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		<IsWebBootstrapper>false</IsWebBootstrapper>
+		<UseApplicationTrust>false</UseApplicationTrust>
+		<BootstrapperEnabled>true</BootstrapperEnabled>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
 </Project>

@@ -1,25 +1,25 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.StrategyDesignPattern.RegularStrategyDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.StrategyDesignPattern.RegularStrategyDesignPattern
 {
     using System.Text;
 
     public sealed class ContainerDocumentFormatWithRegularStrategy : IDocumentFormatWithRegularStrategy
     {
-        private ContainerDocumentFormatWithRegularStrategy() : base()
+        public ContainerDocumentFormatWithRegularStrategy() : base()
         {
 
         }
 
-        public void SetDocumentFormatDocumentComponentContentOpenedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentOpenedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
         {
             containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"< {otherContainerDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
         }
 
-        public void SetDocumentFormatDocumentComponentContentClosedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentClosedIdentifierContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
         {
             containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"</ {otherContainerDocumentFormatDocumentComponentToHandle.DocumentComponentIdentifier.ToUpperInvariant()} >".ToUpperInvariant());
         }
 
-        public void SetDocumentFormatDocumentComponentContentDescriptionContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
+        public void SetDocumentFormatDocumentComponentDescriptionContentUsing(StringBuilder containerDocumentFormatDocumentComponentContentStringBuilder, in DocumentComponentWithRegularStrategy otherContainerDocumentFormatDocumentComponentToHandle)
         {
             containerDocumentFormatDocumentComponentContentStringBuilder.Append(value: $"<!-- {otherContainerDocumentFormatDocumentComponentToHandle.DocumentComponentDescription.ToUpperInvariant()} -->".ToUpperInvariant());
         }

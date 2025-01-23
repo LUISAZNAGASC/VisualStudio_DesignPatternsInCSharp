@@ -1,8 +1,5 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
 {
-    using System;
-    using System.Text;
-
     public enum ProductShapeLabelWithRegularIterator : uint
     {
         ProductShapeLabelUndefined = 0,
@@ -50,62 +47,6 @@
             ProductComponentMaterialLabel = otherProductComponentMaterialLabelToHandle;
         }
 
-        public void DisplayProductComponentContent()
-        {
-            Console.WriteLine(value: GetProductComponentContentUsing(otherProductComponentToHandle: this));
-        }
-
-        private void SetProductComponentContentEntryPointContentUsing(StringBuilder productComponentContentStringBuilder)
-        {
-            productComponentContentStringBuilder.Append(value: "[>> ENTRY_POINT::PRODUCT_COMPONENT::ENTRY_POINT >>] ".ToUpperInvariant());
-        }
-
-        private void SetProductComponentContentShapeLabelContentUsing(StringBuilder productComponentContentStringBuilder)
-        {
-            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SHAPE_LABEL : {ProductComponentShapeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
-        }
-
-        private void SetProductComponentContentSizeLabelContentUsing(StringBuilder productComponentContentStringBuilder)
-        {
-            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.SIZE_LABEL : {ProductComponentSizeLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
-        }
-
-        private void SetProductComponentContentMaterialLabelContentUsing(StringBuilder productComponentContentStringBuilder)
-        {
-            productComponentContentStringBuilder.Append(value: $"PRODUCT_COMPONENT.MATERIAL_LABEL : {ProductComponentMaterialLabel.ToString().ToUpperInvariant()}".ToUpperInvariant());
-        }
-
-        private void SetProductComponentContentExitPointContentUsing(StringBuilder productComponentContentStringBuilder)
-        {
-            productComponentContentStringBuilder.Append(value: "[<< EXIT_POINT::PRODUCT_COMPONENT::EXIT_POINT <<]".ToUpperInvariant());
-        }
-
-        private StringBuilder GetProductComponentContent()
-        {
-            StringBuilder productComponentContentStringBuilder = new();
-
-            SetProductComponentContentEntryPointContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
-            productComponentContentStringBuilder.AppendLine();
-            SetProductComponentContentShapeLabelContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
-            productComponentContentStringBuilder.AppendLine();
-            SetProductComponentContentSizeLabelContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
-            productComponentContentStringBuilder.AppendLine();
-            SetProductComponentContentMaterialLabelContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
-            productComponentContentStringBuilder.AppendLine();
-            SetProductComponentContentExitPointContentUsing(productComponentContentStringBuilder: productComponentContentStringBuilder);
-
-            return productComponentContentStringBuilder;
-        }
-
-        private static StringBuilder GetProductComponentContentUsing(in ProductComponentWithRegularIterator otherProductComponentToHandle)
-        {
-            StringBuilder productComponentContentStringBuilder = new();
-
-            productComponentContentStringBuilder.Append(value: otherProductComponentToHandle.GetProductComponentContent());
-
-            return productComponentContentStringBuilder;
-        }
-
         public override bool Equals(object otherProductComponentUndefinedObjectToHandle)
         {
             if (ReferenceEquals(objA: this, objB: otherProductComponentUndefinedObjectToHandle) == true)
@@ -142,7 +83,7 @@
 
         public override string ToString()
         {
-            return GetProductComponentContentUsing(otherProductComponentToHandle: this).ToString().ToUpperInvariant();
+            return string.Empty.ToUpperInvariant();
         }
     }
 }

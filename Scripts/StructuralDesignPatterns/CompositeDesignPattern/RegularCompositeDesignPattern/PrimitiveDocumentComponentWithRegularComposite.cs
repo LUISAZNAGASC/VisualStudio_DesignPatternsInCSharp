@@ -1,30 +1,7 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.StructuralDesignPatterns.CompositeDesignPattern.RegularCompositeDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.StructuralDesignPatterns.CompositeDesignPattern.RegularCompositeDesignPattern
 {
-    using System.Text;
-
     public sealed class PrimitiveDocumentComponentWithRegularComposite(in string otherPrimitiveDocumentComponentIdentifierToHandle, in string otherPrimitiveDocumentComponentDescriptionToHandle) : DocumentComponentWithRegularComposite(otherDocumentComponentIdentifierToHandle: otherPrimitiveDocumentComponentIdentifierToHandle, otherDocumentComponentDescriptionToHandle: otherPrimitiveDocumentComponentDescriptionToHandle)
     {
-        protected override StringBuilder GetDocumentComponentContentUsing(in uint otherPrimitiveDocumentComponentContentIndentLevelToHandle = uint.MinValue)
-        {
-            StringBuilder primitiveDocumentComponentContentStringBuilder = new();
-
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherPrimitiveDocumentComponentContentIndentLevelToHandle);
-            SetDocumentComponentContentOpenedIdentifierContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);
-            primitiveDocumentComponentContentStringBuilder.AppendLine();
-
-            if (string.IsNullOrEmpty(value: DocumentComponentDescription) == false || string.IsNullOrWhiteSpace(value: DocumentComponentDescription) == false)
-            {
-                SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherPrimitiveDocumentComponentContentIndentLevelToHandle + 1);
-                SetDocumentComponentContentDescriptionContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);
-                primitiveDocumentComponentContentStringBuilder.AppendLine();
-            }
-
-            SetDocumentComponentContentIndentContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder, otherDocumentComponentContentIndentLevelToHandle: otherPrimitiveDocumentComponentContentIndentLevelToHandle);
-            SetDocumentComponentContentClosedIdentifierContentUsing(documentComponentContentStringBuilder: primitiveDocumentComponentContentStringBuilder);
-
-            return primitiveDocumentComponentContentStringBuilder;
-        }
-
         public override bool Equals(object otherPrimitiveDocumentComponentUndefinedObjectToHandle)
         {
             if (ReferenceEquals(objA: this, objB: otherPrimitiveDocumentComponentUndefinedObjectToHandle) == true)
@@ -60,7 +37,7 @@
 
         public override string ToString()
         {
-            return GetDocumentComponentContentUsing(otherDocumentComponentToHandle: this, otherDocumentComponentContentIndentLevelToHandle: uint.MinValue).ToString().ToUpperInvariant();
+            return string.Empty.ToUpperInvariant();
         }
     }
 }

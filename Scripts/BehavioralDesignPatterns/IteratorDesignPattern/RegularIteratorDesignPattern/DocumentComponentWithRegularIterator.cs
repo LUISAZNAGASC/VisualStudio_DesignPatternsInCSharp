@@ -1,13 +1,13 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.StrategyDesignPattern.RegularStrategyDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.BehavioralDesignPatterns.IteratorDesignPattern.RegularIteratorDesignPattern
 {
     using System.Collections.Generic;
 
-    public sealed class DocumentComponentWithRegularStrategy(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
+    public sealed class DocumentComponentWithRegularIterator(in string otherDocumentComponentIdentifierToHandle, in string otherDocumentComponentDescriptionToHandle) : object()
     {
         public string DocumentComponentIdentifier { get; private set; } = otherDocumentComponentIdentifierToHandle;
         public string DocumentComponentDescription { get; private set; } = otherDocumentComponentDescriptionToHandle;
 
-        private List<DocumentComponentWithRegularStrategy> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
+        private List<DocumentComponentWithRegularIterator> DocumentComponentChildrenDocumentComponentCollection { get; set; } = [];
 
         public void SetDocumentComponentIdentifierUsing(in string otherDocumentComponentIdentifierToHandle)
         {
@@ -19,17 +19,17 @@
             DocumentComponentDescription = otherDocumentComponentDescriptionToHandle;
         }
 
-        public IEnumerable<DocumentComponentWithRegularStrategy> GetDocumentComponentChildrenDocumentComponentCollection()
+        public IEnumerable<DocumentComponentWithRegularIterator> GetDocumentComponentChildrenDocumentComponentCollection()
         {
             DocumentComponentChildrenDocumentComponentCollection ??= [];
 
-            foreach (DocumentComponentWithRegularStrategy documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+            foreach (DocumentComponentWithRegularIterator documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
             {
                 yield return documentComponentChildrenDocumentComponentElement;
             }
         }
 
-        public DocumentComponentWithRegularStrategy GetDocumentComponentChildrenDocumentComponentElementUsing(in uint otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
+        public DocumentComponentWithRegularIterator GetDocumentComponentChildrenDocumentComponentElementUsing(in uint otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
@@ -44,7 +44,7 @@
             return DocumentComponentChildrenDocumentComponentCollection[index: (int)otherDocumentComponentChildrenDocumentComponentCollectionIndexToHandle];
         }
 
-        public bool AddDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularStrategy otherDocumentComponentChildrenDocumentComponentElementToHandle)
+        public bool AddDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularIterator otherDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
@@ -61,7 +61,7 @@
             return true;
         }
 
-        public bool RemoveDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularStrategy otherDocumentComponentChildrenDocumentComponentElementToHandle)
+        public bool RemoveDocumentComponentChildrenDocumentComponentElementUsing(in DocumentComponentWithRegularIterator otherDocumentComponentChildrenDocumentComponentElementToHandle)
         {
             if (DocumentComponentChildrenDocumentComponentCollection == null)
             {
@@ -88,7 +88,7 @@
                 return true;
             }
 
-            if (otherDocumentComponentUndefinedObjectToHandle == null || otherDocumentComponentUndefinedObjectToHandle is DocumentComponentWithRegularStrategy otherDocumentComponentDefinedObjectToHandle == false)
+            if (otherDocumentComponentUndefinedObjectToHandle == null || otherDocumentComponentUndefinedObjectToHandle is DocumentComponentWithRegularIterator otherDocumentComponentDefinedObjectToHandle == false)
             {
                 return false;
             }
@@ -126,7 +126,7 @@
 
             if (DocumentComponentChildrenDocumentComponentCollection != null)
             {
-                foreach (DocumentComponentWithRegularStrategy documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
+                foreach (DocumentComponentWithRegularIterator documentComponentChildrenDocumentComponentElement in DocumentComponentChildrenDocumentComponentCollection)
                 {
                     documentComponentHashCode = documentComponentHashCode * DocumentComponentHashCodeMultiplierPrime + documentComponentChildrenDocumentComponentElement?.GetHashCode() ?? default;
                 }
