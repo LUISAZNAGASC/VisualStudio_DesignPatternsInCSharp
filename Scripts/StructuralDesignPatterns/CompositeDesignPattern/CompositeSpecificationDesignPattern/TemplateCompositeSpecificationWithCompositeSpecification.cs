@@ -1,9 +1,0 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.StructuralDesignPatterns.CompositeDesignPattern.CompositeSpecificationDesignPattern
-{
-    using System.Collections.Generic;
-
-    public abstract class TemplateCompositeSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>(params TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>[] otherTemplateCompositeSpecificationTemplateSpecificationCollectionToHandle) : TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>() where TTemplateComponentWithCompositeSpecification : class
-    {
-        protected IEnumerable<TemplateSpecificationWithCompositeSpecification<TTemplateComponentWithCompositeSpecification>> TemplateCompositeSpecificationTemplateSpecificationCollection { get; } = otherTemplateCompositeSpecificationTemplateSpecificationCollectionToHandle;
-    }
-}
