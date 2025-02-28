@@ -180,15 +180,6 @@
             return consumableComponentStringBuilder.ToString();
         }
 
-        public ConsumableComponent GetPrototypeComponentClonation()
-        {
-            ConsumableComponent consumableComponentClonation = (ConsumableComponent)MemberwiseClone();
-
-            SetPrototypeComponentClonation(consumableComponentClonation: consumableComponentClonation);
-
-            return consumableComponentClonation;
-        }
-
         public void SetPrototypeComponentClonation(in ConsumableComponent consumableComponentClonation)
         {
             if (consumableComponentClonation is null)
