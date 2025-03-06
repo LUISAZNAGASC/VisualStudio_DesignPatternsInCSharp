@@ -3,8 +3,8 @@
     using System;
     using System.Text;
 
-    public class ConsumableBuilderTarget<TemplateComponent1> : ConsumableBuilderDamageFactor<ConsumableBuilderTarget<TemplateComponent1>>
-        where TemplateComponent1 : ConsumableBuilderTarget<TemplateComponent1>
+    public class ConsumableBuilderTarget<Template1> : ConsumableBuilderDamage<ConsumableBuilderTarget<Template1>>
+        where Template1 : ConsumableBuilderTarget<Template1>
     {
         protected ConsumableBuilderTarget() : base()
         {
@@ -15,11 +15,11 @@
         {
             StringBuilder consumableBuilderTargetStringBuilder = new();
 
-            consumableBuilderTargetStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderTarget<TemplateComponent1>)}[START]");
+            consumableBuilderTargetStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderTarget<Template1>)}[START]");
             consumableBuilderTargetStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderTargetStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderTarget<TemplateComponent1>)}' class");
+            consumableBuilderTargetStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderTarget<Template1>)}' class");
             consumableBuilderTargetStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderTargetStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderTarget<TemplateComponent1>)}[END]");
+            consumableBuilderTargetStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderTarget<Template1>)}[END]");
 
             throw new NotImplementedException(message: consumableBuilderTargetStringBuilder.ToString(), inner: new Exception());
         }
@@ -28,11 +28,11 @@
         {
             StringBuilder consumableBuilderTargetStringBuilder = new();
 
-            consumableBuilderTargetStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderTarget<TemplateComponent1>)}[START]");
+            consumableBuilderTargetStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderTarget<Template1>)}[START]");
             consumableBuilderTargetStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderTargetStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderTarget<TemplateComponent1>)}' class");
+            consumableBuilderTargetStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderTarget<Template1>)}' class");
             consumableBuilderTargetStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderTargetStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderTarget<TemplateComponent1>)}[END]");
+            consumableBuilderTargetStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderTarget<Template1>)}[END]");
 
             throw new NotImplementedException(message: consumableBuilderTargetStringBuilder.ToString(), inner: new Exception());
         }
@@ -41,11 +41,11 @@
         {
             StringBuilder consumableBuilderTargetStringBuilder = new();
 
-            consumableBuilderTargetStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderTarget<TemplateComponent1>)}[START]");
+            consumableBuilderTargetStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderTarget<Template1>)}[START]");
             consumableBuilderTargetStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderTargetStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderTarget<TemplateComponent1>)}' class");
+            consumableBuilderTargetStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderTarget<Template1>)}' class");
             consumableBuilderTargetStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderTargetStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderTarget<TemplateComponent1>)}[END]");
+            consumableBuilderTargetStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderTarget<Template1>)}[END]");
 
             throw new NotImplementedException(message: consumableBuilderTargetStringBuilder.ToString(), inner: new Exception());
         }

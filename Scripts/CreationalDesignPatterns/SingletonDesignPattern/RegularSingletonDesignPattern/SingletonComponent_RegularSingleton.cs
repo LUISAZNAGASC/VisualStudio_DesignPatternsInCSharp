@@ -2,33 +2,40 @@
 {
     using System;
     using System.Text;
+    using System.Threading;
 
-    public abstract class SingletonComponent<TemplateComponent1>
-        where TemplateComponent1 : SingletonComponent<TemplateComponent1>, new()
+    public abstract class SingletonComponent<Template1>
+        where Template1 : SingletonComponent<Template1>, new()
     {
-        private static TemplateComponent1 SingletonComponentReference { get; set; }
+        private static Lazy<Template1> SingletonComponentInstance { get; set; }
 
         protected SingletonComponent() : base()
         {
-            SingletonComponentReference = new TemplateComponent1();
+            SingletonComponentInstance = new Lazy<Template1>(valueFactory: () =>
+            {
+                return new Template1();
+            }, mode: LazyThreadSafetyMode.ExecutionAndPublication);
         }
 
-        public static TemplateComponent1 GetSingletonComponentReference()
+        public static Template1 GetSingletonComponentInstance()
         {
-            SingletonComponentReference ??= new TemplateComponent1();
+            SingletonComponentInstance ??= new Lazy<Template1>(valueFactory: () =>
+            {
+                return new Template1();
+            }, mode: LazyThreadSafetyMode.ExecutionAndPublication);
 
-            return SingletonComponentReference;
+            return SingletonComponentInstance.Value;
         }
 
         public override bool Equals(object uncastedSingletonComponent)
         {
             StringBuilder singletonComponentStringBuilder = new();
 
-            singletonComponentStringBuilder.Append(value: $"[START]{nameof(SingletonComponent<TemplateComponent1>)}[START]");
+            singletonComponentStringBuilder.Append(value: $"[START]{nameof(SingletonComponent<Template1>)}[START]");
             singletonComponentStringBuilder.AppendLine(value: string.Empty);
-            singletonComponentStringBuilder.Append(value: $"Method not implemented in '{nameof(SingletonComponent<TemplateComponent1>)}' class");
+            singletonComponentStringBuilder.Append(value: $"Method not implemented in '{nameof(SingletonComponent<Template1>)}' class");
             singletonComponentStringBuilder.AppendLine(value: string.Empty);
-            singletonComponentStringBuilder.Append(value: $"[END]{nameof(SingletonComponent<TemplateComponent1>)}[END]");
+            singletonComponentStringBuilder.Append(value: $"[END]{nameof(SingletonComponent<Template1>)}[END]");
 
             throw new NotImplementedException(message: singletonComponentStringBuilder.ToString(), inner: new Exception());
         }
@@ -37,11 +44,11 @@
         {
             StringBuilder singletonComponentStringBuilder = new();
 
-            singletonComponentStringBuilder.Append(value: $"[START]{nameof(SingletonComponent<TemplateComponent1>)}[START]");
+            singletonComponentStringBuilder.Append(value: $"[START]{nameof(SingletonComponent<Template1>)}[START]");
             singletonComponentStringBuilder.AppendLine(value: string.Empty);
-            singletonComponentStringBuilder.Append(value: $"Method not implemented in '{nameof(SingletonComponent<TemplateComponent1>)}' class");
+            singletonComponentStringBuilder.Append(value: $"Method not implemented in '{nameof(SingletonComponent<Template1>)}' class");
             singletonComponentStringBuilder.AppendLine(value: string.Empty);
-            singletonComponentStringBuilder.Append(value: $"[END]{nameof(SingletonComponent<TemplateComponent1>)}[END]");
+            singletonComponentStringBuilder.Append(value: $"[END]{nameof(SingletonComponent<Template1>)}[END]");
 
             throw new NotImplementedException(message: singletonComponentStringBuilder.ToString(), inner: new Exception());
         }
@@ -50,11 +57,11 @@
         {
             StringBuilder singletonComponentStringBuilder = new();
 
-            singletonComponentStringBuilder.Append(value: $"[START]{nameof(SingletonComponent<TemplateComponent1>)}[START]");
+            singletonComponentStringBuilder.Append(value: $"[START]{nameof(SingletonComponent<Template1>)}[START]");
             singletonComponentStringBuilder.AppendLine(value: string.Empty);
-            singletonComponentStringBuilder.Append(value: $"Method not implemented in '{nameof(SingletonComponent<TemplateComponent1>)}' class");
+            singletonComponentStringBuilder.Append(value: $"Method not implemented in '{nameof(SingletonComponent<Template1>)}' class");
             singletonComponentStringBuilder.AppendLine(value: string.Empty);
-            singletonComponentStringBuilder.Append(value: $"[END]{nameof(SingletonComponent<TemplateComponent1>)}[END]");
+            singletonComponentStringBuilder.Append(value: $"[END]{nameof(SingletonComponent<Template1>)}[END]");
 
             throw new NotImplementedException(message: singletonComponentStringBuilder.ToString(), inner: new Exception());
         }

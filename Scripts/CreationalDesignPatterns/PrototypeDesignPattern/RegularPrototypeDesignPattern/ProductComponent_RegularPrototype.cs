@@ -4,136 +4,117 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public enum ProductSizeFactor : uint
+    public enum ProductSize : uint
     {
-        ProductSizeFactorNone = 0, ProductSizeFactorVerySmall = 1, ProductSizeFactorSmall = 2, ProductSizeFactorMedium = 3, ProductSizeFactorLarge = 4, ProductSizeFactorVeryLarge = 5
+        ProductSizeNone = 0, ProductSizeSmall = 1, ProductSizeMedium = 2, ProductSizeLarge = 3
     }
 
-    public enum ProductWeightFactor : uint
+    public enum ProductWeight : uint
     {
-        ProductWeightFactorNone = 0, ProductWeightFactorVeryLight = 1, ProductWeightFactorLight = 2, ProductWeightFactorMedium = 3, ProductWeightFactorHeavy = 4, ProductWeightFactorVeryHeavy = 5
+        ProductWeightNone = 0, ProductWeightLight = 1, ProductWeightMedium = 2, ProductWeightHeavy = 3
     }
 
     public abstract class ProductComponent
     {
-        public string ProductComponentIdentifier { get; private set; }
+        public string ProductComponentName { get; private set; }
 
-        public string ProductComponentDescription { get; private set; }
+        public ProductSize ProductComponentWidth { get; private set; }
 
-        public ProductSizeFactor ProductComponentWidthFactor { get; private set; }
+        public ProductSize ProductComponentHeight { get; private set; }
 
-        public ProductSizeFactor ProductComponentHeightFactor { get; private set; }
+        public ProductSize ProductComponentDepth { get; private set; }
 
-        public ProductSizeFactor ProductComponentDepthFactor { get; private set; }
-
-        public ProductWeightFactor ProductComponentWeightFactor { get; private set; }
+        public ProductWeight ProductComponentWeight { get; private set; }
 
         public ProductComponent() : base()
         {
-            SetProductComponentIdentifier(productComponentIdentifier: nameof(ProductComponentIdentifier));
+            SetProductComponentName(productComponentName: nameof(ProductComponentName));
 
-            SetProductComponentDescription(productComponentDescription: nameof(ProductComponentDescription));
+            SetProductComponentWidth(productComponentWidth: ProductSize.ProductSizeNone);
 
-            SetProductComponentWidthFactor(productComponentWidthFactor: ProductSizeFactor.ProductSizeFactorNone);
+            SetProductComponentHeight(productComponentHeight: ProductSize.ProductSizeNone);
 
-            SetProductComponentHeightFactor(productComponentHeightFactor: ProductSizeFactor.ProductSizeFactorNone);
+            SetProductComponentDepth(productComponentDepth: ProductSize.ProductSizeNone);
 
-            SetProductComponentDepthFactor(productComponentDepthFactor: ProductSizeFactor.ProductSizeFactorNone);
-
-            SetProductComponentWeightFactor(productComponentWeightFactor: ProductWeightFactor.ProductWeightFactorNone);
+            SetProductComponentWeight(productComponentWeight: ProductWeight.ProductWeightNone);
         }
 
         public ProductComponent(
-            in string productComponentIdentifier,
-            in string productComponentDescription,
-            in ProductSizeFactor productComponentWidthFactor,
-            in ProductSizeFactor productComponentHeightFactor,
-            in ProductSizeFactor productComponentDepthFactor,
-            in ProductWeightFactor productComponentWeightFactor) : base()
+            in string productComponentName,
+            in ProductSize productComponentWidth,
+            in ProductSize productComponentHeight,
+            in ProductSize productComponentDepth,
+            in ProductWeight productComponentWeight) : base()
         {
-            SetProductComponentIdentifier(productComponentIdentifier: productComponentIdentifier);
+            SetProductComponentName(productComponentName: productComponentName);
 
-            SetProductComponentDescription(productComponentDescription: productComponentDescription);
+            SetProductComponentWidth(productComponentWidth: productComponentWidth);
 
-            SetProductComponentWidthFactor(productComponentWidthFactor: productComponentWidthFactor);
+            SetProductComponentHeight(productComponentHeight: productComponentHeight);
 
-            SetProductComponentHeightFactor(productComponentHeightFactor: productComponentHeightFactor);
+            SetProductComponentDepth(productComponentDepth: productComponentDepth);
 
-            SetProductComponentDepthFactor(productComponentDepthFactor: productComponentDepthFactor);
-
-            SetProductComponentWeightFactor(productComponentWeightFactor: productComponentWeightFactor);
+            SetProductComponentWeight(productComponentWeight: productComponentWeight);
         }
 
-        public void SetProductComponentIdentifier(in string productComponentIdentifier)
+        public void SetProductComponentName(in string productComponentName)
         {
-            if (string.IsNullOrEmpty(value: productComponentIdentifier) || string.IsNullOrWhiteSpace(value: productComponentIdentifier))
+            if (string.IsNullOrEmpty(value: productComponentName) || string.IsNullOrWhiteSpace(value: productComponentName))
             {
-                ProductComponentIdentifier = $"{nameof(ProductComponentIdentifier)}Undefined";
+                ProductComponentName = $"{nameof(ProductComponentName)}Undefined";
 
                 return;
             }
 
-            ProductComponentIdentifier = productComponentIdentifier;
+            ProductComponentName = productComponentName;
         }
 
-        public void SetProductComponentDescription(in string productComponentDescription)
+        public void SetProductComponentWidth(in ProductSize productComponentWidth)
         {
-            if (string.IsNullOrEmpty(value: productComponentDescription) || string.IsNullOrWhiteSpace(value: productComponentDescription))
+            if (!Enum.IsDefined(value: productComponentWidth) || productComponentWidth == ProductSize.ProductSizeNone)
             {
-                ProductComponentDescription = $"{nameof(ProductComponentDescription)}Undefined";
+                ProductComponentWidth = ProductSize.ProductSizeNone;
 
                 return;
             }
 
-            ProductComponentDescription = productComponentDescription;
+            ProductComponentWidth = productComponentWidth;
         }
 
-        public void SetProductComponentWidthFactor(in ProductSizeFactor productComponentWidthFactor)
+        public void SetProductComponentHeight(in ProductSize productComponentHeight)
         {
-            if (!Enum.IsDefined(value: productComponentWidthFactor))
+            if (!Enum.IsDefined(value: productComponentHeight) || productComponentHeight == ProductSize.ProductSizeNone)
             {
-                ProductComponentWidthFactor = ProductSizeFactor.ProductSizeFactorNone;
+                ProductComponentHeight = ProductSize.ProductSizeNone;
 
                 return;
             }
 
-            ProductComponentWidthFactor = productComponentWidthFactor;
+            ProductComponentHeight = productComponentHeight;
         }
 
-        public void SetProductComponentHeightFactor(in ProductSizeFactor productComponentHeightFactor)
+        public void SetProductComponentDepth(in ProductSize productComponentDepth)
         {
-            if (!Enum.IsDefined(value: productComponentHeightFactor))
+            if (!Enum.IsDefined(value: productComponentDepth) || productComponentDepth == ProductSize.ProductSizeNone)
             {
-                ProductComponentHeightFactor = ProductSizeFactor.ProductSizeFactorNone;
+                ProductComponentDepth = ProductSize.ProductSizeNone;
 
                 return;
             }
 
-            ProductComponentHeightFactor = productComponentHeightFactor;
+            ProductComponentDepth = productComponentDepth;
         }
 
-        public void SetProductComponentDepthFactor(in ProductSizeFactor productComponentDepthFactor)
+        public void SetProductComponentWeight(in ProductWeight productComponentWeight)
         {
-            if (!Enum.IsDefined(value: productComponentDepthFactor))
+            if (!Enum.IsDefined(value: productComponentWeight) || productComponentWeight == ProductWeight.ProductWeightNone)
             {
-                ProductComponentDepthFactor = ProductSizeFactor.ProductSizeFactorNone;
+                ProductComponentWeight = ProductWeight.ProductWeightNone;
 
                 return;
             }
 
-            ProductComponentDepthFactor = productComponentDepthFactor;
-        }
-
-        public void SetProductComponentWeightFactor(in ProductWeightFactor productComponentWeightFactor)
-        {
-            if (!Enum.IsDefined(value: productComponentWeightFactor))
-            {
-                ProductComponentWeightFactor = ProductWeightFactor.ProductWeightFactorNone;
-
-                return;
-            }
-
-            ProductComponentWeightFactor = productComponentWeightFactor;
+            ProductComponentWeight = productComponentWeight;
         }
 
         public override bool Equals(object uncastedProductComponent)
@@ -153,32 +134,27 @@
                 return false;
             }
 
-            if (!EqualityComparer<string>.Default.Equals(x: ProductComponentIdentifier, y: castedProductComponent.ProductComponentIdentifier))
+            if (!EqualityComparer<string>.Default.Equals(x: ProductComponentName, y: castedProductComponent.ProductComponentName))
             {
                 return false;
             }
 
-            if (!EqualityComparer<string>.Default.Equals(x: ProductComponentDescription, y: castedProductComponent.ProductComponentDescription))
+            if (!EqualityComparer<ProductSize>.Default.Equals(x: ProductComponentWidth, y: castedProductComponent.ProductComponentWidth))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductSizeFactor>.Default.Equals(x: ProductComponentWidthFactor, y: castedProductComponent.ProductComponentWidthFactor))
+            if (!EqualityComparer<ProductSize>.Default.Equals(x: ProductComponentHeight, y: castedProductComponent.ProductComponentHeight))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductSizeFactor>.Default.Equals(x: ProductComponentHeightFactor, y: castedProductComponent.ProductComponentHeightFactor))
+            if (!EqualityComparer<ProductSize>.Default.Equals(x: ProductComponentDepth, y: castedProductComponent.ProductComponentDepth))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductSizeFactor>.Default.Equals(x: ProductComponentDepthFactor, y: castedProductComponent.ProductComponentDepthFactor))
-            {
-                return false;
-            }
-
-            if (!EqualityComparer<ProductWeightFactor>.Default.Equals(x: ProductComponentWeightFactor, y: castedProductComponent.ProductComponentWeightFactor))
+            if (!EqualityComparer<ProductWeight>.Default.Equals(x: ProductComponentWeight, y: castedProductComponent.ProductComponentWeight))
             {
                 return false;
             }
@@ -193,17 +169,15 @@
 
             int productComponentHashCode = ProductComponentHashCodeInitialPrime;
 
-            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentIdentifier);
+            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentName);
 
-            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentDescription);
+            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentWidth);
 
-            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentWidthFactor);
+            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentHeight);
 
-            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentHeightFactor);
+            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentDepth);
 
-            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentDepthFactor);
-
-            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentWeightFactor);
+            productComponentHashCode = HashCode.Combine(value1: ProductComponentHashCodeMultiplierPrime ^ productComponentHashCode, value2: ProductComponentWeight);
 
             return productComponentHashCode;
         }
@@ -214,17 +188,15 @@
 
             productComponentStringBuilder.Append(value: $"[START]{nameof(ProductComponent)}[START]");
             productComponentStringBuilder.AppendLine(value: string.Empty);
-            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentIdentifier)}: {ProductComponentIdentifier}");
+            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentName)}: {ProductComponentName}");
             productComponentStringBuilder.AppendLine(value: string.Empty);
-            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentDescription)}: {ProductComponentDescription}");
+            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentWidth)}: {ProductComponentWidth}");
             productComponentStringBuilder.AppendLine(value: string.Empty);
-            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentWidthFactor)}: {ProductComponentWidthFactor}");
+            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentHeight)}: {ProductComponentHeight}");
             productComponentStringBuilder.AppendLine(value: string.Empty);
-            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentHeightFactor)}: {ProductComponentHeightFactor}");
+            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentDepth)}: {ProductComponentDepth}");
             productComponentStringBuilder.AppendLine(value: string.Empty);
-            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentDepthFactor)}: {ProductComponentDepthFactor}");
-            productComponentStringBuilder.AppendLine(value: string.Empty);
-            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentWeightFactor)}: {ProductComponentWeightFactor}");
+            productComponentStringBuilder.Append(value: $"{nameof(ProductComponentWeight)}: {ProductComponentWeight}");
             productComponentStringBuilder.AppendLine(value: string.Empty);
             productComponentStringBuilder.Append(value: $"[END]{nameof(ProductComponent)}[END]");
 

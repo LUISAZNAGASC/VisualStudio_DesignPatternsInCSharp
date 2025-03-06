@@ -3,32 +3,32 @@
     using System;
     using System.Text;
 
-    public abstract class ConsumableBuilderOrigin<TemplateComponent1>
-        where TemplateComponent1 : ConsumableBuilderOrigin<TemplateComponent1>
+    public abstract class ConsumableBuilderOrigin<Template1>
+        where Template1 : ConsumableBuilderOrigin<Template1>
     {
-        protected ConsumableComponent ConsumableBuilderOriginReference { get; set; }
+        protected ConsumableComponent ConsumableBuilderOriginInstance { get; set; }
 
-        public ConsumableBuilderOrigin() : base()
+        protected ConsumableBuilderOrigin() : base()
         {
-            ConsumableBuilderOriginReference = new ConsumableComponent();
+            ConsumableBuilderOriginInstance = new ConsumableComponent();
         }
 
-        public ConsumableComponent GetConsumableBuilderOriginReference()
+        public ConsumableComponent GetConsumableBuilderOriginInstance()
         {
-            ConsumableBuilderOriginReference ??= new ConsumableComponent();
+            ConsumableBuilderOriginInstance ??= new ConsumableComponent();
 
-            return ConsumableBuilderOriginReference;
+            return ConsumableBuilderOriginInstance;
         }
 
         public override bool Equals(object uncastedConsumableBuilderOrigin)
         {
             StringBuilder consumableBuilderOriginStringBuilder = new();
 
-            consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}[START]");
+            consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<Template1>)}[START]");
             consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderOriginStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}' class");
+            consumableBuilderOriginStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderOrigin<Template1>)}' class");
             consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}[END]");
+            consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<Template1>)}[END]");
 
             throw new NotImplementedException(message: consumableBuilderOriginStringBuilder.ToString(), inner: new Exception());
         }
@@ -37,11 +37,11 @@
         {
             StringBuilder consumableBuilderOriginStringBuilder = new();
 
-            consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}[START]");
+            consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<Template1>)}[START]");
             consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderOriginStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}' class");
+            consumableBuilderOriginStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderOrigin<Template1>)}' class");
             consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}[END]");
+            consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<Template1>)}[END]");
 
             throw new NotImplementedException(message: consumableBuilderOriginStringBuilder.ToString(), inner: new Exception());
         }
@@ -50,11 +50,11 @@
         {
             StringBuilder consumableBuilderOriginStringBuilder = new();
 
-            consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}[START]");
+            consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<Template1>)}[START]");
             consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderOriginStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}' class");
+            consumableBuilderOriginStringBuilder.Append(value: $"Method not implemented in '{nameof(ConsumableBuilderOrigin<Template1>)}' class");
             consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
-            consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<TemplateComponent1>)}[END]");
+            consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<Template1>)}[END]");
 
             throw new NotImplementedException(message: consumableBuilderOriginStringBuilder.ToString(), inner: new Exception());
         }

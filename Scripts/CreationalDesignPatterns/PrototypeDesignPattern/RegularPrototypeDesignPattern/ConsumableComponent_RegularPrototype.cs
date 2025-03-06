@@ -4,67 +4,65 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public enum ConsumableEffectFactor : uint
+    public enum ConsumableEffect : uint
     {
-        ConsumableEffectFactorNone = 0, ConsumableEffectFactorEmpty = 1, ConsumableEffectFactorLow = 2, ConsumableEffectFactorMiddle = 3, ConsumableEffectFactorHigh = 4, ConsumableEffectFactorFull = 5
+        ConsumableEffectNone = 0, ConsumableEffectEmpty = 1, ConsumableEffectLow = 2, ConsumableEffectMiddle = 3, ConsumableEffectHigh = 4, ConsumableEffectFull = 5
     }
 
     public sealed class ConsumableComponent : ProductComponent, IPrototypeComponent<ConsumableComponent>
     {
-        public ConsumableEffectFactor ConsumableComponentHealingFactor { get; private set; }
+        public ConsumableEffect ConsumableComponentHealth { get; private set; }
 
-        public ConsumableEffectFactor ConsumableComponentDamageFactor { get; private set; }
+        public ConsumableEffect ConsumableComponentDamage { get; private set; }
 
         public ConsumableComponent() : base()
         {
-            SetConsumableComponentHealingFactor(consumableComponentHealingFactor: ConsumableEffectFactor.ConsumableEffectFactorNone);
+            SetConsumableComponentHealth(consumableComponentHealth: ConsumableEffect.ConsumableEffectNone);
 
-            SetConsumableComponentDamageFactor(consumableComponentDamageFactor: ConsumableEffectFactor.ConsumableEffectFactorNone);
+            SetConsumableComponentDamage(consumableComponentDamage: ConsumableEffect.ConsumableEffectNone);
         }
 
         public ConsumableComponent(
-            in string consumableComponentIdentifier,
-            in string consumableComponentDescription,
-            in ProductSizeFactor consumableComponentWidthFactor,
-            in ProductSizeFactor consumableComponentHeightFactor,
-            in ProductSizeFactor consumableComponentDepthFactor,
-            in ProductWeightFactor consumableComponentWeightFactor,
-            in ConsumableEffectFactor consumableComponentHealingFactor,
-            in ConsumableEffectFactor consumableComponentDamageFactor) : base(
-                productComponentIdentifier: consumableComponentIdentifier,
-                productComponentDescription: consumableComponentDescription,
-                productComponentWidthFactor: consumableComponentWidthFactor,
-                productComponentHeightFactor: consumableComponentHeightFactor,
-                productComponentDepthFactor: consumableComponentDepthFactor,
-                productComponentWeightFactor: consumableComponentWeightFactor)
+            in string consumableComponentName,
+            in ProductSize consumableComponentWidth,
+            in ProductSize consumableComponentHeight,
+            in ProductSize consumableComponentDepth,
+            in ProductWeight consumableComponentWeight,
+            in ConsumableEffect consumableComponentHealth,
+            in ConsumableEffect consumableComponentDamage) : base(
+                productComponentName: consumableComponentName,
+                productComponentWidth: consumableComponentWidth,
+                productComponentHeight: consumableComponentHeight,
+                productComponentDepth: consumableComponentDepth,
+                productComponentWeight: consumableComponentWeight)
         {
-            SetConsumableComponentHealingFactor(consumableComponentHealingFactor: consumableComponentHealingFactor);
+            SetConsumableComponentHealth(consumableComponentHealth: consumableComponentHealth);
 
-            SetConsumableComponentDamageFactor(consumableComponentDamageFactor: consumableComponentDamageFactor);
+            SetConsumableComponentDamage(consumableComponentDamage: consumableComponentDamage);
         }
 
-        public void SetConsumableComponentHealingFactor(in ConsumableEffectFactor consumableComponentHealingFactor)
+        public void SetConsumableComponentHealth(in ConsumableEffect consumableComponentHealth)
         {
-            if (!Enum.IsDefined(value: consumableComponentHealingFactor))
+            if (!Enum.IsDefined(value: consumableComponentHealth) || consumableComponentHealth == ConsumableEffect.ConsumableEffectNone)
             {
-                ConsumableComponentHealingFactor = ConsumableEffectFactor.ConsumableEffectFactorNone;
+                ConsumableComponentHealth = ConsumableEffect.ConsumableEffectNone;
 
                 return;
             }
 
-            ConsumableComponentHealingFactor = consumableComponentHealingFactor;
+            ConsumableComponentHealth = consumableComponentHealth;
         }
 
-        public void SetConsumableComponentDamageFactor(in ConsumableEffectFactor consumableComponentDamageFactor)
+        public void SetConsumableComponentDamage(in ConsumableEffect consumableComponentDamage)
         {
-            if (!Enum.IsDefined(value: consumableComponentDamageFactor))
+            if (!Enum.IsDefined(value: consumableComponentDamage))
             {
-                ConsumableComponentDamageFactor = ConsumableEffectFactor.ConsumableEffectFactorNone;
+                ConsumableComponentDamage = ConsumableEffect.ConsumableEffectNone;
 
                 return;
             }
 
-            ConsumableComponentDamageFactor = consumableComponentDamageFactor;
+            ConsumableComponentDamage = consumableComponentDamage;
         }
 
         public override bool Equals(object uncastedConsumableComponent)
@@ -84,42 +82,37 @@
                 return false;
             }
 
-            if (!EqualityComparer<string>.Default.Equals(x: ProductComponentIdentifier, y: castedConsumableComponent.ProductComponentIdentifier))
+            if (!EqualityComparer<string>.Default.Equals(x: ProductComponentName, y: castedConsumableComponent.ProductComponentName))
             {
                 return false;
             }
 
-            if (!EqualityComparer<string>.Default.Equals(x: ProductComponentDescription, y: castedConsumableComponent.ProductComponentDescription))
+            if (!EqualityComparer<ProductSize>.Default.Equals(x: ProductComponentWidth, y: castedConsumableComponent.ProductComponentWidth))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductSizeFactor>.Default.Equals(x: ProductComponentWidthFactor, y: castedConsumableComponent.ProductComponentWidthFactor))
+            if (!EqualityComparer<ProductSize>.Default.Equals(x: ProductComponentHeight, y: castedConsumableComponent.ProductComponentHeight))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductSizeFactor>.Default.Equals(x: ProductComponentHeightFactor, y: castedConsumableComponent.ProductComponentHeightFactor))
+            if (!EqualityComparer<ProductSize>.Default.Equals(x: ProductComponentDepth, y: castedConsumableComponent.ProductComponentDepth))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductSizeFactor>.Default.Equals(x: ProductComponentDepthFactor, y: castedConsumableComponent.ProductComponentDepthFactor))
+            if (!EqualityComparer<ProductWeight>.Default.Equals(x: ProductComponentWeight, y: castedConsumableComponent.ProductComponentWeight))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ProductWeightFactor>.Default.Equals(x: ProductComponentWeightFactor, y: castedConsumableComponent.ProductComponentWeightFactor))
+            if (!EqualityComparer<ConsumableEffect>.Default.Equals(x: ConsumableComponentHealth, y: castedConsumableComponent.ConsumableComponentHealth))
             {
                 return false;
             }
 
-            if (!EqualityComparer<ConsumableEffectFactor>.Default.Equals(x: ConsumableComponentHealingFactor, y: castedConsumableComponent.ConsumableComponentHealingFactor))
-            {
-                return false;
-            }
-
-            if (!EqualityComparer<ConsumableEffectFactor>.Default.Equals(x: ConsumableComponentDamageFactor, y: castedConsumableComponent.ConsumableComponentDamageFactor))
+            if (!EqualityComparer<ConsumableEffect>.Default.Equals(x: ConsumableComponentDamage, y: castedConsumableComponent.ConsumableComponentDamage))
             {
                 return false;
             }
@@ -134,21 +127,19 @@
 
             int consumableComponentHashCode = ConsumableComponentHashCodeInitialPrime;
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentIdentifier);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentName);
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentDescription);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentWidth);
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentWidthFactor);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentHeight);
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentHeightFactor);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentDepth);
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentDepthFactor);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentWeight);
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ProductComponentWeightFactor);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ConsumableComponentHealth);
 
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ConsumableComponentHealingFactor);
-
-            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ConsumableComponentDamageFactor);
+            consumableComponentHashCode = HashCode.Combine(value1: ConsumableComponentHashCodeMultiplierPrime ^ consumableComponentHashCode, value2: ConsumableComponentDamage);
 
             return consumableComponentHashCode;
         }
@@ -159,21 +150,19 @@
 
             consumableComponentStringBuilder.Append(value: $"[START]{nameof(ConsumableComponent)}[START]");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentIdentifier)}: {ProductComponentIdentifier}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentName)}: {ProductComponentName}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentDescription)}: {ProductComponentDescription}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentWidth)}: {ProductComponentWidth}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentWidthFactor)}: {ProductComponentWidthFactor}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentHeight)}: {ProductComponentHeight}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentHeightFactor)}: {ProductComponentHeightFactor}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentDepth)}: {ProductComponentDepth}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentDepthFactor)}: {ProductComponentDepthFactor}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentWeight)}: {ProductComponentWeight}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ProductComponentWeightFactor)}: {ProductComponentWeightFactor}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ConsumableComponentHealth)}: {ConsumableComponentHealth}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ConsumableComponentHealingFactor)}: {ConsumableComponentHealingFactor}");
-            consumableComponentStringBuilder.AppendLine(value: string.Empty);
-            consumableComponentStringBuilder.Append(value: $"{nameof(ConsumableComponentDamageFactor)}: {ConsumableComponentDamageFactor}");
+            consumableComponentStringBuilder.Append(value: $"{nameof(ConsumableComponentDamage)}: {ConsumableComponentDamage}");
             consumableComponentStringBuilder.AppendLine(value: string.Empty);
             consumableComponentStringBuilder.Append(value: $"[END]{nameof(ConsumableComponent)}[END]");
 
@@ -187,21 +176,19 @@
                 return;
             }
 
-            consumableComponentClonation.SetProductComponentIdentifier(productComponentIdentifier: ProductComponentIdentifier);
+            consumableComponentClonation.SetProductComponentName(productComponentName: ProductComponentName);
 
-            consumableComponentClonation.SetProductComponentDescription(productComponentDescription: ProductComponentDescription);
+            consumableComponentClonation.SetProductComponentWidth(productComponentWidth: ProductComponentWidth);
 
-            consumableComponentClonation.SetProductComponentWidthFactor(productComponentWidthFactor: ProductComponentWidthFactor);
+            consumableComponentClonation.SetProductComponentHeight(productComponentHeight: ProductComponentHeight);
 
-            consumableComponentClonation.SetProductComponentHeightFactor(productComponentHeightFactor: ProductComponentHeightFactor);
+            consumableComponentClonation.SetProductComponentDepth(productComponentDepth: ProductComponentDepth);
 
-            consumableComponentClonation.SetProductComponentDepthFactor(productComponentDepthFactor: ProductComponentDepthFactor);
+            consumableComponentClonation.SetProductComponentWeight(productComponentWeight: ProductComponentWeight);
 
-            consumableComponentClonation.SetProductComponentWeightFactor(productComponentWeightFactor: ProductComponentWeightFactor);
+            consumableComponentClonation.SetConsumableComponentHealth(consumableComponentHealth: ConsumableComponentHealth);
 
-            consumableComponentClonation.SetConsumableComponentHealingFactor(consumableComponentHealingFactor: ConsumableComponentHealingFactor);
-
-            consumableComponentClonation.SetConsumableComponentDamageFactor(consumableComponentDamageFactor: ConsumableComponentDamageFactor);
+            consumableComponentClonation.SetConsumableComponentDamage(consumableComponentDamage: ConsumableComponentDamage);
         }
     }
 }

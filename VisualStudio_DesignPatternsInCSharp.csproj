@@ -42,4 +42,7 @@
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Scripts\CreationalDesignPatterns\PrototypeDesignPattern\RegularPrototypeDesignPattern\ProductComponent_RegularPrototype.cs~RF66c52da8.TMP" />
+	</ItemGroup>
 </Project>
