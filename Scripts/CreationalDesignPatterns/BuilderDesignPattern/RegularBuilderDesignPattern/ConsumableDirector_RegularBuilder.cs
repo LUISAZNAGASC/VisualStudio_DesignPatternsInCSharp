@@ -5,9 +5,14 @@
 
     public sealed class ConsumableDirector : ConsumableBuilderTarget<ConsumableDirector>
     {
-        public ConsumableDirector() : base()
+        private ConsumableDirector() : base()
         {
 
+        }
+
+        public static ConsumableDirector NewConsumableDirectorInstance()
+        {
+            return new ConsumableDirector();
         }
 
         public override bool Equals(object uncastedConsumableDirector)

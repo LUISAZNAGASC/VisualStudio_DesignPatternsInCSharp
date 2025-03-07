@@ -1,4 +1,4 @@
-﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.CreationalDesignPatterns.BuilderDesignPattern.RegularBuilderDesignPattern
+﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.StructuralDesignPatterns.CompositeDesignPattern.RegularCompositeDesignPattern
 {
     using System;
     using System.Collections.Generic;
@@ -167,11 +167,6 @@
             consumableComponentStringBuilder.Append(value: $"[END]{nameof(ConsumableComponent)}[END]");
 
             return consumableComponentStringBuilder.ToString();
-        }
-
-        public static ConsumableDirector BuildConsumableComponent()
-        {
-            return ConsumableDirector.NewConsumableDirectorInstance();
         }
     }
 }

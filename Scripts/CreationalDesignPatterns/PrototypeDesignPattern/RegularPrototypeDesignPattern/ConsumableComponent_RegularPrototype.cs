@@ -55,7 +55,7 @@
 
         public void SetConsumableComponentDamage(in ConsumableEffect consumableComponentDamage)
         {
-            if (!Enum.IsDefined(value: consumableComponentDamage))
+            if (!Enum.IsDefined(value: consumableComponentDamage) || consumableComponentDamage == ConsumableEffect.ConsumableEffectNone)
             {
                 ConsumableComponentDamage = ConsumableEffect.ConsumableEffectNone;
 
