@@ -1,7 +1,6 @@
 ﻿namespace VisualStudio_DesignPatternsInCSharp.Scripts.CreationalDesignPatterns.PrototypeDesignPattern.RegularPrototypeDesignPattern
 {
-    public interface IPrototypeComponent<Template1>
-        where Template1 : class, IPrototypeComponent<Template1>, new()
+    public interface IPrototypeComponent<Template1> where Template1 : class, IPrototypeComponent<Template1>, new()
     {
         public Template1 GetPrototypeComponentClonation()
         {

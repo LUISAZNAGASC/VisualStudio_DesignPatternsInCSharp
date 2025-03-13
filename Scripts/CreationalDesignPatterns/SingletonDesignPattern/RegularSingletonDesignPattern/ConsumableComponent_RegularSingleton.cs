@@ -22,19 +22,7 @@
             SetConsumableComponentDamage(consumableComponentDamage: ConsumableEffect.ConsumableEffectNone);
         }
 
-        public ConsumableComponent(
-            in string consumableComponentName,
-            in ProductSize consumableComponentWidth,
-            in ProductSize consumableComponentHeight,
-            in ProductSize consumableComponentDepth,
-            in ProductWeight consumableComponentWeight,
-            in ConsumableEffect consumableComponentHealth,
-            in ConsumableEffect consumableComponentDamage) : base(
-                productComponentName: consumableComponentName,
-                productComponentWidth: consumableComponentWidth,
-                productComponentHeight: consumableComponentHeight,
-                productComponentDepth: consumableComponentDepth,
-                productComponentWeight: consumableComponentWeight)
+        public ConsumableComponent(in string consumableComponentName, in ProductSize consumableComponentWidth, in ProductSize consumableComponentHeight, in ProductSize consumableComponentDepth, in ProductWeight consumableComponentWeight, in ConsumableEffect consumableComponentHealth, in ConsumableEffect consumableComponentDamage) : base(productComponentName: consumableComponentName, productComponentWidth: consumableComponentWidth, productComponentHeight: consumableComponentHeight, productComponentDepth: consumableComponentDepth, productComponentWeight: consumableComponentWeight)
         {
             SetConsumableComponentHealth(consumableComponentHealth: consumableComponentHealth);
 

@@ -3,8 +3,7 @@
     using System;
     using System.Text;
 
-    public class ConsumableBuilderHealth<Template1> : ConsumableBuilderWeight<ConsumableBuilderHealth<Template1>>
-        where Template1 : ConsumableBuilderHealth<Template1>
+    public class ConsumableBuilderHealth<Template1> : ConsumableBuilderWeight<ConsumableBuilderHealth<Template1>> where Template1 : ConsumableBuilderHealth<Template1>
     {
         protected ConsumableBuilderHealth() : base()
         {
@@ -13,7 +12,18 @@
 
         public Template1 SetConsumableBuilderHealthInput(in ConsumableEffect consumableBuilderHealthInput)
         {
-            ConsumableBuilderOriginInstance ??= new ConsumableComponent();
+            if (ConsumableBuilderOriginInstance is null)
+            {
+                StringBuilder consumableBuilderHealthStringBuilder = new();
+
+                consumableBuilderHealthStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderHealth<Template1>)}[START]");
+                consumableBuilderHealthStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderHealthStringBuilder.Append(value: $"There was an issue in '{nameof(ConsumableBuilderHealth<Template1>)}' class");
+                consumableBuilderHealthStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderHealthStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderHealth<Template1>)}[END]");
+
+                throw new InvalidOperationException(message: consumableBuilderHealthStringBuilder.ToString(), innerException: new Exception());
+            }
 
             ConsumableBuilderOriginInstance.SetConsumableComponentHealth(consumableComponentHealth: consumableBuilderHealthInput);
 

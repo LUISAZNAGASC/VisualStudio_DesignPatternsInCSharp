@@ -39,12 +39,7 @@
             SetProductComponentWeight(productComponentWeight: ProductWeight.ProductWeightNone);
         }
 
-        public ProductComponent(
-            in string productComponentName,
-            in ProductSize productComponentWidth,
-            in ProductSize productComponentHeight,
-            in ProductSize productComponentDepth,
-            in ProductWeight productComponentWeight) : base()
+        public ProductComponent(in string productComponentName, in ProductSize productComponentWidth, in ProductSize productComponentHeight, in ProductSize productComponentDepth, in ProductWeight productComponentWeight) : base()
         {
             SetProductComponentName(productComponentName: productComponentName);
 

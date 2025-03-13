@@ -3,8 +3,7 @@
     using System;
     using System.Text;
 
-    public abstract class ConsumableBuilderOrigin<Template1>
-        where Template1 : ConsumableBuilderOrigin<Template1>
+    public abstract class ConsumableBuilderOrigin<Template1> where Template1 : ConsumableBuilderOrigin<Template1>
     {
         protected ConsumableComponent ConsumableBuilderOriginInstance { get; set; }
 
@@ -15,7 +14,18 @@
 
         public ConsumableComponent GetConsumableBuilderOriginInstance()
         {
-            ConsumableBuilderOriginInstance ??= new ConsumableComponent();
+            if (ConsumableBuilderOriginInstance is null)
+            {
+                StringBuilder consumableBuilderOriginStringBuilder = new();
+
+                consumableBuilderOriginStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderOrigin<Template1>)}[START]");
+                consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderOriginStringBuilder.Append(value: $"There was an issue in '{nameof(ConsumableBuilderOrigin<Template1>)}' class");
+                consumableBuilderOriginStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderOriginStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderOrigin<Template1>)}[END]");
+
+                throw new InvalidOperationException(message: consumableBuilderOriginStringBuilder.ToString(), innerException: new Exception());
+            }
 
             return ConsumableBuilderOriginInstance;
         }

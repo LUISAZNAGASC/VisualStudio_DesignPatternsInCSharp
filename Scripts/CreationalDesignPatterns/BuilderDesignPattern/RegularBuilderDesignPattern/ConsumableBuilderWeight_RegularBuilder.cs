@@ -3,8 +3,7 @@
     using System;
     using System.Text;
 
-    public class ConsumableBuilderWeight<Template1> : ConsumableBuilderDepth<ConsumableBuilderWeight<Template1>>
-        where Template1 : ConsumableBuilderWeight<Template1>
+    public class ConsumableBuilderWeight<Template1> : ConsumableBuilderDepth<ConsumableBuilderWeight<Template1>> where Template1 : ConsumableBuilderWeight<Template1>
     {
         protected ConsumableBuilderWeight() : base()
         {
@@ -13,7 +12,18 @@
 
         public Template1 SetConsumableBuilderWeightInput(in ProductWeight consumableBuilderWeightInput)
         {
-            ConsumableBuilderOriginInstance ??= new ConsumableComponent();
+            if (ConsumableBuilderOriginInstance is null)
+            {
+                StringBuilder consumableBuilderWeightStringBuilder = new();
+
+                consumableBuilderWeightStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderWeight<Template1>)}[START]");
+                consumableBuilderWeightStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderWeightStringBuilder.Append(value: $"There was an issue in '{nameof(ConsumableBuilderWeight<Template1>)}' class");
+                consumableBuilderWeightStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderWeightStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderWeight<Template1>)}[END]");
+
+                throw new InvalidOperationException(message: consumableBuilderWeightStringBuilder.ToString(), innerException: new Exception());
+            }
 
             ConsumableBuilderOriginInstance.SetProductComponentWeight(productComponentWeight: consumableBuilderWeightInput);
 

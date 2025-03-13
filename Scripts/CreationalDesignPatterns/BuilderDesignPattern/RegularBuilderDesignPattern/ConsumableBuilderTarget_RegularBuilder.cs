@@ -3,8 +3,7 @@
     using System;
     using System.Text;
 
-    public class ConsumableBuilderTarget<Template1> : ConsumableBuilderDamage<ConsumableBuilderTarget<Template1>>
-        where Template1 : ConsumableBuilderTarget<Template1>
+    public class ConsumableBuilderTarget<Template1> : ConsumableBuilderDamage<ConsumableBuilderTarget<Template1>> where Template1 : ConsumableBuilderTarget<Template1>
     {
         protected ConsumableBuilderTarget() : base()
         {

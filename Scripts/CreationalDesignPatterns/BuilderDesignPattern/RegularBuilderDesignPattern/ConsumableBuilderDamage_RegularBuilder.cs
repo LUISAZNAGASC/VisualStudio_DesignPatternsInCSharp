@@ -3,8 +3,7 @@
     using System;
     using System.Text;
 
-    public class ConsumableBuilderDamage<Template1> : ConsumableBuilderHealth<ConsumableBuilderDamage<Template1>>
-        where Template1 : ConsumableBuilderDamage<Template1>
+    public class ConsumableBuilderDamage<Template1> : ConsumableBuilderHealth<ConsumableBuilderDamage<Template1>> where Template1 : ConsumableBuilderDamage<Template1>
     {
         protected ConsumableBuilderDamage() : base()
         {
@@ -13,7 +12,18 @@
 
         public Template1 SetConsumableBuilderDamageInput(in ConsumableEffect consumableBuilderDamageInput)
         {
-            ConsumableBuilderOriginInstance ??= new ConsumableComponent();
+            if (ConsumableBuilderOriginInstance is null)
+            {
+                StringBuilder consumableBuilderDamageStringBuilder = new();
+
+                consumableBuilderDamageStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderDamage<Template1>)}[START]");
+                consumableBuilderDamageStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderDamageStringBuilder.Append(value: $"There was an issue in '{nameof(ConsumableBuilderDamage<Template1>)}' class");
+                consumableBuilderDamageStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderDamageStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderDamage<Template1>)}[END]");
+
+                throw new InvalidOperationException(message: consumableBuilderDamageStringBuilder.ToString(), innerException: new Exception());
+            }
 
             ConsumableBuilderOriginInstance.SetConsumableComponentDamage(consumableComponentDamage: consumableBuilderDamageInput);
 

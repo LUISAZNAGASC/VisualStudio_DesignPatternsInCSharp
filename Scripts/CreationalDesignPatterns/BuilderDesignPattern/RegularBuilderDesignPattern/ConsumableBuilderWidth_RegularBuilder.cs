@@ -3,8 +3,7 @@
     using System;
     using System.Text;
 
-    public class ConsumableBuilderWidth<Template1> : ConsumableBuilderName<ConsumableBuilderWidth<Template1>>
-        where Template1 : ConsumableBuilderWidth<Template1>
+    public class ConsumableBuilderWidth<Template1> : ConsumableBuilderName<ConsumableBuilderWidth<Template1>> where Template1 : ConsumableBuilderWidth<Template1>
     {
         protected ConsumableBuilderWidth() : base()
         {
@@ -13,7 +12,18 @@
 
         public Template1 SetConsumableBuilderWidthInput(in ProductSize consumableBuilderWidthInput)
         {
-            ConsumableBuilderOriginInstance ??= new ConsumableComponent();
+            if (ConsumableBuilderOriginInstance is null)
+            {
+                StringBuilder consumableBuilderWidthStringBuilder = new();
+
+                consumableBuilderWidthStringBuilder.Append(value: $"[START]{nameof(ConsumableBuilderWidth<Template1>)}[START]");
+                consumableBuilderWidthStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderWidthStringBuilder.Append(value: $"There was an issue in '{nameof(ConsumableBuilderWidth<Template1>)}' class");
+                consumableBuilderWidthStringBuilder.AppendLine(value: string.Empty);
+                consumableBuilderWidthStringBuilder.Append(value: $"[END]{nameof(ConsumableBuilderWidth<Template1>)}[END]");
+
+                throw new InvalidOperationException(message: consumableBuilderWidthStringBuilder.ToString(), innerException: new Exception());
+            }
 
             ConsumableBuilderOriginInstance.SetProductComponentWidth(productComponentWidth: consumableBuilderWidthInput);
 
