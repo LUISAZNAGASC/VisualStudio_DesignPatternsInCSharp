@@ -7,7 +7,7 @@
     {
         protected Template1 CommandComponentReference { get; }
 
-        private CommandComponent() : base()
+        protected CommandComponent() : base()
         {
 
         }
