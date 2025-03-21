@@ -51,6 +51,13 @@
             }
         }
 
+        public bool CheckNodeComponentParentIsNotNull(out NodeComponent<Template1> nodeComponentParent)
+        {
+            nodeComponentParent = NodeComponentParent;
+
+            return nodeComponentParent is not null;
+        }
+
         public bool CheckNodeComponentLeftIsNotNull(out NodeComponent<Template1> nodeComponentLeft)
         {
             nodeComponentLeft = NodeComponentLeft;
